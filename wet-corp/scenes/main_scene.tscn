@@ -1,0 +1,12 @@
+[gd_scene load_steps=2 format=3 uid="uid://c1foamfkt20o7"]
+
+[ext_resource type="Texture2D" uid="uid://dcxmriugoxei3" path="res://assets/redsnapper.png" id="1_w2twt"]
+
+[node name="MainScene" type="Node2D"]
+
+[node name="Area2D" type="Area2D" parent="."]
+
+[node name="Sprite2D" type="Sprite2D" parent="Area2D"]
+position = Vector2(577, 340)
+scale = Vector2(1.43952, 1.6513168)
+texture = ExtResource("1_w2twt")
