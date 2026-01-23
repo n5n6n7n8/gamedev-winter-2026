@@ -1,12 +1,36 @@
-[gd_scene load_steps=2 format=3 uid="uid://c1foamfkt20o7"]
+[gd_scene load_steps=7 format=3 uid="uid://c1foamfkt20o7"]
 
+[ext_resource type="Script" uid="uid://bldhab82p0mam" path="res://Scripts/FishMovement.gd" id="1_7ykc4"]
+[ext_resource type="Script" uid="uid://bg5b8fnoe13h3" path="res://scenes/PlayerActions.gd" id="1_pu3yx"]
 [ext_resource type="Texture2D" uid="uid://dcxmriugoxei3" path="res://assets/redsnapper.png" id="1_w2twt"]
+[ext_resource type="Texture2D" uid="uid://blqy2nhfha8vo" path="res://assets/anchor_crosshair_light.png" id="2_pw63i"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_pw63i"]
+size = Vector2(93, 92.5)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_7ykc4"]
+size = Vector2(141.5, 80)
 
 [node name="MainScene" type="Node2D"]
 
-[node name="Area2D" type="Area2D" parent="."]
+[node name="Crosshair" type="Area2D" parent="."]
+position = Vector2(580, 320)
+script = ExtResource("1_pu3yx")
 
-[node name="Sprite2D" type="Sprite2D" parent="Area2D"]
-position = Vector2(577, 340)
-scale = Vector2(1.43952, 1.6513168)
+[node name="Sprite2D" type="Sprite2D" parent="Crosshair"]
+scale = Vector2(0.3, 0.3)
+texture = ExtResource("2_pw63i")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Crosshair"]
+shape = SubResource("RectangleShape2D_pw63i")
+
+[node name="Fish" type="CharacterBody2D" parent="."]
+position = Vector2(200, 300)
+script = ExtResource("1_7ykc4")
+
+[node name="Sprite2D" type="Sprite2D" parent="Fish"]
+scale = Vector2(0.175, 0.2)
 texture = ExtResource("1_w2twt")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Fish"]
+shape = SubResource("RectangleShape2D_7ykc4")
