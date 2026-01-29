@@ -38,5 +38,7 @@ texture = ExtResource("1_w2twt")
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Fish/Area2D"]
 shape = SubResource("RectangleShape2D_7ykc4")
 
+[node name="Node2D" type="Node2D" parent="."]
+
 [connection signal="area_entered" from="Fish/Area2D" to="Crosshair" method="_on_area_2d_area_entered"]
 [connection signal="area_exited" from="Fish/Area2D" to="Crosshair" method="_on_area_2d_area_exited"]
