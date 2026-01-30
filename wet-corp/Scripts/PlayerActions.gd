@@ -1,12 +1,17 @@
 extends Area2D
 
 var fishInRadius = false
+@export var isRhythm = false
+var currentMoney = 0
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
 	pass # Replace with function body.
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
+	
+	if(!isRhythm):
+		position = get_global_mouse_position()
 	if(Input.is_action_just_pressed("Shoot")):
 		if(has_overlapping_areas()):
 			print("shot")
