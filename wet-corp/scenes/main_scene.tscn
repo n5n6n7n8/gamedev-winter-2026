@@ -1,20 +1,31 @@
-[gd_scene load_steps=7 format=3 uid="uid://c1foamfkt20o7"]
+[gd_scene load_steps=6 format=3 uid="uid://c1foamfkt20o7"]
 
-[ext_resource type="Script" uid="uid://bldhab82p0mam" path="res://Scripts/FishMovement.gd" id="1_7ykc4"]
-[ext_resource type="Script" uid="uid://bg5b8fnoe13h3" path="res://scenes/PlayerActions.gd" id="1_pu3yx"]
-[ext_resource type="Texture2D" uid="uid://dcxmriugoxei3" path="res://assets/redsnapper.png" id="1_w2twt"]
+[ext_resource type="Script" uid="uid://bg5b8fnoe13h3" path="res://Scripts/PlayerActions.gd" id="1_pu3yx"]
+[ext_resource type="Texture2D" uid="uid://8d2tn4jarxf6" path="res://assets/image.jpg" id="1_rt2n2"]
+[ext_resource type="Script" uid="uid://mrfdnvo6mgd0" path="res://scenes/fish_generator.gd" id="2_c16ls"]
 [ext_resource type="Texture2D" uid="uid://blqy2nhfha8vo" path="res://assets/anchor_crosshair_light.png" id="2_pw63i"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_pw63i"]
 size = Vector2(93, 92.5)
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_7ykc4"]
-size = Vector2(141.5, 80)
-
 [node name="MainScene" type="Node2D"]
 editor_description = "1920x1080"
 
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(582, 340)
+scale = Vector2(0.5425925, 0.5)
+texture = ExtResource("1_rt2n2")
+
+[node name="FishGenerator" type="Node2D" parent="."]
+position = Vector2(-100, 320)
+script = ExtResource("2_c16ls")
+
+[node name="Timer" type="Timer" parent="FishGenerator"]
+process_callback = 0
+wait_time = 3.0
+
 [node name="Crosshair" type="Area2D" parent="."]
+z_index = 5
 position = Vector2(580, 320)
 script = ExtResource("1_pu3yx")
 
@@ -25,20 +36,4 @@ texture = ExtResource("2_pw63i")
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Crosshair"]
 shape = SubResource("RectangleShape2D_pw63i")
 
-[node name="Fish" type="CharacterBody2D" parent="."]
-position = Vector2(300, 300)
-script = ExtResource("1_7ykc4")
-
-[node name="Sprite2D" type="Sprite2D" parent="Fish"]
-scale = Vector2(0.175, 0.2)
-texture = ExtResource("1_w2twt")
-
-[node name="Area2D" type="Area2D" parent="Fish"]
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Fish/Area2D"]
-shape = SubResource("RectangleShape2D_7ykc4")
-
-[node name="Node2D" type="Node2D" parent="."]
-
-[connection signal="area_entered" from="Fish/Area2D" to="Crosshair" method="_on_area_2d_area_entered"]
-[connection signal="area_exited" from="Fish/Area2D" to="Crosshair" method="_on_area_2d_area_exited"]
+[connection signal="timeout" from="FishGenerator/Timer" to="FishGenerator" method="_on_timer_timeout"]
