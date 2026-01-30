@@ -1,6 +1,6 @@
 extends CharacterBody2D
 
-@export var fishspeed = 120
+@export var fishspeed = 400
 var fishvel = Vector2(fishspeed, 0)
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
