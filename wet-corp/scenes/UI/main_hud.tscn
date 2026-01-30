@@ -1,0 +1,127 @@
+[gd_scene load_steps=7 format=3 uid="uid://dcqqys7vgwqw3"]
+
+[ext_resource type="Texture2D" uid="uid://b372ntj4adc1y" path="res://assets/harpoon.png" id="1_ejdt3"]
+[ext_resource type="Texture2D" uid="uid://douny2r7v4642" path="res://assets/lantern/lantern glow.png" id="2_5s7n2"]
+[ext_resource type="Texture2D" uid="uid://c8ix0gfi3px6b" path="res://assets/lantern/lantern light back.png" id="3_4tkct"]
+[ext_resource type="Texture2D" uid="uid://dtld6fpy6fq7q" path="res://assets/lantern/lantern light.png" id="4_e52ja"]
+[ext_resource type="Texture2D" uid="uid://bnidey6eog8jv" path="res://assets/lantern/lantern.png" id="5_e8rag"]
+[ext_resource type="Texture2D" uid="uid://bld7gn3u62kc1" path="res://assets/lantern/lantern_hand.png" id="6_n42kb"]
+
+[node name="MainHud" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="LABEL_cash" type="Label" parent="."]
+layout_mode = 1
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = -91.0
+offset_top = 20.0
+offset_right = -18.0
+offset_bottom = 43.0
+grow_horizontal = 0
+text = "$ 100,000"
+
+[node name="MarginContainer_ammo" type="MarginContainer" parent="."]
+layout_mode = 1
+anchors_preset = 6
+anchor_left = 1.0
+anchor_top = 0.5
+anchor_right = 1.0
+anchor_bottom = 0.5
+offset_left = -83.0
+offset_top = -69.5
+offset_right = -10.0
+offset_bottom = 69.5
+grow_horizontal = 0
+grow_vertical = 2
+size_flags_vertical = 3
+theme_override_constants/margin_right = 4
+metadata/_edit_group_ = true
+
+[node name="VBox Ammo" type="VBoxContainer" parent="MarginContainer_ammo"]
+layout_mode = 2
+metadata/_edit_group_ = true
+
+[node name="LABEL_ammo" type="Label" parent="MarginContainer_ammo/VBox Ammo"]
+layout_mode = 2
+text = "AMMO"
+
+[node name="VBox AmmoSprites" type="VBoxContainer" parent="MarginContainer_ammo/VBox Ammo"]
+layout_mode = 2
+size_flags_vertical = 3
+
+[node name="Placeholder Ammo" type="ColorRect" parent="MarginContainer_ammo/VBox Ammo/VBox AmmoSprites"]
+layout_mode = 2
+size_flags_vertical = 3
+
+[node name="Placeholder Ammo2" type="ColorRect" parent="MarginContainer_ammo/VBox Ammo/VBox AmmoSprites"]
+layout_mode = 2
+size_flags_vertical = 3
+
+[node name="Placeholder Ammo3" type="ColorRect" parent="MarginContainer_ammo/VBox Ammo/VBox AmmoSprites"]
+layout_mode = 2
+size_flags_vertical = 3
+
+[node name="Placeholder Ammo4" type="ColorRect" parent="MarginContainer_ammo/VBox Ammo/VBox AmmoSprites"]
+layout_mode = 2
+size_flags_vertical = 3
+
+[node name="Placeholder Ammo5" type="ColorRect" parent="MarginContainer_ammo/VBox Ammo/VBox AmmoSprites"]
+layout_mode = 2
+size_flags_vertical = 3
+
+[node name="HBoxContainer_ammo" type="HBoxContainer" parent="."]
+layout_mode = 0
+offset_left = 18.0
+offset_top = 10.0
+offset_right = 207.0
+offset_bottom = 50.0
+
+[node name="LABEL_cargo" type="Label" parent="HBoxContainer_ammo"]
+layout_mode = 2
+text = "CARGO"
+
+[node name="ProgressBar_cargo" type="ProgressBar" parent="HBoxContainer_ammo"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 4
+value = 100.0
+show_percentage = false
+
+[node name="Harpoon" type="Sprite2D" parent="."]
+position = Vector2(951, 572)
+scale = Vector2(0.4412972, 0.44129726)
+texture = ExtResource("1_ejdt3")
+
+[node name="Lantern" type="Node2D" parent="."]
+
+[node name="LanternGlow" type="Sprite2D" parent="Lantern"]
+position = Vector2(147, 525.5)
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("2_5s7n2")
+
+[node name="LanternLightBack" type="Sprite2D" parent="Lantern"]
+position = Vector2(147, 525.5)
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("3_4tkct")
+
+[node name="LanternLight" type="Sprite2D" parent="Lantern"]
+position = Vector2(147, 525.5)
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("4_e52ja")
+
+[node name="Lantern" type="Sprite2D" parent="Lantern"]
+position = Vector2(147, 470)
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("5_e8rag")
+
+[node name="LanternHand" type="Sprite2D" parent="Lantern"]
+position = Vector2(9.449905, 363.75)
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("6_n42kb")
