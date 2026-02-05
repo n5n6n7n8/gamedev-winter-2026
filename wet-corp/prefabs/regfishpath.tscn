@@ -1,0 +1,22 @@
+[gd_scene load_steps=4 format=3 uid="uid://dg1fgera6hcr"]
+
+[ext_resource type="Script" uid="uid://dqyeolh5gwhlp" path="res://scenes/path_follow_2d.gd" id="1_dxc1l"]
+[ext_resource type="PackedScene" uid="uid://c12d6htyqn64x" path="res://prefabs/fish.tscn" id="2_8si4h"]
+
+[sub_resource type="Curve2D" id="Curve2D_gubc5"]
+_data = {
+"points": PackedVector2Array(0, 0, 0, 0, 1190, 682, 0, 0, 0, 0, 1158.7283, 653.4514, 50.278854, 41.22827, -50.278854, -41.22827, 912.6592, 337.83365, 58.343895, 18.037561, -58.343895, -18.037561, 718.9257, 222.92424, 94.57924, -15.633324, -94.57924, 15.633324, 459.0841, 221.39212, 98.14827, -34.244423, -98.14827, 34.244423, 300.241, 259.69525, 41.936077, -46.899967, -41.936077, 46.899967, 118.443695, 428.9951, 0, 0, 0, 0, -33, 663)
+}
+point_count = 8
+
+[node name="Path2D" type="Path2D"]
+scale = Vector2(1.0891252, 1.3053763)
+curve = SubResource("Curve2D_gubc5")
+
+[node name="PathFollow2D" type="PathFollow2D" parent="."]
+position = Vector2(1190, 682)
+rotation = -2.4016852
+script = ExtResource("1_dxc1l")
+speed = 0.3
+
+[node name="Fish" parent="PathFollow2D" instance=ExtResource("2_8si4h")]

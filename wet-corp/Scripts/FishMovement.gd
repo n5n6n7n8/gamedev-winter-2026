@@ -2,10 +2,11 @@ extends CharacterBody2D
 
 #@onready var parent = get_parent as PathFollow2D
 @export var fishspeed = -400
-var fishvel = Vector2(fishspeed, 0)
-# Called when the node enters the scene tree for the first time.
+var fishvel = null
+
+
 func _ready() -> void:
-	pass # Replace with function body.
+	fishvel = Vector2(fishspeed, 0)
 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.

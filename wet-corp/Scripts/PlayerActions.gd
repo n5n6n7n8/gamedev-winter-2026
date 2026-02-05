@@ -2,6 +2,8 @@ extends Area2D
 
 var fishInRadius = false
 @export var isRhythm = false
+
+#var cash = get_node("/root/MainScene/MainHud/RichTextLabel")
 var currentMoney = 0
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
