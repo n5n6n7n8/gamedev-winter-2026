@@ -1,9 +1,10 @@
-[gd_scene load_steps=5 format=3 uid="uid://v6mj621ll4of"]
+[gd_scene load_steps=6 format=3 uid="uid://v6mj621ll4of"]
 
 [ext_resource type="Script" uid="uid://dm2r8moyc2dtk" path="res://Scripts/main_menu.gd" id="1_ekxnf"]
 [ext_resource type="Texture2D" uid="uid://dbeeey2hp52cu" path="res://assets/Title_screen_3.png" id="1_l6cm7"]
 [ext_resource type="PackedScene" uid="uid://tm5cinokhjg2" path="res://scenes/UI/main_menu_UI.tscn" id="3_bqqt6"]
 [ext_resource type="Texture2D" uid="uid://de4pl1n23rrrt" path="res://assets/mainbgtemp.png" id="4_wu84c"]
+[ext_resource type="AudioStream" uid="uid://df5f7qni81wmb" path="res://assets/Music/Pirate Ship Loop.mp3" id="5_8ln24"]
 
 [node name="MainMenu" type="Node2D"]
 script = ExtResource("1_ekxnf")
@@ -58,6 +59,12 @@ offset_bottom = 381.0
 position = Vector2(573, 340)
 scale = Vector2(0.6227027, 0.5131005)
 texture = ExtResource("4_wu84c")
+
+[node name="MenuMusic" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("5_8ln24")
+autoplay = true
+bus = &"Music"
+parameters/looping = true
 
 [connection signal="pressed" from="Button Manager/Start" to="." method="_on_start_pressed"]
 [connection signal="pressed" from="Button Manager/Credits" to="." method="_on_credits_pressed"]
