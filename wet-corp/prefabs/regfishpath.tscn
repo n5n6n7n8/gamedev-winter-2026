@@ -1,6 +1,6 @@
 [gd_scene load_steps=4 format=3 uid="uid://dg1fgera6hcr"]
 
-[ext_resource type="Script" uid="uid://dqyeolh5gwhlp" path="res://scenes/path_follow_2d.gd" id="1_dxc1l"]
+[ext_resource type="Script" uid="uid://dqyeolh5gwhlp" path="res://Scripts/path_follow_2d.gd" id="1_dxc1l"]
 [ext_resource type="PackedScene" uid="uid://c12d6htyqn64x" path="res://prefabs/fish.tscn" id="2_8si4h"]
 
 [sub_resource type="Curve2D" id="Curve2D_gubc5"]

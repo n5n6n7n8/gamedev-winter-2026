@@ -1,6 +1,6 @@
 [gd_scene load_steps=5 format=3 uid="uid://bcmucj024dx0w"]
 
-[ext_resource type="Script" uid="uid://dqyeolh5gwhlp" path="res://scenes/path_follow_2d.gd" id="1_23d5e"]
+[ext_resource type="Script" uid="uid://dqyeolh5gwhlp" path="res://Scripts/path_follow_2d.gd" id="1_23d5e"]
 [ext_resource type="Texture2D" uid="uid://hc24qy2ic03k" path="res://assets/pufftemp.png" id="2_23d5e"]
 
 [sub_resource type="Curve2D" id="Curve2D_gubc5"]

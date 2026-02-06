@@ -55,9 +55,12 @@ process_callback = 0
 
 [node name="Timer3" type="Timer" parent="FishGenerator"]
 
+[node name="Timer4" type="Timer" parent="FishGenerator"]
+
 [node name="Crosshair" type="Area2D" parent="."]
 z_index = 5
 position = Vector2(580, 320)
+scale = Vector2(0.6, 0.6)
 script = ExtResource("1_pu3yx")
 
 [node name="Sprite2D" type="Sprite2D" parent="Crosshair"]
@@ -80,7 +83,6 @@ stream = SubResource("AudioStreamRandomizer_adb74")
 position = Vector2(-62, 0)
 
 [node name="MainHud" parent="." instance=ExtResource("5_gubc5")]
-visible = false
 offset_left = 92.0
 offset_top = -2.0
 offset_right = 92.0
@@ -96,3 +98,4 @@ parameters/looping = true
 [connection signal="timeout" from="FishGenerator/Timer" to="FishGenerator" method="_on_timer_timeout"]
 [connection signal="timeout" from="FishGenerator/Timer2" to="FishGenerator" method="_on_timer_2_timeout"]
 [connection signal="timeout" from="FishGenerator/Timer3" to="FishGenerator" method="_on_timer_3_timeout"]
+[connection signal="timeout" from="FishGenerator/Timer4" to="FishGenerator" method="_on_timer_4_timeout"]

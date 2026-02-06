@@ -1,6 +1,6 @@
 [gd_scene load_steps=5 format=3 uid="uid://b2dn7ignnskmf"]
 
-[ext_resource type="Script" uid="uid://dqyeolh5gwhlp" path="res://scenes/path_follow_2d.gd" id="1_biteo"]
+[ext_resource type="Script" uid="uid://dqyeolh5gwhlp" path="res://Scripts/path_follow_2d.gd" id="1_biteo"]
 [ext_resource type="Texture2D" uid="uid://ch10tpfuk7bra" path="res://assets/armortemp.jpeg" id="2_biteo"]
 
 [sub_resource type="Curve2D" id="Curve2D_gubc5"]

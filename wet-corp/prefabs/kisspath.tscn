@@ -1,0 +1,35 @@
+[gd_scene load_steps=5 format=3 uid="uid://bhgd61diaiwb7"]
+
+[ext_resource type="Script" uid="uid://dqyeolh5gwhlp" path="res://Scripts/path_follow_2d.gd" id="1_oqwkj"]
+[ext_resource type="Texture2D" uid="uid://clqtpcb0sooa3" path="res://assets/kisstemp.png" id="2_oqwkj"]
+
+[sub_resource type="Curve2D" id="Curve2D_gubc5"]
+_data = {
+"points": PackedVector2Array(0, 0, 0, 0, 1198.2095, -9.192752, 329.71793, 13.901138, -329.71793, -13.901138, 544.47375, 199.94235, 0, 0, 0, 0, -87.22598, -17.619442)
+}
+point_count = 3
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_whhvx"]
+size = Vector2(141.5, 80)
+
+[node name="Path2D" type="Path2D"]
+position = Vector2(-38.000004, 17.00003)
+scale = Vector2(1.0891252, 1.3053763)
+curve = SubResource("Curve2D_gubc5")
+
+[node name="PathFollow2D" type="PathFollow2D" parent="."]
+position = Vector2(1198.2095, -9.192752)
+rotation = 2.5387313
+script = ExtResource("1_oqwkj")
+speed = 0.3
+
+[node name="Sprite2D" type="Sprite2D" parent="PathFollow2D"]
+position = Vector2(-1.090348, 0.49087113)
+scale = Vector2(1, 1.133)
+texture = ExtResource("2_oqwkj")
+flip_v = true
+
+[node name="Area2D" type="Area2D" parent="PathFollow2D"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="PathFollow2D/Area2D"]
+shape = SubResource("RectangleShape2D_whhvx")

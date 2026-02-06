@@ -21,6 +21,7 @@ func _process(delta: float) -> void:
 		if(has_overlapping_areas()):
 			print("shot")
 			FishDeath.play()
+			#check health
 			for fish in get_overlapping_areas():
 				fish.get_parent().free()
 	return

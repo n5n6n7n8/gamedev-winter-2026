@@ -4,6 +4,8 @@ var rng = RandomNumberGenerator.new()
 @onready var regfish = preload("res://prefabs/regfishpath.tscn")
 @onready var afish = preload("res://prefabs/armorpath.tscn")
 @onready var pfish = preload("res://prefabs/pufffishpath.tscn")
+@onready var kfish = preload("res://prefabs/kisspath.tscn")
+
 @export var isRhythm = false
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
@@ -28,6 +30,7 @@ func _on_timer_timeout() -> void:
 	$Timer.wait_time = rng.randf_range(1.0, 5.0)
 	$Timer.start()
 	$Timer2.start()
+	$Timer4.start()
 
 
 
@@ -44,3 +47,10 @@ func _on_timer_3_timeout() -> void:
 	add_child(aIns)
 	$Timer3.wait_time = rng.randf_range(5.0, 10.0)
 	$Timer3.start()
+
+
+func _on_timer_4_timeout() -> void:
+	var kIns = kfish.instantiate()
+	add_child(kIns)
+	$Timer4.wait_time = rng.randf_range(5.0, 10.0)
+	$Timer4.start()
