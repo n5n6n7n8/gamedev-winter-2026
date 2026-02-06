@@ -28,6 +28,9 @@ func _on_timer_timeout() -> void:
 
 	# reset timer to time in between 1-3 sec
 	$Timer.wait_time = rng.randf_range(1.0, 5.0)
+	$Timer2.wait_time = rng.randf_range(2.0, 6.0)
+	$Timer3.wait_time = rng.randf_range(1.0, 2.0)
+	$Timer4.wait_time = rng.randf_range(1.0, 2.0)
 	$Timer.start()
 	$Timer2.start()
 	$Timer3.start()
@@ -37,19 +40,22 @@ func _on_timer_timeout() -> void:
 
 func _on_timer_2_timeout() -> void:
 	var pIns = pfish.instantiate()
+	print("puff spawn")
 	add_child(pIns)
 	$Timer2.wait_time = rng.randf_range(2.0, 6.0)
 	$Timer2.start()
 
 
 func _on_timer_3_timeout() -> void:
+	print("armor spawn")
 	var aIns = afish.instantiate()
 	add_child(aIns)
-	$Timer3.wait_time = rng.randf_range(5.0, 10.0)
+	$Timer3.wait_time = rng.randf_range(1.0, 2.0)
 	$Timer3.start()
 
 
 func _on_timer_4_timeout() -> void:
+	print("kiss spwan")
 	var kIns = kfish.instantiate()
 	add_child(kIns)
 	$Timer4.wait_time = rng.randf_range(1.0, 2.0)
