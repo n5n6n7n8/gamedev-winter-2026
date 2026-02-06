@@ -30,6 +30,7 @@ func _on_timer_timeout() -> void:
 	$Timer.wait_time = rng.randf_range(1.0, 5.0)
 	$Timer.start()
 	$Timer2.start()
+	$Timer3.start()
 	$Timer4.start()
 
 
@@ -39,7 +40,6 @@ func _on_timer_2_timeout() -> void:
 	add_child(pIns)
 	$Timer2.wait_time = rng.randf_range(2.0, 6.0)
 	$Timer2.start()
-	$Timer3.start()
 
 
 func _on_timer_3_timeout() -> void:
@@ -52,5 +52,5 @@ func _on_timer_3_timeout() -> void:
 func _on_timer_4_timeout() -> void:
 	var kIns = kfish.instantiate()
 	add_child(kIns)
-	$Timer4.wait_time = rng.randf_range(5.0, 10.0)
+	$Timer4.wait_time = rng.randf_range(1.0, 2.0)
 	$Timer4.start()

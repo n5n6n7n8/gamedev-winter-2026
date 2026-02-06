@@ -24,7 +24,6 @@ func _process(delta: float) -> void:
 			#check health
 			for fish in get_overlapping_areas():
 				fish.get_parent().free()
-	return
 
 
 #func _on_area_2d_area_entered(area: Area2D) -> void:

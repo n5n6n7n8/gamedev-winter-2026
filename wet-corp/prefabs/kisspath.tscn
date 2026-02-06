@@ -25,7 +25,7 @@ speed = 0.3
 
 [node name="Sprite2D" type="Sprite2D" parent="PathFollow2D"]
 position = Vector2(-1.090348, 0.49087113)
-scale = Vector2(1, 1.133)
+scale = Vector2(0.05, 0.057)
 texture = ExtResource("2_oqwkj")
 flip_v = true
 
