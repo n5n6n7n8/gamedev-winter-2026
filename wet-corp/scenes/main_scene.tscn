@@ -1,4 +1,4 @@
-[gd_scene load_steps=10 format=3 uid="uid://c1foamfkt20o7"]
+[gd_scene load_steps=11 format=3 uid="uid://c1foamfkt20o7"]
 
 [ext_resource type="Script" uid="uid://bg5b8fnoe13h3" path="res://Scripts/PlayerActions.gd" id="1_pu3yx"]
 [ext_resource type="Texture2D" uid="uid://8d2tn4jarxf6" path="res://assets/image.jpg" id="1_rt2n2"]
@@ -11,6 +11,12 @@
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_pw63i"]
 size = Vector2(93, 92.5)
+
+[sub_resource type="AudioStreamRandomizer" id="AudioStreamRandomizer_18nlu"]
+random_pitch = 1.16
+streams_count = 1
+stream_0/stream = ExtResource("8_18nlu")
+stream_0/weight = 10.616
 
 [node name="MainScene" type="Node2D"]
 editor_description = "1920x1080"
@@ -45,8 +51,9 @@ shape = SubResource("RectangleShape2D_pw63i")
 
 [node name="HarpoonFire" type="AudioStreamPlayer2D" parent="Crosshair"]
 position = Vector2(-580, -320)
-stream = ExtResource("8_18nlu")
+stream = SubResource("AudioStreamRandomizer_18nlu")
 bus = &"SFX"
+area_mask = 0
 
 [node name="Path2D" parent="." instance=ExtResource("5_rt2n2")]
 position = Vector2(-62, 0)
@@ -60,6 +67,7 @@ offset_bottom = -2.0
 
 [node name="BattleMusic" type="AudioStreamPlayer2D" parent="."]
 stream = ExtResource("7_c16ls")
+volume_db = 5.098
 autoplay = true
 bus = &"Music"
 parameters/looping = true

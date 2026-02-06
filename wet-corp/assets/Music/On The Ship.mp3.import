@@ -13,7 +13,7 @@ dest_files=["res://.godot/imported/On The Ship.mp3-fecdd597072231fc6cb1c709a65cf
 [params]
 
 loop=true
-loop_offset=4.0
-bpm=0.0
-beat_count=0
-bar_beats=4
+loop_offset=0.0
+bpm=64.0
+beat_count=54
+bar_beats=6

@@ -1,0 +1,19 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+uid="uid://doooe37na2psc"
+path="res://.godot/imported/On The Ship Loop.mp3-cdd2abadee5db1afb368841563785ad3.mp3str"
+
+[deps]
+
+source_file="res://assets/Music/On The Ship Loop.mp3"
+dest_files=["res://.godot/imported/On The Ship Loop.mp3-cdd2abadee5db1afb368841563785ad3.mp3str"]
+
+[params]
+
+loop=true
+loop_offset=0.0
+bpm=64.0
+beat_count=51
+bar_beats=4
