@@ -1,4 +1,4 @@
-[gd_scene load_steps=11 format=3 uid="uid://c1foamfkt20o7"]
+[gd_scene load_steps=19 format=3 uid="uid://c1foamfkt20o7"]
 
 [ext_resource type="Script" uid="uid://bg5b8fnoe13h3" path="res://Scripts/PlayerActions.gd" id="1_pu3yx"]
 [ext_resource type="Texture2D" uid="uid://8d2tn4jarxf6" path="res://assets/image.jpg" id="1_rt2n2"]
@@ -6,8 +6,15 @@
 [ext_resource type="Texture2D" uid="uid://blqy2nhfha8vo" path="res://assets/anchor_crosshair_light.png" id="2_pw63i"]
 [ext_resource type="PackedScene" uid="uid://bx4h7m7lqk8vw" path="res://scenes/UI/main_hud_resized.tscn" id="5_gubc5"]
 [ext_resource type="PackedScene" uid="uid://dg1fgera6hcr" path="res://prefabs/regfishpath.tscn" id="5_rt2n2"]
+[ext_resource type="AudioStream" uid="uid://dairgk0b8nq77" path="res://assets/SFX/FishDeath1.wav" id="6_si52b"]
+[ext_resource type="AudioStream" uid="uid://dpx22wlpqg4c" path="res://assets/SFX/FishDeath2.wav" id="7_01n6w"]
 [ext_resource type="AudioStream" uid="uid://cjwfruhyxuihf" path="res://assets/Music/Battle Song v2.mp3" id="7_c16ls"]
+[ext_resource type="AudioStream" uid="uid://b320jceigb58k" path="res://assets/SFX/FishDeath3.wav" id="8_6u1mn"]
 [ext_resource type="AudioStream" uid="uid://gu4pce1gm42n" path="res://assets/SFX/HarpoonFire.wav" id="8_18nlu"]
+[ext_resource type="AudioStream" uid="uid://ba2sf0j513fqi" path="res://assets/SFX/FishDeath4.wav" id="9_bcnxi"]
+[ext_resource type="AudioStream" uid="uid://dwfbvqscfimu3" path="res://assets/SFX/FishDeath5.wav" id="10_7nt27"]
+[ext_resource type="AudioStream" uid="uid://elttbndet781" path="res://assets/SFX/FishDeath6.wav" id="11_k6f3i"]
+[ext_resource type="AudioStream" uid="uid://b4ga1rrpw6deu" path="res://assets/SFX/FishDeath7.wav" id="12_xdqt8"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_pw63i"]
 size = Vector2(93, 92.5)
@@ -17,6 +24,17 @@ random_pitch = 1.16
 streams_count = 1
 stream_0/stream = ExtResource("8_18nlu")
 stream_0/weight = 10.616
+
+[sub_resource type="AudioStreamRandomizer" id="AudioStreamRandomizer_adb74"]
+random_pitch = 1.08
+streams_count = 7
+stream_0/stream = ExtResource("6_si52b")
+stream_1/stream = ExtResource("7_01n6w")
+stream_2/stream = ExtResource("8_6u1mn")
+stream_3/stream = ExtResource("9_bcnxi")
+stream_4/stream = ExtResource("10_7nt27")
+stream_5/stream = ExtResource("11_k6f3i")
+stream_6/stream = ExtResource("12_xdqt8")
 
 [node name="MainScene" type="Node2D"]
 editor_description = "1920x1080"
@@ -54,6 +72,9 @@ position = Vector2(-580, -320)
 stream = SubResource("AudioStreamRandomizer_18nlu")
 bus = &"SFX"
 area_mask = 0
+
+[node name="FishDeath" type="AudioStreamPlayer2D" parent="Crosshair"]
+stream = SubResource("AudioStreamRandomizer_adb74")
 
 [node name="Path2D" parent="." instance=ExtResource("5_rt2n2")]
 position = Vector2(-62, 0)

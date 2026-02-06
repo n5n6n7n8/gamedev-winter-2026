@@ -3,6 +3,7 @@ extends Area2D
 var fishInRadius = false
 @export var isRhythm = false
 @onready var HarpoonFire = $HarpoonFire
+@onready var FishDeath = $FishDeath
 
 #var cash = get_node("/root/MainScene/MainHud/RichTextLabel")
 var currentMoney = 0
@@ -19,6 +20,7 @@ func _process(delta: float) -> void:
 		HarpoonFire.play()
 		if(has_overlapping_areas()):
 			print("shot")
+			FishDeath.play()
 			for fish in get_overlapping_areas():
 				fish.get_parent().free()
 	return
