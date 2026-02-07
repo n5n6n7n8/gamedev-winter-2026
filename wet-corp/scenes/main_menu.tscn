@@ -69,8 +69,8 @@ offset_right = 634.0
 offset_bottom = 536.0
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
-position = Vector2(573, 340)
-scale = Vector2(0.6227027, 0.5131005)
+position = Vector2(969.6637, 582.75)
+scale = Vector2(1.0515283, 0.86644834)
 texture = ExtResource("4_wu84c")
 
 [node name="MenuMusic" type="AudioStreamPlayer2D" parent="."]

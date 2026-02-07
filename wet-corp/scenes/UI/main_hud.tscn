@@ -25,6 +25,7 @@ offset_top = 20.0
 offset_right = -15.0
 offset_bottom = 43.0
 grow_horizontal = 0
+theme_override_font_sizes/font_size = 32
 text = "$ 100,000"
 
 [node name="MarginContainer_ammo" type="MarginContainer" parent="."]
@@ -34,10 +35,10 @@ anchor_left = 1.0
 anchor_top = 0.5
 anchor_right = 1.0
 anchor_bottom = 0.5
-offset_left = -78.0
-offset_top = -32.0
+offset_left = -140.0
+offset_top = -130.0
 offset_right = -5.0
-offset_bottom = 107.0
+offset_bottom = 127.05481
 grow_horizontal = 0
 grow_vertical = 2
 size_flags_vertical = 3
@@ -50,6 +51,7 @@ metadata/_edit_group_ = true
 
 [node name="LABEL_ammo" type="Label" parent="MarginContainer_ammo/VBox Ammo"]
 layout_mode = 2
+theme_override_font_sizes/font_size = 32
 text = "AMMO"
 
 [node name="VBox AmmoSprites" type="VBoxContainer" parent="MarginContainer_ammo/VBox Ammo"]
@@ -80,48 +82,75 @@ size_flags_vertical = 3
 layout_mode = 0
 offset_left = 18.0
 offset_top = 10.0
-offset_right = 207.0
-offset_bottom = 50.0
+offset_right = 607.0
+offset_bottom = 55.0
 
 [node name="LABEL_cargo" type="Label" parent="HBoxContainer_ammo"]
 layout_mode = 2
+theme_override_font_sizes/font_size = 32
 text = "CARGO"
 
 [node name="ProgressBar_cargo" type="ProgressBar" parent="HBoxContainer_ammo"]
+custom_minimum_size = Vector2(0, 20)
 layout_mode = 2
 size_flags_horizontal = 3
 size_flags_vertical = 4
 value = 100.0
 show_percentage = false
 
-[node name="Harpoon" type="Sprite2D" parent="."]
-position = Vector2(951, 572)
-scale = Vector2(0.4412972, 0.44129726)
+[node name="Ctrl_harpoon" type="Control" parent="."]
+layout_mode = 1
+anchors_preset = 3
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 49.733643
+offset_top = 36.708008
+offset_right = 89.73364
+offset_bottom = 76.70801
+grow_horizontal = 0
+grow_vertical = 0
+
+[node name="Harpoon" type="Sprite2D" parent="Ctrl_harpoon"]
+position = Vector2(-272.73364, -181.70795)
+scale = Vector2(0.6869867, 0.6869868)
 texture = ExtResource("1_gsrlj")
 
-[node name="Lantern" type="Node2D" parent="."]
+[node name="Ctrl_lantern" type="Control" parent="."]
+layout_mode = 1
+anchors_preset = 2
+anchor_top = 1.0
+anchor_bottom = 1.0
+offset_top = -40.0
+offset_right = 40.0
+grow_vertical = 0
 
-[node name="LanternGlow" type="Sprite2D" parent="Lantern"]
+[node name="Lantern" type="Node2D" parent="Ctrl_lantern"]
+position = Vector2(80, -960)
+scale = Vector2(1.5, 1.5)
+
+[node name="LanternGlow" type="Sprite2D" parent="Ctrl_lantern/Lantern"]
 position = Vector2(147, 525.5)
 scale = Vector2(0.5, 0.5)
 texture = ExtResource("2_fpx8l")
 
-[node name="LanternLightBack" type="Sprite2D" parent="Lantern"]
+[node name="LanternLightBack" type="Sprite2D" parent="Ctrl_lantern/Lantern"]
 position = Vector2(147, 525.5)
 scale = Vector2(0.5, 0.5)
 texture = ExtResource("3_pmty0")
 
-[node name="LanternLight" type="Sprite2D" parent="Lantern"]
+[node name="LanternLight" type="Sprite2D" parent="Ctrl_lantern/Lantern"]
 position = Vector2(147, 525.5)
 scale = Vector2(0.5, 0.5)
 texture = ExtResource("4_x208v")
 
-[node name="Lantern" type="Sprite2D" parent="Lantern"]
+[node name="Lantern" type="Sprite2D" parent="Ctrl_lantern/Lantern"]
 position = Vector2(147, 470)
 scale = Vector2(0.5, 0.5)
 texture = ExtResource("5_h6kif")
 
-[node name="LanternHand" type="Sprite2D" parent="Lantern"]
+[node name="LanternHand" type="Sprite2D" parent="Ctrl_lantern/Lantern"]
 position = Vector2(9.449905, 363.75)
 scale = Vector2(0.5, 0.5)
 texture = ExtResource("6_atmpj")

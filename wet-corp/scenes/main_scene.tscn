@@ -40,8 +40,8 @@ stream_6/stream = ExtResource("12_xdqt8")
 editor_description = "1920x1080"
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
-position = Vector2(582, 340)
-scale = Vector2(0.5425925, 0.5)
+position = Vector2(979.17773, 614.5)
+scale = Vector2(0.9103497, 0.8388889)
 texture = ExtResource("1_rt2n2")
 
 [node name="FishGenerator" type="Node2D" parent="."]
