@@ -1,11 +1,11 @@
-[gd_scene load_steps=7 format=3 uid="uid://dcqqys7vgwqw3"]
+[gd_scene load_steps=7 format=3 uid="uid://bx4h7m7lqk8vw"]
 
-[ext_resource type="Texture2D" uid="uid://b372ntj4adc1y" path="res://assets/harpoon.png" id="1_ejdt3"]
-[ext_resource type="Texture2D" uid="uid://douny2r7v4642" path="res://assets/lantern/lantern glow.png" id="2_5s7n2"]
-[ext_resource type="Texture2D" uid="uid://c8ix0gfi3px6b" path="res://assets/lantern/lantern light back.png" id="3_4tkct"]
-[ext_resource type="Texture2D" uid="uid://dtld6fpy6fq7q" path="res://assets/lantern/lantern light.png" id="4_e52ja"]
-[ext_resource type="Texture2D" uid="uid://bnidey6eog8jv" path="res://assets/lantern/lantern.png" id="5_e8rag"]
-[ext_resource type="Texture2D" uid="uid://bld7gn3u62kc1" path="res://assets/lantern/lantern_hand.png" id="6_n42kb"]
+[ext_resource type="Texture2D" uid="uid://b372ntj4adc1y" path="res://assets/harpoon.png" id="1_gsrlj"]
+[ext_resource type="Texture2D" uid="uid://douny2r7v4642" path="res://assets/lantern/lantern glow.png" id="2_fpx8l"]
+[ext_resource type="Texture2D" uid="uid://c8ix0gfi3px6b" path="res://assets/lantern/lantern light back.png" id="3_pmty0"]
+[ext_resource type="Texture2D" uid="uid://dtld6fpy6fq7q" path="res://assets/lantern/lantern light.png" id="4_x208v"]
+[ext_resource type="Texture2D" uid="uid://bnidey6eog8jv" path="res://assets/lantern/lantern.png" id="5_h6kif"]
+[ext_resource type="Texture2D" uid="uid://bld7gn3u62kc1" path="res://assets/lantern/lantern_hand.png" id="6_atmpj"]
 
 [node name="MainHud" type="Control"]
 layout_mode = 3
@@ -20,10 +20,10 @@ layout_mode = 1
 anchors_preset = 1
 anchor_left = 1.0
 anchor_right = 1.0
-offset_left = -143.0
-offset_top = 40.0
-offset_right = -70.0
-offset_bottom = 63.0
+offset_left = -88.0
+offset_top = 20.0
+offset_right = -15.0
+offset_bottom = 43.0
 grow_horizontal = 0
 text = "$ 100,000"
 
@@ -34,10 +34,10 @@ anchor_left = 1.0
 anchor_top = 0.5
 anchor_right = 1.0
 anchor_bottom = 0.5
-offset_left = -1127.0
-offset_top = -254.0
-offset_right = -1054.0
-offset_bottom = -115.0
+offset_left = -78.0
+offset_top = -32.0
+offset_right = -5.0
+offset_bottom = 107.0
 grow_horizontal = 0
 grow_vertical = 2
 size_flags_vertical = 3
@@ -97,31 +97,31 @@ show_percentage = false
 [node name="Harpoon" type="Sprite2D" parent="."]
 position = Vector2(951, 572)
 scale = Vector2(0.4412972, 0.44129726)
-texture = ExtResource("1_ejdt3")
+texture = ExtResource("1_gsrlj")
 
 [node name="Lantern" type="Node2D" parent="."]
 
 [node name="LanternGlow" type="Sprite2D" parent="Lantern"]
 position = Vector2(147, 525.5)
 scale = Vector2(0.5, 0.5)
-texture = ExtResource("2_5s7n2")
+texture = ExtResource("2_fpx8l")
 
 [node name="LanternLightBack" type="Sprite2D" parent="Lantern"]
 position = Vector2(147, 525.5)
 scale = Vector2(0.5, 0.5)
-texture = ExtResource("3_4tkct")
+texture = ExtResource("3_pmty0")
 
 [node name="LanternLight" type="Sprite2D" parent="Lantern"]
 position = Vector2(147, 525.5)
 scale = Vector2(0.5, 0.5)
-texture = ExtResource("4_e52ja")
+texture = ExtResource("4_x208v")
 
 [node name="Lantern" type="Sprite2D" parent="Lantern"]
 position = Vector2(147, 470)
 scale = Vector2(0.5, 0.5)
-texture = ExtResource("5_e8rag")
+texture = ExtResource("5_h6kif")
 
 [node name="LanternHand" type="Sprite2D" parent="Lantern"]
 position = Vector2(9.449905, 363.75)
 scale = Vector2(0.5, 0.5)
-texture = ExtResource("6_n42kb")
+texture = ExtResource("6_atmpj")

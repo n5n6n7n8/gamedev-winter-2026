@@ -68,13 +68,6 @@ offset_top = 501.0
 offset_right = 634.0
 offset_bottom = 536.0
 
-[node name="MainMenu" parent="." instance=ExtResource("3_bqqt6")]
-z_index = 5
-offset_left = 605.0
-offset_top = 381.0
-offset_right = 605.0
-offset_bottom = 381.0
-
 [node name="Sprite2D" type="Sprite2D" parent="."]
 position = Vector2(573, 340)
 scale = Vector2(0.6227027, 0.5131005)
@@ -85,6 +78,11 @@ stream = SubResource("AudioStreamInteractive_rtw2f")
 volume_db = 8.929
 autoplay = true
 bus = &"Music"
+
+[node name="UI" type="Node" parent="."]
+
+[node name="MainMenu" parent="UI" instance=ExtResource("3_bqqt6")]
+z_index = 5
 
 [connection signal="pressed" from="Button Manager/Start" to="." method="_on_start_pressed"]
 [connection signal="pressed" from="Button Manager/Credits" to="." method="_on_credits_pressed"]
