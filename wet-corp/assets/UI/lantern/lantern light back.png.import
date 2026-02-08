@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://blqy2nhfha8vo"
-path="res://.godot/imported/anchor_crosshair_light.png-afc34a3d21a2af5fc5373f256b641592.ctex"
+uid="uid://c8ix0gfi3px6b"
+path="res://.godot/imported/lantern light back.png-70062d0b374a07651343f10d3dcfd8af.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/anchor_crosshair_light.png"
-dest_files=["res://.godot/imported/anchor_crosshair_light.png-afc34a3d21a2af5fc5373f256b641592.ctex"]
+source_file="res://assets/UI/lantern/lantern light back.png"
+dest_files=["res://.godot/imported/lantern light back.png-70062d0b374a07651343f10d3dcfd8af.ctex"]
 
 [params]
 

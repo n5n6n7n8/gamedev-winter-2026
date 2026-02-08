@@ -1,6 +1,8 @@
-[gd_scene load_steps=2 format=3 uid="uid://tm5cinokhjg2"]
+[gd_scene load_steps=4 format=3 uid="uid://tm5cinokhjg2"]
 
 [ext_resource type="Script" uid="uid://dnwl6wmvaiiks" path="res://Scripts/mainmenureal.gd" id="1_qwnig"]
+[ext_resource type="Texture2D" uid="uid://di4034ierdkcx" path="res://assets/UI/Title.png" id="2_5wm6h"]
+[ext_resource type="Theme" uid="uid://b6msyaccjcuf4" path="res://assets/UI/theme.tres" id="3_ivyv1"]
 
 [node name="MainMenu" type="Control"]
 layout_mode = 3
@@ -12,6 +14,7 @@ grow_vertical = 2
 script = ExtResource("1_qwnig")
 
 [node name="LABEL_title" type="Label" parent="."]
+visible = false
 layout_mode = 1
 anchors_preset = 8
 anchor_left = 0.5
@@ -29,6 +32,23 @@ text = "WETCORP"
 horizontal_alignment = 1
 vertical_alignment = 1
 
+[node name="Title" type="TextureRect" parent="."]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -761.46484
+offset_top = -234.0
+offset_right = 761.46484
+offset_bottom = 47.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("2_5wm6h")
+expand_mode = 3
+stretch_mode = 5
+
 [node name="VBoxContainer" type="VBoxContainer" parent="."]
 layout_mode = 1
 anchors_preset = 8
@@ -36,24 +56,33 @@ anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-offset_left = -81.5
-offset_top = 65.0
-offset_right = 81.5
-offset_bottom = 166.0
+offset_left = -232.0
+offset_top = 108.0
+offset_right = 228.5
+offset_bottom = 364.0
 grow_horizontal = 2
 grow_vertical = 2
 metadata/_edit_group_ = true
 
 [node name="BTN_start" type="Button" parent="VBoxContainer"]
 layout_mode = 2
+theme = ExtResource("3_ivyv1")
 text = "START"
+
+[node name="BTN_start2" type="Button" parent="VBoxContainer"]
+layout_mode = 2
+theme = ExtResource("3_ivyv1")
+disabled = true
+text = "ENDLESS"
 
 [node name="BTN_credits" type="Button" parent="VBoxContainer"]
 layout_mode = 2
+theme = ExtResource("3_ivyv1")
 text = "CREDITS"
 
 [node name="BTN_quit" type="Button" parent="VBoxContainer"]
 layout_mode = 2
+theme = ExtResource("3_ivyv1")
 text = "QUIT"
 
 [connection signal="pressed" from="VBoxContainer/BTN_start" to="." method="_on_btn_start_pressed"]
