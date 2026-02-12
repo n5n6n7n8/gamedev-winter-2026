@@ -9,4 +9,4 @@ default_font = ExtResource("1_14uak")
 Button/font_sizes/font_size = 50
 Button/styles/hover = ExtResource("1_mv8xv")
 Button/styles/normal = ExtResource("2_fps7b")
-Label/font_sizes/font_size = 45
+Label/font_sizes/font_size = 35

@@ -1,8 +1,56 @@
-[gd_scene load_steps=4 format=3 uid="uid://tm5cinokhjg2"]
+[gd_scene load_steps=14 format=3 uid="uid://tm5cinokhjg2"]
 
 [ext_resource type="Script" uid="uid://dnwl6wmvaiiks" path="res://Scripts/mainmenureal.gd" id="1_qwnig"]
 [ext_resource type="Texture2D" uid="uid://di4034ierdkcx" path="res://assets/UI/Title.png" id="2_5wm6h"]
 [ext_resource type="Theme" uid="uid://b6msyaccjcuf4" path="res://assets/UI/theme.tres" id="3_ivyv1"]
+
+[sub_resource type="CanvasItemMaterial" id="CanvasItemMaterial_ivyv1"]
+blend_mode = 1
+
+[sub_resource type="Curve" id="Curve_rpkc2"]
+_limits = [0.0, 0.3, 0.0, 1.0]
+_data = [Vector2(0, 0), 0.0, 0.0, 0, 0, Vector2(0.3877551, 0.3), 0.012186169, 0.012186169, 0, 0, Vector2(0.8095238, 0.3), 0.0, 0.0, 0, 0, Vector2(1, 0), 0.0, 0.0, 0, 0]
+point_count = 4
+
+[sub_resource type="CurveTexture" id="CurveTexture_pbuwo"]
+curve = SubResource("Curve_rpkc2")
+
+[sub_resource type="Gradient" id="Gradient_ivyv1"]
+colors = PackedColorArray(1, 1, 1, 0.078431375, 1, 1, 1, 1)
+
+[sub_resource type="GradientTexture1D" id="GradientTexture1D_vqjqd"]
+gradient = SubResource("Gradient_ivyv1")
+
+[sub_resource type="Curve" id="Curve_ivyv1"]
+_limits = [0.0, 3.0, 0.0, 1.0]
+_data = [Vector2(0, 1), 0.0, 0.0, 0, 0, Vector2(1, 1), 0.0, 0.0, 0, 0]
+point_count = 2
+
+[sub_resource type="Curve" id="Curve_vqjqd"]
+_limits = [0.0, 30.0, 0.0, 1.0]
+_data = [Vector2(0, 1), 0.0, 0.0, 0, 0, Vector2(0.29591835, 30), 0.0, 0.0, 0, 0, Vector2(1, 30), 0.0, 0.0, 0, 0]
+point_count = 3
+
+[sub_resource type="Curve" id="Curve_pd3cq"]
+_limits = [0.0, 3.0, 0.0, 1.0]
+_data = [Vector2(0, 1), 0.0, 0.0, 0, 0, Vector2(1, 1), 0.0, 0.0, 0, 0]
+point_count = 2
+
+[sub_resource type="CurveXYZTexture" id="CurveXYZTexture_rpkc2"]
+curve_x = SubResource("Curve_ivyv1")
+curve_y = SubResource("Curve_vqjqd")
+curve_z = SubResource("Curve_pd3cq")
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_ivyv1"]
+particle_flag_disable_z = true
+emission_shape_offset = Vector3(960, -100, 0)
+emission_shape = 3
+emission_box_extents = Vector3(960, 1, 1)
+gravity = Vector3(0, 3000, 0)
+scale_max = 2.0
+scale_over_velocity_curve = SubResource("CurveXYZTexture_rpkc2")
+color_initial_ramp = SubResource("GradientTexture1D_vqjqd")
+alpha_curve = SubResource("CurveTexture_pbuwo")
 
 [node name="MainMenu" type="Control"]
 layout_mode = 3
@@ -56,9 +104,9 @@ anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-offset_left = -232.0
+offset_left = -200.0
 offset_top = 108.0
-offset_right = 228.5
+offset_right = 200.0
 offset_bottom = 364.0
 grow_horizontal = 2
 grow_vertical = 2
@@ -84,6 +132,13 @@ text = "CREDITS"
 layout_mode = 2
 theme = ExtResource("3_ivyv1")
 text = "QUIT"
+
+[node name="RainParticles2D" type="GPUParticles2D" parent="."]
+material = SubResource("CanvasItemMaterial_ivyv1")
+amount = 1000
+preprocess = 0.5
+visibility_rect = Rect2(0, 0, 1920, 1080)
+process_material = SubResource("ParticleProcessMaterial_ivyv1")
 
 [connection signal="pressed" from="VBoxContainer/BTN_start" to="." method="_on_btn_start_pressed"]
 [connection signal="pressed" from="VBoxContainer/BTN_credits" to="." method="_on_btn_credits_pressed"]
