@@ -135,7 +135,7 @@ text = "QUIT"
 
 [node name="RainParticles2D" type="GPUParticles2D" parent="."]
 material = SubResource("CanvasItemMaterial_ivyv1")
-amount = 1000
+amount = 500
 preprocess = 0.5
 visibility_rect = Rect2(0, 0, 1920, 1080)
 process_material = SubResource("ParticleProcessMaterial_ivyv1")
