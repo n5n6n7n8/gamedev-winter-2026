@@ -13,8 +13,8 @@ point_count = 5
 size = Vector2(141.5, 80)
 
 [node name="Path2D" type="Path2D"]
-position = Vector2(-3, 0)
-scale = Vector2(1.0891252, 1.3053763)
+position = Vector2(219.00003, 71.00003)
+scale = Vector2(1.7, 2.036)
 curve = SubResource("Curve2D_gubc5")
 
 [node name="PathFollow2D" type="PathFollow2D" parent="."]
