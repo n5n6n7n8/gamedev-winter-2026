@@ -1,26 +1,29 @@
 extends Area2D
 
 var fishInRadius = false
-@export var isRhythm = false
 @onready var HarpoonFire = $HarpoonFire
 @onready var FishDeath = $FishDeath
+@onready var mainhud = $"../UI/MainHud/Ctrl_harpoon/LABEL_ammo"
 
 #var cash = get_node("/root/MainScene/MainHud/RichTextLabel")
 var currentMoney = 0
+var ammo = 15
+var maxammo = 15
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
-	pass # Replace with function body.
+	mainhud.text = "AMMO: " + str(ammo) + "/" + str(maxammo)
 
-# Called every frame. 'delta' is the elapsed time since the previous frame.
+
 func _process(delta: float) -> void:
-	
-	if(!isRhythm):
-		position = get_global_mouse_position()
-	if(Input.is_action_just_pressed("Shoot")):
+	position = get_global_mouse_position()
+	if(Input.is_action_just_pressed("Shoot") and ammo>0):
 		HarpoonFire.play()
-		if(has_overlapping_areas()):
+		ammo -= 1
+		mainhud.text = "AMMO: " + str(ammo) + "/" + str(maxammo)
+		if(has_overlapping_areas()): #FISH SHOT
 			print("shot")
 			FishDeath.play()
+
 			#check health
 			for fish in get_overlapping_areas():
 				fish.get_parent().free()

@@ -11,19 +11,14 @@ var rng = RandomNumberGenerator.new()
 func _ready() -> void:
 	$Timer.start()
 
-
-
-
-
 func _on_timer_timeout() -> void:
 	
 	#spawn fish
 	var fishIns = regfish.instantiate()
 	
-	if(!isRhythm):
-		var toScale = rng.randf_range(0.65, 1.0)
-		fishIns.get_node("PathFollow2D/Fish").scale = Vector2(toScale,toScale)
-		fishIns.get_node("PathFollow2D").speed = toScale - 0.4
+	var toScale = rng.randf_range(1.3, 1.6)
+	fishIns.get_node("PathFollow2D/Fish").scale = Vector2(toScale,toScale)
+	fishIns.get_node("PathFollow2D").speed = toScale - 1.0
 	add_child(fishIns)
 
 	# reset timer to time in between 1-3 sec
