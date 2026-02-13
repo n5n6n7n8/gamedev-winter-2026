@@ -1,76 +1,45 @@
 extends Area2D
-class_name Playeractions
+class_name PlayerActions
 
-signal health_changed
+signal health_changed  # signal for HealthBar
 
+# Health variables
 var health := 100
 var max_health := 100
 
+# Optional gameplay variables
 @export var isRhythm := false
-var fishInRadius = false
 @onready var HarpoonFire = $HarpoonFire
 @onready var FishDeath = $FishDeath
-@onready var mainhud = $"../UI/MainHud/Ctrl_harpoon/LABEL_ammo"
+var currentMoney := 0
 
-var currentMoney = 0
-
-
+# Take damage function
 func take_damage(amount):
 	health -= amount
 	health = clamp(health, 0, max_health)
-	health_changed.emit()
+	health_changed.emit()  # notify HealthBar
 
 	if health <= 0:
 		game_over()
 
-
+# Called when player dies
 func game_over():
 	print("GAME OVER")
 	get_tree().reload_current_scene()
 
-
+# Example shooting/movement logic
 func _process(delta):
-	if !isRhythm:
+	if not isRhythm:
 		position = get_global_mouse_position()
 
 	if Input.is_action_just_pressed("Shoot"):
 		HarpoonFire.play()
-
 		if has_overlapping_areas():
 			FishDeath.play()
-
-var ammo = 15
-var maxammo = 15
-# Called when the node enters the scene tree for the first time.
-func _ready() -> void:
-	mainhud.text = "AMMO: " + str(ammo) + "/" + str(maxammo)
-
-
-func _process(delta: float) -> void:
-	position = get_global_mouse_position()
-	if(Input.is_action_just_pressed("Shoot") and ammo>0):
-		HarpoonFire.play()
-		ammo -= 1
-		mainhud.text = "AMMO: " + str(ammo) + "/" + str(maxammo)
-		if(has_overlapping_areas()): #FISH SHOT
-			print("shot")
-			FishDeath.play()
-
-			#check health
 			for fish in get_overlapping_areas():
 				fish.get_parent().queue_free()
 
-
-	if health <= 0:
-		game_over()
-
-
-#func _on_area_2d_area_entered(area: Area2D) -> void:
-	#print("collided")
-	#fishInRadius = true
-	#pass # Replace with function body.
-#
-#
-#func _on_area_2d_area_exited(area: Area2D) -> void:
-	#fishInRadius = false
-	#pass # Replace with function body.
+# Optional testing: press space to take damage
+func _input(event):
+	if event.is_action_pressed("ui_accept"):  # usually Space
+		take_damage(10)
