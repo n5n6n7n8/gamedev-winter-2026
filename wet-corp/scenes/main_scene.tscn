@@ -1,4 +1,4 @@
-[gd_scene load_steps=22 format=3 uid="uid://c1foamfkt20o7"]
+[gd_scene load_steps=29 format=3 uid="uid://c1foamfkt20o7"]
 
 [ext_resource type="Script" uid="uid://bg5b8fnoe13h3" path="res://Scripts/PlayerActions.gd" id="1_pu3yx"]
 [ext_resource type="Texture2D" uid="uid://8d2tn4jarxf6" path="res://assets/image.jpg" id="1_rt2n2"]
@@ -38,6 +38,54 @@ stream_3/stream = ExtResource("9_bcnxi")
 stream_4/stream = ExtResource("10_7nt27")
 stream_5/stream = ExtResource("11_k6f3i")
 stream_6/stream = ExtResource("12_xdqt8")
+
+[sub_resource type="CanvasItemMaterial" id="CanvasItemMaterial_si52b"]
+blend_mode = 1
+
+[sub_resource type="Curve" id="Curve_01n6w"]
+_limits = [0.0, 0.3, 0.0, 1.0]
+_data = [Vector2(0, 0), 0.0, 0.0, 0, 0, Vector2(0.3877551, 0.3), 0.012186169, 0.012186169, 0, 0, Vector2(0.8095238, 0.3), 0.0, 0.0, 0, 0, Vector2(1, 0), 0.0, 0.0, 0, 0]
+point_count = 4
+
+[sub_resource type="CurveTexture" id="CurveTexture_pbuwo"]
+curve = SubResource("Curve_01n6w")
+
+[sub_resource type="Gradient" id="Gradient_6u1mn"]
+colors = PackedColorArray(1, 1, 1, 0.078431375, 1, 1, 1, 1)
+
+[sub_resource type="GradientTexture1D" id="GradientTexture1D_vqjqd"]
+gradient = SubResource("Gradient_6u1mn")
+
+[sub_resource type="Curve" id="Curve_bcnxi"]
+_limits = [0.0, 3.0, 0.0, 1.0]
+_data = [Vector2(0, 1), 0.0, 0.0, 0, 0, Vector2(1, 1), 0.0, 0.0, 0, 0]
+point_count = 2
+
+[sub_resource type="Curve" id="Curve_7nt27"]
+_limits = [0.0, 30.0, 0.0, 1.0]
+_data = [Vector2(0, 1), 0.0, 0.0, 0, 0, Vector2(0.29591835, 30), 0.0, 0.0, 0, 0, Vector2(1, 30), 0.0, 0.0, 0, 0]
+point_count = 3
+
+[sub_resource type="Curve" id="Curve_k6f3i"]
+_limits = [0.0, 3.0, 0.0, 1.0]
+_data = [Vector2(0, 1), 0.0, 0.0, 0, 0, Vector2(1, 1), 0.0, 0.0, 0, 0]
+point_count = 2
+
+[sub_resource type="CurveXYZTexture" id="CurveXYZTexture_rpkc2"]
+curve_x = SubResource("Curve_bcnxi")
+curve_y = SubResource("Curve_7nt27")
+curve_z = SubResource("Curve_k6f3i")
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_xdqt8"]
+particle_flag_disable_z = true
+emission_shape_offset = Vector3(960, -100, 0)
+emission_shape = 3
+emission_box_extents = Vector3(960, 1, 1)
+gravity = Vector3(0, 3000, 0)
+scale_max = 2.0
+scale_over_velocity_curve = SubResource("CurveXYZTexture_rpkc2")
+color_initial_ramp = SubResource("GradientTexture1D_vqjqd")
+alpha_curve = SubResource("CurveTexture_pbuwo")
 
 [node name="MainScene" type="Node2D"]
 editor_description = "1920x1080"
@@ -111,6 +159,12 @@ text = "Aim: Mouse     Shoot: Space/Click"
 fit_content = true
 horizontal_alignment = 1
 script = ExtResource("18_bcnxi")
+[node name="RainParticles2D" type="GPUParticles2D" parent="."]
+material = SubResource("CanvasItemMaterial_si52b")
+amount = 1000
+preprocess = 0.5
+visibility_rect = Rect2(0, 0, 1920, 1080)
+process_material = SubResource("ParticleProcessMaterial_xdqt8")
 
 [connection signal="timeout" from="FishGenerator/Timer" to="FishGenerator" method="_on_timer_timeout"]
 [connection signal="timeout" from="FishGenerator/Timer2" to="FishGenerator" method="_on_timer_2_timeout"]
