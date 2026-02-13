@@ -5,7 +5,7 @@ extends Control
 
 
 func _on_btn_start_pressed() -> void:
-	SceneTransition.change_scene_to_file("res://scenes/main_scene.tscn")
+	SceneTransition.change_scene_to_file( "res://scenes/cutscene/epilogue-1.tscn" )
 
 
 func _on_btn_credits_pressed() -> void:

@@ -1,0 +1,104 @@
+[gd_scene load_steps=7 format=3 uid="uid://c3em5d0ldg16v"]
+
+[ext_resource type="PackedScene" uid="uid://dqqwe225kxukg" path="res://scenes/cutscene/epilogue-3.tscn" id="1_rr06p"]
+[ext_resource type="Texture2D" uid="uid://br83ieek5g3xr" path="res://icon.svg" id="2_crlb8"]
+
+[sub_resource type="GDScript" id="GDScript_crlb8"]
+script/source = "extends Node
+
+var skip_enabled : bool = false;
+@export var next_scene : PackedScene
+
+func _ready() -> void:
+	# create timer so user doesn't accidentally skip by clicking too early
+	$Timer.start()
+	$Timer.connect(\"timeout\", enable_skip)
+	$AnimationPlayer.play(\"animation\")
+	
+func enable_skip():
+	print(\"skip enabled\")
+	skip_enabled = true;
+
+func change_scene():
+	print(\"change scene\")
+	SceneTransition.change_scene_to_file(next_scene.resource_path)
+
+func _input(e:InputEvent) -> void:
+	if not skip_enabled:
+		return
+	
+	# handle button presses
+	if e is InputEventMouseButton and e.pressed:
+		if (e.button_index == MOUSE_BUTTON_LEFT):
+			change_scene()
+	if e is InputEventKey and e.pressed:
+		if (e.keycode == KEY_SPACE):
+			change_scene()
+"
+
+[sub_resource type="Animation" id="Animation_kfe5f"]
+resource_name = "RESET"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Control/Sprite2D:scale")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(1, 1)]
+}
+
+[sub_resource type="Animation" id="Animation_cd71f"]
+resource_name = "animation"
+length = 5.0
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Control/Sprite2D:scale")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 5),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(1, 1), Vector2(2, 2)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_bnu8o"]
+_data = {
+&"RESET": SubResource("Animation_kfe5f"),
+&"animation": SubResource("Animation_cd71f")
+}
+
+[node name="Epilogue2" type="Node"]
+script = SubResource("GDScript_crlb8")
+next_scene = ExtResource("1_rr06p")
+
+[node name="Timer" type="Timer" parent="."]
+wait_time = 2.0
+one_shot = true
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+&"": SubResource("AnimationLibrary_bnu8o")
+}
+
+[node name="Control" type="Control" parent="."]
+layout_mode = 3
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -20.0
+offset_top = -20.0
+offset_right = 20.0
+offset_bottom = 20.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Sprite2D" type="Sprite2D" parent="Control"]
+texture = ExtResource("2_crlb8")
