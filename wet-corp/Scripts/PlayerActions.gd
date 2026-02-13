@@ -7,8 +7,10 @@ var health := 100
 var max_health := 100
 
 @export var isRhythm := false
+var fishInRadius = false
 @onready var HarpoonFire = $HarpoonFire
 @onready var FishDeath = $FishDeath
+@onready var mainhud = $"../UI/MainHud/Ctrl_harpoon/LABEL_ammo"
 
 var currentMoney = 0
 
@@ -37,6 +39,24 @@ func _process(delta):
 		if has_overlapping_areas():
 			FishDeath.play()
 
+var ammo = 15
+var maxammo = 15
+# Called when the node enters the scene tree for the first time.
+func _ready() -> void:
+	mainhud.text = "AMMO: " + str(ammo) + "/" + str(maxammo)
+
+
+func _process(delta: float) -> void:
+	position = get_global_mouse_position()
+	if(Input.is_action_just_pressed("Shoot") and ammo>0):
+		HarpoonFire.play()
+		ammo -= 1
+		mainhud.text = "AMMO: " + str(ammo) + "/" + str(maxammo)
+		if(has_overlapping_areas()): #FISH SHOT
+			print("shot")
+			FishDeath.play()
+
+			#check health
 			for fish in get_overlapping_areas():
 				fish.get_parent().queue_free()
 
