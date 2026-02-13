@@ -1,4 +1,4 @@
-[gd_scene load_steps=29 format=3 uid="uid://c1foamfkt20o7"]
+[gd_scene load_steps=32 format=3 uid="uid://c1foamfkt20o7"]
 
 [ext_resource type="Script" uid="uid://bg5b8fnoe13h3" path="res://Scripts/PlayerActions.gd" id="1_pu3yx"]
 [ext_resource type="Texture2D" uid="uid://8d2tn4jarxf6" path="res://assets/image.jpg" id="1_rt2n2"]
@@ -159,6 +159,13 @@ text = "Aim: Mouse     Shoot: Space/Click"
 fit_content = true
 horizontal_alignment = 1
 script = ExtResource("18_bcnxi")
+
+[node name="ProgressBar" type="ProgressBar" parent="UI"]
+offset_left = 131.0
+offset_top = 32.0
+offset_right = 500.0
+offset_bottom = 59.0
+
 [node name="RainParticles2D" type="GPUParticles2D" parent="."]
 material = SubResource("CanvasItemMaterial_si52b")
 amount = 1000
