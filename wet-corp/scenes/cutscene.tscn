@@ -1,6 +1,6 @@
 [gd_scene load_steps=2 format=3 uid="uid://ce53yxc57j03k"]
 
-[ext_resource type="VideoStream" uid="uid://byupyheldq6xy" path="res://assets/Cutscenes/bee movie but its in 10 seconds.ogv" id="1_edmg7"]
+[ext_resource type="VideoStream" uid="uid://byupyheldq6xy" path="res://assets/Prologue/bee movie but its in 10 seconds.ogv" id="1_edmg7"]
 
 [node name="Cutscene" type="Node2D"]
 

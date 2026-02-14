@@ -1,0 +1,33 @@
+[gd_scene load_steps=3 format=3 uid="uid://3iddnjglpc7f"]
+
+[ext_resource type="Script" uid="uid://d1u4buc06q0yx" path="res://scripts/container_payslip.gd" id="1_f1oth"]
+[ext_resource type="FontFile" uid="uid://qffrycpg4tvn" path="res://assets/UI/GermaniaOne-Regular.ttf" id="2_8ww18"]
+
+[node name="Payslip_Container" type="MarginContainer"]
+size_flags_horizontal = 3
+theme_override_constants/margin_left = 10
+theme_override_constants/margin_right = 10
+script = ExtResource("1_f1oth")
+
+[node name="Payslip_row" type="HBoxContainer" parent="."]
+custom_minimum_size = Vector2(0, 44)
+layout_mode = 2
+metadata/_edit_group_ = true
+
+[node name="Label_description" type="Label" parent="Payslip_row"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("2_8ww18")
+theme_override_font_sizes/font_size = 25
+text = "My_Description"
+
+[node name="Control" type="Control" parent="Payslip_row"]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="Label_amount" type="Label" parent="Payslip_row"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("2_8ww18")
+theme_override_font_sizes/font_size = 25
+text = "My_amount"

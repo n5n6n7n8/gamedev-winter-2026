@@ -1,72 +1,144 @@
-[gd_scene load_steps=2 format=3 uid="uid://ci3uqd26hvklp"]
+[gd_scene load_steps=7 format=3 uid="uid://ci3uqd26hvklp"]
 
 [ext_resource type="Theme" uid="uid://b6msyaccjcuf4" path="res://assets/UI/theme.tres" id="1_pmyyf"]
+[ext_resource type="Script" uid="uid://0h7o5ftkiakn" path="res://scripts/end_scene_win.gd" id="1_qille"]
+[ext_resource type="Texture2D" uid="uid://dj43nvnjgei4f" path="res://assets/UI/payslip.png" id="2_72nf0"]
+[ext_resource type="Texture2D" uid="uid://va4hta36uy10" path="res://assets/UI/bfisher_signature.png" id="3_qrmr5"]
+[ext_resource type="Texture2D" uid="uid://b74yiw1q8uuoh" path="res://assets/UI/gwarming_signature.png" id="4_s5n8d"]
+[ext_resource type="Texture2D" uid="uid://yax8ymhconnh" path="res://assets/UI/approved.png" id="5_24mdo"]
 
 [node name="EndScene" type="Node"]
+script = ExtResource("1_qille")
+
+[node name="ColorRect" type="ColorRect" parent="."]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0, 0, 0, 1)
 
 [node name="VBoxContainer" type="VBoxContainer" parent="."]
-anchors_preset = 2
-anchor_top = 1.0
-anchor_bottom = 1.0
-offset_top = -122.0
-offset_right = 205.0
-grow_vertical = 0
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -678.0
+offset_top = -61.0
+offset_right = -345.0
+offset_bottom = 61.0
+grow_horizontal = 2
+grow_vertical = 2
 theme = ExtResource("1_pmyyf")
+metadata/_edit_group_ = true
 
-[node name="Button" type="Button" parent="VBoxContainer"]
+[node name="Button_play" type="Button" parent="VBoxContainer"]
 layout_mode = 2
 theme = ExtResource("1_pmyyf")
 text = "Play Again"
 
-[node name="Button2" type="Button" parent="VBoxContainer"]
+[node name="Button_quit" type="Button" parent="VBoxContainer"]
 layout_mode = 2
 theme = ExtResource("1_pmyyf")
 text = "QUIT"
 
-[node name="VBoxContainer2" type="VBoxContainer" parent="."]
-anchors_preset = 6
-anchor_left = 1.0
+[node name="TextureRect_Payslip" type="TextureRect" parent="."]
+anchors_preset = 8
+anchor_left = 0.5
 anchor_top = 0.5
-anchor_right = 1.0
+anchor_right = 0.5
 anchor_bottom = 0.5
-offset_left = -722.0
-offset_top = -404.0
-offset_right = -150.0
-offset_bottom = 367.0
-grow_horizontal = 0
+offset_left = -298.0
+offset_top = -474.0
+offset_right = 453.0
+offset_bottom = 474.0
+grow_horizontal = 2
 grow_vertical = 2
-theme = ExtResource("1_pmyyf")
+texture = ExtResource("2_72nf0")
 
-[node name="Row_fish" type="HBoxContainer" parent="VBoxContainer2"]
-layout_mode = 2
-theme = ExtResource("1_pmyyf")
-alignment = 1
-
-[node name="Label" type="Label" parent="VBoxContainer2/Row_fish"]
-layout_mode = 2
-theme = ExtResource("1_pmyyf")
-text = "Num of Fish"
-
-[node name="Container" type="Control" parent="VBoxContainer2/Row_fish"]
-layout_mode = 2
-size_flags_horizontal = 3
-theme = ExtResource("1_pmyyf")
-
-[node name="Label2" type="Label" parent="VBoxContainer2/Row_fish"]
-layout_mode = 2
-theme = ExtResource("1_pmyyf")
-text = "cost"
-
-[node name="Label" type="Label" parent="."]
-anchors_preset = 6
-anchor_left = 1.0
+[node name="TextureRect_bfisher_signature" type="TextureRect" parent="."]
+anchors_preset = 8
+anchor_left = 0.5
 anchor_top = 0.5
-anchor_right = 1.0
+anchor_right = 0.5
 anchor_bottom = 0.5
-offset_left = -40.0
-offset_top = -11.5
-offset_bottom = 11.5
-grow_horizontal = 0
+offset_left = -40.5
+offset_top = 345.0
+offset_right = 94.5
+offset_bottom = 372.0
+grow_horizontal = 2
 grow_vertical = 2
-theme = ExtResource("1_pmyyf")
-text = "Total"
+texture = ExtResource("3_qrmr5")
+expand_mode = 2
+
+[node name="TextureRect_gwarming_signature" type="TextureRect" parent="."]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = 221.5
+offset_top = 348.0
+offset_right = 361.5
+offset_bottom = 376.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("4_s5n8d")
+expand_mode = 2
+
+[node name="TextureRect_approved" type="TextureRect" parent="."]
+modulate = Color(1.0003047, 1.0003047, 1.0003047, 0)
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = 52.99994
+offset_top = 347.0
+offset_right = 348.0
+offset_bottom = 444.0
+grow_horizontal = 2
+grow_vertical = 2
+rotation = -0.21816616
+texture = ExtResource("5_24mdo")
+
+[node name="VBoxContainer_earnings" type="VBoxContainer" parent="."]
+offset_left = 762.0
+offset_top = 396.0
+offset_right = 1332.0
+offset_bottom = 615.0
+theme_override_constants/separation = 0
+
+[node name="VBoxContainer_deductions" type="VBoxContainer" parent="."]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -198.0
+offset_top = 119.0
+offset_right = 373.0
+offset_bottom = 250.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/separation = 0
+
+[node name="Label_gross_earnings" type="Label" parent="."]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = 307.0
+offset_top = 260.0
+offset_right = 362.0
+offset_bottom = 283.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+text = "$10000"
+horizontal_alignment = 2
+
+[connection signal="pressed" from="VBoxContainer/Button_play" to="." method="_on_button_play_pressed"]
+[connection signal="pressed" from="VBoxContainer/Button_quit" to="." method="_on_button_quit_pressed"]
