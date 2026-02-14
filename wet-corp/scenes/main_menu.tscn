@@ -1,10 +1,11 @@
-[gd_scene load_steps=7 format=3 uid="uid://v6mj621ll4of"]
+[gd_scene load_steps=9 format=3 uid="uid://v6mj621ll4of"]
 
 [ext_resource type="Script" uid="uid://dm2r8moyc2dtk" path="res://Scripts/main_menu.gd" id="1_ekxnf"]
 [ext_resource type="Texture2D" uid="uid://dbeeey2hp52cu" path="res://assets/Title_screen_3.png" id="1_l6cm7"]
 [ext_resource type="PackedScene" uid="uid://tm5cinokhjg2" path="res://scenes/UI/main_menu_UI.tscn" id="3_bqqt6"]
 [ext_resource type="Texture2D" uid="uid://de4pl1n23rrrt" path="res://assets/mainbgtemp.png" id="4_wu84c"]
 [ext_resource type="AudioStream" uid="uid://of1215i837yx" path="res://assets/Music/On The Ship Loop2.mp3" id="5_8ln24"]
+[ext_resource type="AudioStream" uid="uid://c4e630droagdp" path="res://assets/SFX/SeaAmbience2.mp3" id="5_rtw2f"]
 
 [sub_resource type="AudioStreamInteractive" id="AudioStreamInteractive_rtw2f"]
 clip_count = 1
@@ -23,6 +24,20 @@ Vector2i(-1, 0): {
 "fade_mode": 3,
 "from_time": 0,
 "to_time": 0
+}
+}
+
+[sub_resource type="AudioStreamInteractive" id="AudioStreamInteractive_oa1go"]
+clip_count = 1
+clip_0/name = &"Ambient Sea"
+clip_0/stream = ExtResource("5_rtw2f")
+clip_0/auto_advance = 0
+_transitions = {
+Vector2i(0, 0): {
+"fade_beats": 1.0,
+"fade_mode": 3,
+"from_time": 3,
+"to_time": 1
 }
 }
 
@@ -78,6 +93,12 @@ stream = SubResource("AudioStreamInteractive_rtw2f")
 volume_db = 8.929
 autoplay = true
 bus = &"Music"
+
+[node name="SeaAmbience" type="AudioStreamPlayer2D" parent="."]
+stream = SubResource("AudioStreamInteractive_oa1go")
+volume_db = -12.117
+autoplay = true
+bus = &"Ambience"
 
 [node name="UI" type="Node" parent="."]
 
