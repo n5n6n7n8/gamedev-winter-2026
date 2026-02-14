@@ -1,6 +1,6 @@
-[gd_scene load_steps=2 format=3 uid="uid://w7bbakd2gn0y"]
+[gd_scene load_steps=2 format=3 uid="uid://ci3uqd26hvklp"]
 
-[ext_resource type="Theme" uid="uid://b6msyaccjcuf4" path="res://assets/UI/theme.tres" id="1_nld2j"]
+[ext_resource type="Theme" uid="uid://b6msyaccjcuf4" path="res://assets/UI/theme.tres" id="1_pmyyf"]
 
 [node name="EndScene" type="Node"]
 
@@ -11,16 +11,16 @@ anchor_bottom = 1.0
 offset_top = -122.0
 offset_right = 205.0
 grow_vertical = 0
-theme = ExtResource("1_nld2j")
+theme = ExtResource("1_pmyyf")
 
 [node name="Button" type="Button" parent="VBoxContainer"]
 layout_mode = 2
-theme = ExtResource("1_nld2j")
+theme = ExtResource("1_pmyyf")
 text = "Play Again"
 
 [node name="Button2" type="Button" parent="VBoxContainer"]
 layout_mode = 2
-theme = ExtResource("1_nld2j")
+theme = ExtResource("1_pmyyf")
 text = "QUIT"
 
 [node name="VBoxContainer2" type="VBoxContainer" parent="."]
@@ -35,26 +35,26 @@ offset_right = -150.0
 offset_bottom = 367.0
 grow_horizontal = 0
 grow_vertical = 2
-theme = ExtResource("1_nld2j")
+theme = ExtResource("1_pmyyf")
 
 [node name="Row_fish" type="HBoxContainer" parent="VBoxContainer2"]
 layout_mode = 2
-theme = ExtResource("1_nld2j")
+theme = ExtResource("1_pmyyf")
 alignment = 1
 
 [node name="Label" type="Label" parent="VBoxContainer2/Row_fish"]
 layout_mode = 2
-theme = ExtResource("1_nld2j")
+theme = ExtResource("1_pmyyf")
 text = "Num of Fish"
 
 [node name="Container" type="Control" parent="VBoxContainer2/Row_fish"]
 layout_mode = 2
 size_flags_horizontal = 3
-theme = ExtResource("1_nld2j")
+theme = ExtResource("1_pmyyf")
 
 [node name="Label2" type="Label" parent="VBoxContainer2/Row_fish"]
 layout_mode = 2
-theme = ExtResource("1_nld2j")
+theme = ExtResource("1_pmyyf")
 text = "cost"
 
 [node name="Label" type="Label" parent="."]
@@ -68,5 +68,5 @@ offset_top = -11.5
 offset_bottom = 11.5
 grow_horizontal = 0
 grow_vertical = 2
-theme = ExtResource("1_nld2j")
+theme = ExtResource("1_pmyyf")
 text = "Total"
