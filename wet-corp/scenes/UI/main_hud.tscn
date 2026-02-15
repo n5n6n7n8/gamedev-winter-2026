@@ -1,33 +1,22 @@
-[gd_scene load_steps=7 format=3 uid="uid://bx4h7m7lqk8vw"]
+[gd_scene load_steps=9 format=3 uid="uid://bx4h7m7lqk8vw"]
 
 [ext_resource type="Theme" uid="uid://b6msyaccjcuf4" path="res://assets/UI/theme.tres" id="1_5s7n2"]
 [ext_resource type="Texture2D" uid="uid://b372ntj4adc1y" path="res://assets/harpoon.png" id="1_gsrlj"]
+[ext_resource type="Script" uid="uid://jct2hbum4dww" path="res://Scripts/foreground_ctrl.gd" id="2_4tkct"]
+[ext_resource type="Script" uid="uid://grblqm6cryp1" path="res://Scripts/harpoon.gd" id="3_5s7n2"]
 [ext_resource type="Texture2D" uid="uid://c8ix0gfi3px6b" path="res://assets/UI/lantern/lantern light back.png" id="3_pmty0"]
 [ext_resource type="Texture2D" uid="uid://dtld6fpy6fq7q" path="res://assets/UI/lantern/lantern light.png" id="4_x208v"]
 [ext_resource type="Texture2D" uid="uid://bnidey6eog8jv" path="res://assets/UI/lantern/lantern.png" id="5_h6kif"]
 [ext_resource type="Texture2D" uid="uid://bld7gn3u62kc1" path="res://assets/UI/lantern/lantern_hand.png" id="6_atmpj"]
 
 [node name="MainHud" type="Control"]
+z_index = 10
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-
-[node name="LABEL_cash" type="Label" parent="."]
-layout_mode = 1
-anchors_preset = 1
-anchor_left = 1.0
-anchor_right = 1.0
-offset_left = -190.0
-offset_top = 20.0
-offset_right = -19.0
-offset_bottom = 73.0
-grow_horizontal = 0
-theme = ExtResource("1_5s7n2")
-text = "$ 100,000"
-horizontal_alignment = 2
 
 [node name="HBoxContainer_cargo" type="HBoxContainer" parent="."]
 layout_mode = 0
@@ -52,49 +41,51 @@ theme = ExtResource("1_5s7n2")
 value = 100.0
 show_percentage = false
 
-[node name="Ctrl_harpoon" type="Control" parent="."]
+[node name="Foreground_ctrl" type="Control" parent="."]
+layout_mode = 1
+anchors_preset = 0
+pivot_offset = Vector2(960, 544)
+script = ExtResource("2_4tkct")
+
+[node name="Harpoon_anchor" type="Control" parent="Foreground_ctrl"]
 layout_mode = 1
 anchors_preset = 3
 anchor_left = 1.0
 anchor_top = 1.0
 anchor_right = 1.0
 anchor_bottom = 1.0
-offset_left = 49.733643
-offset_top = 36.708008
-offset_right = 89.73364
-offset_bottom = 76.70801
+offset_left = 1880.0
+offset_top = 1040.0
+offset_right = 1880.0
+offset_bottom = 1040.0
 grow_horizontal = 0
 grow_vertical = 0
 theme = ExtResource("1_5s7n2")
 
-[node name="Harpoon" type="Sprite2D" parent="Ctrl_harpoon"]
-position = Vector2(-272.73364, -181.70795)
-scale = Vector2(0.6869867, 0.6869868)
+[node name="Harpoon" type="Sprite2D" parent="Foreground_ctrl/Harpoon_anchor"]
+position = Vector2(-136, 53)
+scale = Vector2(0.8, 0.8)
 texture = ExtResource("1_gsrlj")
+centered = false
+offset = Vector2(-758.25, -548.635)
+script = ExtResource("3_5s7n2")
 
-[node name="LABEL_ammo" type="Label" parent="Ctrl_harpoon"]
-layout_mode = 0
-offset_left = -359.73364
-offset_top = -102.70801
-offset_right = -155.73364
-offset_bottom = -49.708008
-text = "AMMO: 0/0"
-
-[node name="Ctrl_lantern" type="Control" parent="."]
+[node name="Ctrl_lantern" type="Control" parent="Foreground_ctrl"]
 layout_mode = 1
 anchors_preset = 2
 anchor_top = 1.0
 anchor_bottom = 1.0
-offset_top = -40.0
+offset_top = 1000.0
 offset_right = 40.0
+offset_bottom = 1040.0
 grow_vertical = 0
 theme = ExtResource("1_5s7n2")
 
-[node name="Lantern" type="Node2D" parent="Ctrl_lantern"]
+[node name="Lantern" type="Node2D" parent="Foreground_ctrl/Ctrl_lantern"]
 position = Vector2(80, -960)
 scale = Vector2(1.5, 1.5)
 
-[node name="ProgressBar_Lantern" type="TextureProgressBar" parent="Ctrl_lantern/Lantern"]
+[node name="ProgressBar_Lantern" type="TextureProgressBar" parent="Foreground_ctrl/Ctrl_lantern/Lantern"]
 offset_left = 92.0
 offset_top = 450.0
 offset_right = 297.0
@@ -105,12 +96,35 @@ fill_mode = 3
 texture_under = ExtResource("3_pmty0")
 texture_progress = ExtResource("4_x208v")
 
-[node name="Lantern" type="Sprite2D" parent="Ctrl_lantern/Lantern"]
+[node name="Lantern" type="Sprite2D" parent="Foreground_ctrl/Ctrl_lantern/Lantern"]
 position = Vector2(147, 470)
 scale = Vector2(0.5, 0.5)
 texture = ExtResource("5_h6kif")
 
-[node name="LanternHand" type="Sprite2D" parent="Ctrl_lantern/Lantern"]
+[node name="LanternHand" type="Sprite2D" parent="Foreground_ctrl/Ctrl_lantern/Lantern"]
 position = Vector2(9.449905, 363.75)
 scale = Vector2(0.5, 0.5)
 texture = ExtResource("6_atmpj")
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+
+[node name="LABEL_cash" type="Label" parent="CanvasLayer"]
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = -190.0
+offset_top = 20.0
+offset_right = -19.0
+offset_bottom = 73.0
+grow_horizontal = 0
+theme = ExtResource("1_5s7n2")
+text = "$ 100,000"
+horizontal_alignment = 2
+
+[node name="LABEL_ammo" type="Label" parent="CanvasLayer"]
+offset_left = 1560.2664
+offset_top = 977.292
+offset_right = 1764.2664
+offset_bottom = 1030.292
+theme = ExtResource("1_5s7n2")
+text = "AMMO: 0/0"
