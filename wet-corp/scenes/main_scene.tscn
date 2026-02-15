@@ -177,7 +177,7 @@ offset_bottom = 59.0
 
 [node name="RainParticles2D" type="GPUParticles2D" parent="."]
 material = SubResource("CanvasItemMaterial_si52b")
-amount = 500
+amount = 250
 preprocess = 0.5
 visibility_rect = Rect2(0, 0, 1920, 1080)
 process_material = SubResource("ParticleProcessMaterial_xdqt8")
