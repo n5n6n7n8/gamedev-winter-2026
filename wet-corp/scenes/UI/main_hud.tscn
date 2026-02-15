@@ -10,7 +10,6 @@
 [ext_resource type="Texture2D" uid="uid://bld7gn3u62kc1" path="res://assets/UI/lantern/lantern_hand.png" id="6_atmpj"]
 
 [node name="MainHud" type="Control"]
-z_index = 10
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
@@ -54,16 +53,15 @@ anchor_left = 1.0
 anchor_top = 1.0
 anchor_right = 1.0
 anchor_bottom = 1.0
-offset_left = 1880.0
-offset_top = 1040.0
-offset_right = 1880.0
-offset_bottom = 1040.0
+offset_left = 1895.0
+offset_top = 1116.0
+offset_right = 1895.0
+offset_bottom = 1116.0
 grow_horizontal = 0
 grow_vertical = 0
 theme = ExtResource("1_5s7n2")
 
 [node name="Harpoon" type="Sprite2D" parent="Foreground_ctrl/Harpoon_anchor"]
-position = Vector2(-136, 53)
 scale = Vector2(0.8, 0.8)
 texture = ExtResource("1_gsrlj")
 centered = false
@@ -122,9 +120,9 @@ text = "$ 100,000"
 horizontal_alignment = 2
 
 [node name="LABEL_ammo" type="Label" parent="CanvasLayer"]
-offset_left = 1560.2664
+offset_left = 1638.0
 offset_top = 977.292
-offset_right = 1764.2664
+offset_right = 1842.0
 offset_bottom = 1030.292
 theme = ExtResource("1_5s7n2")
 text = "AMMO: 0/0"

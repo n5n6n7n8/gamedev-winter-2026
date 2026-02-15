@@ -1,7 +1,7 @@
 extends Control
 
 var amplitude_x:int = 20
-var amplitude_y:int = 20
+var amplitude_y:int = 10
 var amplitude_rot: int = 1
 var offset = 0
 
