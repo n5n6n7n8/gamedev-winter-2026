@@ -1,10 +1,11 @@
-[gd_scene load_steps=9 format=3 uid="uid://bsefp7w02fe7"]
+[gd_scene load_steps=10 format=3 uid="uid://bsefp7w02fe7"]
 
 [ext_resource type="Script" uid="uid://boj01lavju5ti" path="res://Scripts/prologue.gd" id="1_kfe5f"]
 [ext_resource type="PackedScene" uid="uid://c3em5d0ldg16v" path="res://scenes/prologue/prologue-2.tscn" id="2_bnu8o"]
 [ext_resource type="Texture2D" uid="uid://br83ieek5g3xr" path="res://icon.svg" id="2_cd71f"]
 [ext_resource type="Texture2D" uid="uid://t7rfcf6uxdmc" path="res://assets/UI/anchor_crosshair_dark.png" id="4_phnaa"]
 [ext_resource type="Texture2D" uid="uid://blqy2nhfha8vo" path="res://assets/UI/anchor_crosshair_light.png" id="5_byvry"]
+[ext_resource type="PackedScene" uid="uid://duq2cd30vryrw" path="res://scenes/UI/vignette.tscn" id="6_wv543"]
 
 [sub_resource type="Animation" id="Animation_kfe5f"]
 resource_name = "RESET"
@@ -109,3 +110,5 @@ mouse_filter = 2
 fill_mode = 4
 texture_under = ExtResource("4_phnaa")
 texture_progress = ExtResource("5_byvry")
+
+[node name="Vignette" parent="." instance=ExtResource("6_wv543")]

@@ -1,4 +1,4 @@
-[gd_scene load_steps=9 format=3 uid="uid://bx4h7m7lqk8vw"]
+[gd_scene load_steps=14 format=3 uid="uid://bx4h7m7lqk8vw"]
 
 [ext_resource type="Theme" uid="uid://b6msyaccjcuf4" path="res://assets/UI/theme.tres" id="1_5s7n2"]
 [ext_resource type="Texture2D" uid="uid://b372ntj4adc1y" path="res://assets/harpoon.png" id="1_gsrlj"]
@@ -8,6 +8,11 @@
 [ext_resource type="Texture2D" uid="uid://dtld6fpy6fq7q" path="res://assets/UI/lantern/lantern light.png" id="4_x208v"]
 [ext_resource type="Texture2D" uid="uid://bnidey6eog8jv" path="res://assets/UI/lantern/lantern.png" id="5_h6kif"]
 [ext_resource type="Texture2D" uid="uid://bld7gn3u62kc1" path="res://assets/UI/lantern/lantern_hand.png" id="6_atmpj"]
+[ext_resource type="FontFile" uid="uid://qffrycpg4tvn" path="res://assets/UI/GermaniaOne-Regular.ttf" id="9_poidj"]
+[ext_resource type="StyleBox" uid="uid://dqjn6on0n6gt0" path="res://assets/UI/stylebox_empty.tres" id="10_td3vt"]
+[ext_resource type="StyleBox" uid="uid://c3j5ty81qpwwp" path="res://assets/UI/stylebox_line.tres" id="11_q08uq"]
+[ext_resource type="Script" uid="uid://f4s04sou2y0f" path="res://scenes/tuturial_label.gd" id="12_2ldtr"]
+[ext_resource type="PackedScene" uid="uid://duq2cd30vryrw" path="res://scenes/UI/vignette.tscn" id="13_poidj"]
 
 [node name="MainHud" type="Control"]
 layout_mode = 3
@@ -16,29 +21,6 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-
-[node name="HBoxContainer_cargo" type="HBoxContainer" parent="."]
-layout_mode = 0
-offset_left = 20.0
-offset_top = 20.0
-offset_right = 435.0
-offset_bottom = 73.0
-theme = ExtResource("1_5s7n2")
-theme_override_constants/separation = 30
-
-[node name="LABEL_cargo" type="Label" parent="HBoxContainer_cargo"]
-layout_mode = 2
-theme = ExtResource("1_5s7n2")
-text = "CARGO"
-
-[node name="ProgressBar_cargo" type="ProgressBar" parent="HBoxContainer_cargo"]
-custom_minimum_size = Vector2(0, 20)
-layout_mode = 2
-size_flags_horizontal = 3
-size_flags_vertical = 4
-theme = ExtResource("1_5s7n2")
-value = 100.0
-show_percentage = false
 
 [node name="Foreground_ctrl" type="Control" parent="."]
 layout_mode = 1
@@ -106,6 +88,28 @@ texture = ExtResource("6_atmpj")
 
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
 
+[node name="HBoxContainer_cargo" type="HBoxContainer" parent="CanvasLayer"]
+offset_left = 20.0
+offset_top = 20.0
+offset_right = 435.0
+offset_bottom = 73.0
+theme = ExtResource("1_5s7n2")
+theme_override_constants/separation = 30
+
+[node name="LABEL_cargo" type="Label" parent="CanvasLayer/HBoxContainer_cargo"]
+layout_mode = 2
+theme = ExtResource("1_5s7n2")
+text = "CARGO"
+
+[node name="ProgressBar_cargo" type="ProgressBar" parent="CanvasLayer/HBoxContainer_cargo"]
+custom_minimum_size = Vector2(0, 20)
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 4
+theme = ExtResource("1_5s7n2")
+value = 100.0
+show_percentage = false
+
 [node name="LABEL_cash" type="Label" parent="CanvasLayer"]
 anchors_preset = 1
 anchor_left = 1.0
@@ -126,3 +130,26 @@ offset_right = 1842.0
 offset_bottom = 1030.292
 theme = ExtResource("1_5s7n2")
 text = "AMMO: 0/0"
+
+[node name="TuturialLabel" type="RichTextLabel" parent="CanvasLayer"]
+anchors_preset = 12
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_top = -82.0
+grow_horizontal = 2
+grow_vertical = 0
+rotation = -8.74186e-05
+size_flags_horizontal = 4
+theme_override_fonts/normal_font = ExtResource("9_poidj")
+theme_override_font_sizes/normal_font_size = 70
+theme_override_styles/normal = ExtResource("10_td3vt")
+theme_override_styles/focus = ExtResource("11_q08uq")
+text = "Aim: Mouse     Shoot: Space/Click"
+fit_content = true
+horizontal_alignment = 1
+script = ExtResource("12_2ldtr")
+
+[node name="Vignette" parent="." instance=ExtResource("13_poidj")]
+layout_mode = 0
+anchors_preset = 0
