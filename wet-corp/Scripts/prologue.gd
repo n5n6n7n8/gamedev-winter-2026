@@ -28,6 +28,9 @@ func change_scene():
 	SceneTransition.change_scene_to_file(next_scene.resource_path)
 
 func _input(e:InputEvent) -> void:
+	if e is InputEventKey and e.pressed:
+		if (e.keycode == KEY_S):
+			SceneTransition.change_scene_to_file("res://scenes/main_scene.tscn")
 	if not skip_enabled:
 		return
 	

@@ -1,8 +1,9 @@
-[gd_scene load_steps=14 format=3 uid="uid://tm5cinokhjg2"]
+[gd_scene load_steps=15 format=3 uid="uid://tm5cinokhjg2"]
 
 [ext_resource type="Script" uid="uid://dnwl6wmvaiiks" path="res://Scripts/mainmenureal.gd" id="1_qwnig"]
 [ext_resource type="Texture2D" uid="uid://di4034ierdkcx" path="res://assets/UI/Title.png" id="2_5wm6h"]
 [ext_resource type="Theme" uid="uid://b6msyaccjcuf4" path="res://assets/UI/theme.tres" id="3_ivyv1"]
+[ext_resource type="PackedScene" uid="uid://duq2cd30vryrw" path="res://scenes/UI/vignette.tscn" id="4_vqjqd"]
 
 [sub_resource type="CanvasItemMaterial" id="CanvasItemMaterial_ivyv1"]
 blend_mode = 1
@@ -81,6 +82,7 @@ horizontal_alignment = 1
 vertical_alignment = 1
 
 [node name="Title" type="TextureRect" parent="."]
+modulate = Color(0.7816432, 0.7279858, 0.6185503, 1)
 layout_mode = 1
 anchors_preset = 8
 anchor_left = 0.5
@@ -135,10 +137,13 @@ text = "QUIT"
 
 [node name="RainParticles2D" type="GPUParticles2D" parent="."]
 material = SubResource("CanvasItemMaterial_ivyv1")
-amount = 500
+amount = 250
 preprocess = 0.5
 visibility_rect = Rect2(0, 0, 1920, 1080)
 process_material = SubResource("ParticleProcessMaterial_ivyv1")
+
+[node name="Vignette" parent="." instance=ExtResource("4_vqjqd")]
+layout_mode = 1
 
 [connection signal="pressed" from="VBoxContainer/BTN_start" to="." method="_on_btn_start_pressed"]
 [connection signal="pressed" from="VBoxContainer/BTN_credits" to="." method="_on_btn_credits_pressed"]

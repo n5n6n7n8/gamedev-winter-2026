@@ -1,4 +1,4 @@
-[gd_scene load_steps=35 format=3 uid="uid://c1foamfkt20o7"]
+[gd_scene load_steps=31 format=3 uid="uid://c1foamfkt20o7"]
 
 [ext_resource type="Script" uid="uid://bg5b8fnoe13h3" path="res://Scripts/PlayerActions.gd" id="1_pu3yx"]
 [ext_resource type="Texture2D" uid="uid://8d2tn4jarxf6" path="res://assets/image.jpg" id="1_rt2n2"]
@@ -15,11 +15,7 @@
 [ext_resource type="AudioStream" uid="uid://ck0f572g7t115" path="res://assets/SFX/FishDeathSound5.wav" id="11_to7gp"]
 [ext_resource type="AudioStream" uid="uid://biopouefnl6mc" path="res://assets/SFX/FishDeathSound6.wav" id="12_u0fll"]
 [ext_resource type="AudioStream" uid="uid://dj1xsbucwr7iu" path="res://assets/SFX/FishDeathSound7.wav" id="13_6p3nn"]
-[ext_resource type="FontFile" uid="uid://qffrycpg4tvn" path="res://assets/UI/GermaniaOne-Regular.ttf" id="15_6u1mn"]
 [ext_resource type="AudioStream" uid="uid://c4e630droagdp" path="res://assets/SFX/SeaAmbience2.mp3" id="15_k6f3i"]
-[ext_resource type="StyleBox" uid="uid://dqjn6on0n6gt0" path="res://assets/UI/stylebox_empty.tres" id="16_bcnxi"]
-[ext_resource type="StyleBox" uid="uid://c3j5ty81qpwwp" path="res://assets/UI/stylebox_line.tres" id="17_7nt27"]
-[ext_resource type="Script" uid="uid://f4s04sou2y0f" path="res://scenes/tuturial_label.gd" id="18_bcnxi"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_pw63i"]
 size = Vector2(93, 92.5)
@@ -171,25 +167,7 @@ bus = &"Ambience"
 [node name="UI" type="Node" parent="."]
 
 [node name="MainHud" parent="UI" instance=ExtResource("5_gubc5")]
-
-[node name="TuturialLabel" type="RichTextLabel" parent="UI"]
-anchors_preset = 12
-anchor_top = 1.0
-anchor_right = 1.0
-anchor_bottom = 1.0
-offset_top = -23.0
-grow_horizontal = 2
-grow_vertical = 0
-rotation = -8.74186e-05
-size_flags_horizontal = 4
-theme_override_fonts/normal_font = ExtResource("15_6u1mn")
-theme_override_font_sizes/normal_font_size = 70
-theme_override_styles/normal = ExtResource("16_bcnxi")
-theme_override_styles/focus = ExtResource("17_7nt27")
-text = "Aim: Mouse     Shoot: Space/Click"
-fit_content = true
-horizontal_alignment = 1
-script = ExtResource("18_bcnxi")
+z_index = 5
 
 [node name="ProgressBar" type="ProgressBar" parent="UI"]
 offset_left = 131.0
@@ -199,7 +177,7 @@ offset_bottom = 59.0
 
 [node name="RainParticles2D" type="GPUParticles2D" parent="."]
 material = SubResource("CanvasItemMaterial_si52b")
-amount = 500
+amount = 250
 preprocess = 0.5
 visibility_rect = Rect2(0, 0, 1920, 1080)
 process_material = SubResource("ParticleProcessMaterial_xdqt8")
