@@ -2,8 +2,9 @@
 
 [ext_resource type="Texture2D" uid="uid://dcxmriugoxei3" path="res://assets/redsnapper.png" id="2_nub35"]
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_7ykc4"]
-size = Vector2(141.5, 80)
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_wow6l"]
+radius = 29.017155
+height = 103.94657
 
 [node name="Fish" type="CharacterBody2D"]
 z_index = 3
@@ -16,4 +17,7 @@ flip_v = true
 [node name="Area2D" type="Area2D" parent="."]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
-shape = SubResource("RectangleShape2D_7ykc4")
+position = Vector2(15, -6)
+rotation = -1.5387354
+scale = Vector2(1.0532346, 1.2824097)
+shape = SubResource("CapsuleShape2D_wow6l")

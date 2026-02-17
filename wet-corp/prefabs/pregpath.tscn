@@ -1,7 +1,7 @@
-[gd_scene load_steps=5 format=3 uid="uid://bhgd61diaiwb7"]
+[gd_scene load_steps=5 format=3 uid="uid://b4otvrqkq5e2s"]
 
-[ext_resource type="Script" uid="uid://dqyeolh5gwhlp" path="res://Scripts/path_follow_2d.gd" id="1_oqwkj"]
-[ext_resource type="Texture2D" uid="uid://cnxhk2h6k4spj" path="res://assets/kissfish.png" id="2_oqwkj"]
+[ext_resource type="Script" uid="uid://dqyeolh5gwhlp" path="res://Scripts/path_follow_2d.gd" id="1_6do4t"]
+[ext_resource type="Texture2D" uid="uid://bwia7v7ihbqkb" path="res://assets/pregnant.png" id="2_6do4t"]
 
 [sub_resource type="Curve2D" id="Curve2D_gubc5"]
 _data = {
@@ -10,6 +10,7 @@ _data = {
 point_count = 3
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_s6mp6"]
+height = 37.661743
 
 [node name="Path2D" type="Path2D"]
 position = Vector2(-59.000015, 521)
@@ -19,20 +20,20 @@ curve = SubResource("Curve2D_gubc5")
 [node name="PathFollow2D" type="PathFollow2D" parent="."]
 position = Vector2(1198.2095, -9.192752)
 rotation = 2.5387313
-script = ExtResource("1_oqwkj")
+script = ExtResource("1_6do4t")
 speed = 0.3
 
 [node name="Sprite2D" type="Sprite2D" parent="PathFollow2D"]
 position = Vector2(-1.1484607, 0.7150995)
-scale = Vector2(0.07, 0.081)
-texture = ExtResource("2_oqwkj")
+scale = Vector2(0.1, 0.102)
+texture = ExtResource("2_6do4t")
 flip_h = true
 flip_v = true
 
 [node name="Area2D" type="Area2D" parent="PathFollow2D"]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="PathFollow2D/Area2D"]
-position = Vector2(-2.6979828, -1.1979468)
-rotation = 1.5512168
-scale = Vector2(3.3199797, 4.3482656)
+position = Vector2(16.90095, -9.094393)
+rotation = 1.5979359
+scale = Vector2(4.329501, 3.53533)
 shape = SubResource("CapsuleShape2D_s6mp6")
