@@ -6,7 +6,6 @@ var rng = RandomNumberGenerator.new()
 @onready var pfish = preload("res://prefabs/pufffishpath.tscn")
 @onready var kfish = preload("res://prefabs/kisspath.tscn")
 
-@export var isRhythm = false
 
 enum FishT {
 	SALMON,

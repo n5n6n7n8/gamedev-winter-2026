@@ -8,7 +8,6 @@ var health := 100
 var max_health := 100
 
 # Optional gameplay variables
-@export var isRhythm := false
 @onready var HarpoonFire = $HarpoonFire
 @onready var FishDeath = $FishDeath
 var currentMoney := 0
@@ -29,8 +28,7 @@ func game_over():
 
 # Example shooting/movement logic
 func _process(delta):
-	if not isRhythm:
-		position = get_global_mouse_position()
+	position = get_global_mouse_position()
 
 	if Input.is_action_just_pressed("Shoot"):
 		HarpoonFire.play()
