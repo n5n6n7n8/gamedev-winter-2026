@@ -7,7 +7,6 @@
 [ext_resource type="PackedScene" uid="uid://bx4h7m7lqk8vw" path="res://scenes/UI/main_hud.tscn" id="5_gubc5"]
 [ext_resource type="AudioStream" uid="uid://blh611v4kf851" path="res://assets/SFX/ShotEdit1.wav" id="5_k6f3i"]
 [ext_resource type="AudioStream" uid="uid://byrtv4kyci8p6" path="res://assets/SFX/ShotEdit2.wav" id="6_xdqt8"]
-[ext_resource type="AudioStream" uid="uid://cjwfruhyxuihf" path="res://assets/Music/Battle Song v2.mp3" id="7_c16ls"]
 [ext_resource type="AudioStream" uid="uid://dlxwim78sofrq" path="res://assets/SFX/FishDeathSound1.wav" id="7_k6f3i"]
 [ext_resource type="AudioStream" uid="uid://jk4q7kx5arn6" path="res://assets/SFX/FishDeathSound2.wav" id="8_xdqt8"]
 [ext_resource type="AudioStream" uid="uid://c44w5lsojt4wu" path="res://assets/SFX/FishDeathSound3.wav" id="9_adb74"]
@@ -15,6 +14,7 @@
 [ext_resource type="AudioStream" uid="uid://ck0f572g7t115" path="res://assets/SFX/FishDeathSound5.wav" id="11_to7gp"]
 [ext_resource type="AudioStream" uid="uid://biopouefnl6mc" path="res://assets/SFX/FishDeathSound6.wav" id="12_u0fll"]
 [ext_resource type="AudioStream" uid="uid://dj1xsbucwr7iu" path="res://assets/SFX/FishDeathSound7.wav" id="13_6p3nn"]
+[ext_resource type="AudioStream" uid="uid://dtkhgi0643sp8" path="res://assets/Music/Real Ship Song Loop 2.mp3" id="14_01n6w"]
 [ext_resource type="AudioStream" uid="uid://c4e630droagdp" path="res://assets/SFX/SeaAmbience2.mp3" id="15_k6f3i"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_pw63i"]
@@ -152,7 +152,7 @@ stream = SubResource("AudioStreamRandomizer_adb74")
 volume_db = -2.019
 
 [node name="BattleMusic" type="AudioStreamPlayer2D" parent="."]
-stream = ExtResource("7_c16ls")
+stream = ExtResource("14_01n6w")
 volume_db = 5.098
 autoplay = true
 bus = &"Music"

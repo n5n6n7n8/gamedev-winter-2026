@@ -1,0 +1,19 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+uid="uid://dtkhgi0643sp8"
+path="res://.godot/imported/Real Ship Song Loop 2.mp3-08064287707bb64c7ac190ac8efc184f.mp3str"
+
+[deps]
+
+source_file="res://assets/Music/Real Ship Song Loop 2.mp3"
+dest_files=["res://.godot/imported/Real Ship Song Loop 2.mp3-08064287707bb64c7ac190ac8efc184f.mp3str"]
+
+[params]
+
+loop=true
+loop_offset=0.0
+bpm=0.0
+beat_count=0
+bar_beats=4
