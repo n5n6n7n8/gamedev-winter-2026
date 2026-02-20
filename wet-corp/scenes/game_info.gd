@@ -1,9 +1,11 @@
 extends Node
 
 signal cargo_health_changed
+var max_cargo_heatlh : int = 100;
 var cargo_health : int = 100 :
 	set(value):
 		cargo_health_changed.emit()
+		cargo_health = value
 var cash : int = 0;
 var fish_ct : Dictionary = {
 	"red_snapper" : 0,
@@ -47,7 +49,8 @@ func add_fish_ct(fish:String):
 		push_error("key %s is not found in fish_ct" % fish)
 
 func take_dmg(val:int) -> void:
-	cargo_health -= val
+	self.cargo_health -= val
+	print(self.cargo_health)
 	if cargo_health <= 0:
 		print("Game Over")
 		get_tree().change_scene_to_file("res://scenes/end_scene_fail.tscn")

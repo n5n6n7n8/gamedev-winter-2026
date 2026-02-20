@@ -1,14 +1,17 @@
 extends ProgressBar
 
-@export var playeractions: Node = null  # broad type + initialized
+
 
 func _ready():
-	if playeractions == null:
-		print("PlayerActions node not assigned!")
-		return
+	self.max_value = GameInfo.max_cargo_heatlh
+	GameInfo	.cargo_health_changed.connect(_on_cargo_health_changed)
+	
+func _on_cargo_health_changed():
+	print("cargo health changed")
+	self.value = GameInfo.cargo_health
 
-	playeractions.health_changed.connect(update_bar)
-	update_bar()  # initial update
-
-func update_bar():
-	value = float(playeractions.health) / playeractions.max_health * 100.0
+#temp for debug stuff
+func _input(e):
+	if e is InputEventKey and e.pressed:
+		if (e.keycode == KEY_SPACE):
+			GameInfo.take_dmg(10)

@@ -12,7 +12,7 @@
 [ext_resource type="Script" uid="uid://c6odjh4icc8ir" path="res://Scripts/healthbar.gd" id="9_td3vt"]
 [ext_resource type="StyleBox" uid="uid://dqjn6on0n6gt0" path="res://assets/UI/stylebox_empty.tres" id="10_td3vt"]
 [ext_resource type="StyleBox" uid="uid://c3j5ty81qpwwp" path="res://assets/UI/stylebox_line.tres" id="11_q08uq"]
-[ext_resource type="Script" uid="uid://f4s04sou2y0f" path="res://Scripts/tuturial_label.gd" id="12_2ldtr"]
+[ext_resource type="Script" path="res://scenes/tuturial_label.gd" id="12_2ldtr"]
 [ext_resource type="PackedScene" uid="uid://duq2cd30vryrw" path="res://scenes/UI/vignette.tscn" id="13_poidj"]
 
 [node name="MainHud" type="Control"]
@@ -108,6 +108,7 @@ layout_mode = 2
 size_flags_horizontal = 3
 size_flags_vertical = 4
 theme = ExtResource("1_5s7n2")
+theme_override_font_sizes/font_size = 30
 value = 100.0
 script = ExtResource("9_td3vt")
 
