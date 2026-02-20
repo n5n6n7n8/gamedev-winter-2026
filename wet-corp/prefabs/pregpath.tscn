@@ -1,7 +1,8 @@
-[gd_scene load_steps=5 format=3 uid="uid://b4otvrqkq5e2s"]
+[gd_scene load_steps=6 format=3 uid="uid://b4otvrqkq5e2s"]
 
 [ext_resource type="Script" uid="uid://dqyeolh5gwhlp" path="res://Scripts/path_follow_2d.gd" id="1_6do4t"]
 [ext_resource type="Texture2D" uid="uid://bwia7v7ihbqkb" path="res://assets/pregnant.png" id="2_6do4t"]
+[ext_resource type="Curve" uid="uid://bnq1ujoh1a4cx" path="res://prefabs/salmonspeedcur.tres" id="2_doamw"]
 
 [sub_resource type="Curve2D" id="Curve2D_gubc5"]
 _data = {
@@ -22,6 +23,7 @@ position = Vector2(1198.2095, -9.192752)
 rotation = 2.5387313
 script = ExtResource("1_6do4t")
 speed = 0.3
+speed_curve = ExtResource("2_doamw")
 
 [node name="Sprite2D" type="Sprite2D" parent="PathFollow2D"]
 position = Vector2(-1.1484607, 0.7150995)

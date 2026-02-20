@@ -1,6 +1,7 @@
-[gd_scene load_steps=5 format=3 uid="uid://b2dn7ignnskmf"]
+[gd_scene load_steps=6 format=3 uid="uid://b2dn7ignnskmf"]
 
 [ext_resource type="Script" uid="uid://dqyeolh5gwhlp" path="res://Scripts/path_follow_2d.gd" id="1_biteo"]
+[ext_resource type="Curve" uid="uid://bnq1ujoh1a4cx" path="res://prefabs/salmonspeedcur.tres" id="2_2trpw"]
 [ext_resource type="Texture2D" uid="uid://c6thda3ubrine" path="res://assets/armored.png" id="2_biteo"]
 
 [sub_resource type="Curve2D" id="Curve2D_gubc5"]
@@ -23,6 +24,7 @@ position = Vector2(1190, 682)
 rotation = -2.4016852
 script = ExtResource("1_biteo")
 speed = 0.2
+speed_curve = ExtResource("2_2trpw")
 
 [node name="Sprite2D" type="Sprite2D" parent="PathFollow2D"]
 position = Vector2(-17.116724, -3.1627626)

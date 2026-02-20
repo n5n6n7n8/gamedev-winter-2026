@@ -1,6 +1,7 @@
-[gd_scene load_steps=4 format=3 uid="uid://dg1fgera6hcr"]
+[gd_scene load_steps=5 format=3 uid="uid://dg1fgera6hcr"]
 
 [ext_resource type="Script" uid="uid://dqyeolh5gwhlp" path="res://Scripts/path_follow_2d.gd" id="1_dxc1l"]
+[ext_resource type="Curve" uid="uid://bnq1ujoh1a4cx" path="res://prefabs/salmonspeedcur.tres" id="2_7wrem"]
 [ext_resource type="PackedScene" uid="uid://c12d6htyqn64x" path="res://prefabs/fish.tscn" id="2_8si4h"]
 
 [sub_resource type="Curve2D" id="Curve2D_gubc5"]
@@ -19,6 +20,7 @@ position = Vector2(1504.1622, 961.152)
 rotation = -2.187992
 script = ExtResource("1_dxc1l")
 speed = 0.3
+speed_curve = ExtResource("2_7wrem")
 
 [node name="Fish" parent="PathFollow2D" instance=ExtResource("2_8si4h")]
 scale = Vector2(1.5, 1.5)

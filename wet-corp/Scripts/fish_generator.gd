@@ -13,17 +13,16 @@ enum FishT {
 	ARMOR,
 	KISS,
 	PREGNANT,
-	PUFFER	
+	PUFFER
 }
 #wave 1: 15 ammo for 12 fish
 var typeArr = [FishT.SALMON, FishT.SALMON, FishT.SALMON, FishT.PUFFER, FishT.SALMON, FishT.ARMOR, FishT.KISS, FishT.SALMON, FishT.SALMON, FishT.PUFFER, FishT.PUFFER, FishT.SALMON]
-var timeArr = [1.0, 1.0, 0.5, 0.1, 1.5, 1.0, 1.0, 0.2, 0.2, 0.2, 1.0, 1.0]
+var timeArr = [1.0, 1.0, 1.0, 0.1, 1.5, 2.0, 1.0, 0.2, 1.0, 0.4, 1.0, 1.0]
 var index = 0
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
 	$Timer.wait_time = 3.0
 	$Timer.start()
-	
 
 
 func _on_timer_timeout() -> void:
