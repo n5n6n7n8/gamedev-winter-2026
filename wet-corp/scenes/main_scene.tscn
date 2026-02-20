@@ -169,12 +169,6 @@ bus = &"Ambience"
 [node name="MainHud" parent="UI" instance=ExtResource("5_gubc5")]
 z_index = 5
 
-[node name="ProgressBar" type="ProgressBar" parent="UI"]
-offset_left = 131.0
-offset_top = 32.0
-offset_right = 500.0
-offset_bottom = 59.0
-
 [node name="RainParticles2D" type="GPUParticles2D" parent="."]
 material = SubResource("CanvasItemMaterial_si52b")
 amount = 250

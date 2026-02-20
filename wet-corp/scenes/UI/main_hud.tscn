@@ -1,4 +1,4 @@
-[gd_scene load_steps=14 format=3 uid="uid://bx4h7m7lqk8vw"]
+[gd_scene load_steps=15 format=3 uid="uid://bx4h7m7lqk8vw"]
 
 [ext_resource type="Theme" uid="uid://b6msyaccjcuf4" path="res://assets/UI/theme.tres" id="1_5s7n2"]
 [ext_resource type="Texture2D" uid="uid://b372ntj4adc1y" path="res://assets/harpoon.png" id="1_gsrlj"]
@@ -9,6 +9,7 @@
 [ext_resource type="Texture2D" uid="uid://bnidey6eog8jv" path="res://assets/UI/lantern/lantern.png" id="5_h6kif"]
 [ext_resource type="Texture2D" uid="uid://bld7gn3u62kc1" path="res://assets/UI/lantern/lantern_hand.png" id="6_atmpj"]
 [ext_resource type="FontFile" uid="uid://qffrycpg4tvn" path="res://assets/UI/GermaniaOne-Regular.ttf" id="9_poidj"]
+[ext_resource type="Script" uid="uid://c6odjh4icc8ir" path="res://Scripts/healthbar.gd" id="9_td3vt"]
 [ext_resource type="StyleBox" uid="uid://dqjn6on0n6gt0" path="res://assets/UI/stylebox_empty.tres" id="10_td3vt"]
 [ext_resource type="StyleBox" uid="uid://c3j5ty81qpwwp" path="res://assets/UI/stylebox_line.tres" id="11_q08uq"]
 [ext_resource type="Script" uid="uid://f4s04sou2y0f" path="res://scenes/tuturial_label.gd" id="12_2ldtr"]
@@ -108,7 +109,7 @@ size_flags_horizontal = 3
 size_flags_vertical = 4
 theme = ExtResource("1_5s7n2")
 value = 100.0
-show_percentage = false
+script = ExtResource("9_td3vt")
 
 [node name="LABEL_cash" type="Label" parent="CanvasLayer"]
 anchors_preset = 1
