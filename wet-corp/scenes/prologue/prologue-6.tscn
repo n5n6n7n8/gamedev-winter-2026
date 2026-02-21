@@ -1,6 +1,6 @@
 [gd_scene load_steps=10 format=3 uid="uid://dnlamtcdumakd"]
 
-[ext_resource type="Script" uid="uid://boj01lavju5ti" path="res://Scripts/prologue.gd" id="1_pygg1"]
+[ext_resource type="Script" uid="uid://bk8fva1oi6mm0" path="res://Scripts/prologue/prologue_6.gd" id="1_i2vdg"]
 [ext_resource type="PackedScene" uid="uid://c1foamfkt20o7" path="res://scenes/main_scene.tscn" id="2_ddscc"]
 [ext_resource type="Texture2D" uid="uid://br83ieek5g3xr" path="res://icon.svg" id="2_orayh"]
 [ext_resource type="Texture2D" uid="uid://t7rfcf6uxdmc" path="res://assets/UI/anchor_crosshair_dark.png" id="3_ddscc"]
@@ -65,7 +65,7 @@ _data = {
 }
 
 [node name="Prologue6" type="Node"]
-script = ExtResource("1_pygg1")
+script = ExtResource("1_i2vdg")
 next_scene = ExtResource("2_ddscc")
 skip_timer_length = 3.0
 
@@ -93,7 +93,7 @@ mouse_filter = 2
 texture = ExtResource("2_orayh")
 
 [node name="TextureProgressBar" type="TextureProgressBar" parent="."]
-modulate = Color(1, 1, 1, 0.27450982)
+modulate = Color(1, 1, 1, 0.5882353)
 anchors_preset = 3
 anchor_left = 1.0
 anchor_top = 1.0

@@ -1,6 +1,6 @@
 [gd_scene load_steps=11 format=3 uid="uid://c3em5d0ldg16v"]
 
-[ext_resource type="Script" uid="uid://boj01lavju5ti" path="res://Scripts/prologue.gd" id="1_28igs"]
+[ext_resource type="Script" uid="uid://boj01lavju5ti" path="res://Scripts/prologue/prologue.gd" id="1_28igs"]
 [ext_resource type="PackedScene" uid="uid://dqqwe225kxukg" path="res://scenes/prologue/prologue-3.tscn" id="2_qm6is"]
 [ext_resource type="Texture2D" uid="uid://bmo2vlsvgu5vp" path="res://assets/Prologue/prologue-2.png" id="3_28igs"]
 [ext_resource type="Texture2D" uid="uid://t7rfcf6uxdmc" path="res://assets/UI/anchor_crosshair_dark.png" id="4_k0kqp"]
@@ -91,7 +91,7 @@ scale = Vector2(2, 2)
 texture = ExtResource("3_28igs")
 
 [node name="TextureProgressBar" type="TextureProgressBar" parent="."]
-modulate = Color(1, 1, 1, 0.27450982)
+modulate = Color(1, 1, 1, 0.5882353)
 anchors_preset = 3
 anchor_left = 1.0
 anchor_top = 1.0

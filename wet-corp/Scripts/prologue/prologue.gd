@@ -5,6 +5,7 @@ var skip_enabled : bool = false;
 @export var skip_timer_length : float = 1.0;
 
 func _ready() -> void:
+	print("readying prologue")
 	# create timer so user doesn't accidentally skip by clicking too early
 	var timer = get_tree().create_timer(skip_timer_length)
 	timer.connect("timeout", enable_skip)
@@ -19,6 +20,7 @@ func _ready() -> void:
 	enable_skip() #enable skip if animation finishes before timer
 	
 	
+	
 func enable_skip():
 	print("skip enabled")
 	skip_enabled = true;
@@ -30,6 +32,7 @@ func change_scene():
 func _input(e:InputEvent) -> void:
 	if e is InputEventKey and e.pressed:
 		if (e.keycode == KEY_S):
+			AudioPlayer.stop_audio()
 			SceneTransition.change_scene_to_file("res://scenes/main_scene.tscn")
 	if not skip_enabled:
 		return
