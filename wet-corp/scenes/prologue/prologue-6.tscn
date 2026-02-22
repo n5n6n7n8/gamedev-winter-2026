@@ -1,10 +1,12 @@
-[gd_scene load_steps=10 format=3 uid="uid://dnlamtcdumakd"]
+[gd_scene load_steps=12 format=3 uid="uid://dnlamtcdumakd"]
 
 [ext_resource type="Script" uid="uid://bk8fva1oi6mm0" path="res://Scripts/prologue/prologue_6.gd" id="1_i2vdg"]
 [ext_resource type="PackedScene" uid="uid://c1foamfkt20o7" path="res://scenes/main_scene.tscn" id="2_ddscc"]
-[ext_resource type="Texture2D" uid="uid://br83ieek5g3xr" path="res://icon.svg" id="2_orayh"]
 [ext_resource type="Texture2D" uid="uid://t7rfcf6uxdmc" path="res://assets/UI/anchor_crosshair_dark.png" id="3_ddscc"]
+[ext_resource type="Texture2D" uid="uid://dtoejwf8xd2y8" path="res://assets/Prologue/prologue-6-a.png" id="3_tfw8m"]
 [ext_resource type="Texture2D" uid="uid://blqy2nhfha8vo" path="res://assets/UI/anchor_crosshair_light.png" id="4_kcxtd"]
+[ext_resource type="Texture2D" uid="uid://c1kxffcukfdwf" path="res://assets/Prologue/prologue-6-b.png" id="4_tfw8m"]
+[ext_resource type="Texture2D" uid="uid://8bubm8bnyux3" path="res://assets/Prologue/prologue-6-foreground.png" id="5_nsg8r"]
 [ext_resource type="PackedScene" uid="uid://duq2cd30vryrw" path="res://scenes/UI/vignette.tscn" id="6_i2vdg"]
 
 [sub_resource type="Animation" id="Animation_kfe5f"]
@@ -12,24 +14,58 @@ resource_name = "RESET"
 tracks/0/type = "bezier"
 tracks/0/imported = false
 tracks/0/enabled = true
-tracks/0/path = NodePath("Control/Sprite2D:scale:x")
+tracks/0/path = NodePath("BG sprites:scale:x")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
-"handle_modes": PackedInt32Array(1),
+"handle_modes": PackedInt32Array(0),
 "points": PackedFloat32Array(1, -0.25, 0, 0.25, 0),
 "times": PackedFloat32Array(0)
 }
 tracks/1/type = "bezier"
 tracks/1/imported = false
 tracks/1/enabled = true
-tracks/1/path = NodePath("Control/Sprite2D:scale:y")
+tracks/1/path = NodePath("BG sprites:scale:y")
 tracks/1/interp = 1
 tracks/1/loop_wrap = true
 tracks/1/keys = {
-"handle_modes": PackedInt32Array(1),
+"handle_modes": PackedInt32Array(0),
 "points": PackedFloat32Array(1, -0.25, 0, 0.25, 0),
 "times": PackedFloat32Array(0)
+}
+tracks/2/type = "bezier"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("FG sprites:scale:x")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"handle_modes": PackedInt32Array(0),
+"points": PackedFloat32Array(1, -0.25, 0, 0.25, 0),
+"times": PackedFloat32Array(0)
+}
+tracks/3/type = "bezier"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("FG sprites:scale:y")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"handle_modes": PackedInt32Array(0),
+"points": PackedFloat32Array(1, -0.25, 0, 0.25, 0),
+"times": PackedFloat32Array(0)
+}
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("BG sprites/sprite-6b:visible")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
 }
 
 [sub_resource type="Animation" id="Animation_cd71f"]
@@ -38,24 +74,58 @@ length = 5.0
 tracks/0/type = "bezier"
 tracks/0/imported = false
 tracks/0/enabled = true
-tracks/0/path = NodePath("Control/Sprite2D:scale:x")
+tracks/0/path = NodePath("BG sprites:scale:x")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
-"handle_modes": PackedInt32Array(2, 2),
-"points": PackedFloat32Array(1, -0.24999273, -0.0005368262, 2.5333333, 0.0054399967, 2, -1.6916666, -0.0054403543, 0, 0),
-"times": PackedFloat32Array(0, 5)
+"handle_modes": PackedInt32Array(0, 0),
+"points": PackedFloat32Array(1, -0.25, 0, 0.25, 0, 1.1, -0.8333334, 0, 0, 0),
+"times": PackedFloat32Array(0, 1.3)
 }
 tracks/1/type = "bezier"
 tracks/1/imported = false
 tracks/1/enabled = true
-tracks/1/path = NodePath("Control/Sprite2D:scale:y")
+tracks/1/path = NodePath("BG sprites:scale:y")
 tracks/1/interp = 1
 tracks/1/loop_wrap = true
 tracks/1/keys = {
 "handle_modes": PackedInt32Array(0, 0),
-"points": PackedFloat32Array(1, -0.24999273, -0.0005368262, 2.5333333, 0.0054399967, 2, -1.6916666, -0.0054403543, 0, 0),
-"times": PackedFloat32Array(0, 4.9999995)
+"points": PackedFloat32Array(1, -0.25, 0, 0.25, 0, 1.1, -0.8333334, 0, 0, 0),
+"times": PackedFloat32Array(0, 1.3)
+}
+tracks/2/type = "bezier"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("FG sprites:scale:x")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"handle_modes": PackedInt32Array(0, 0),
+"points": PackedFloat32Array(1, -0.25, 0, 0.25, 0, 1.2, -0.21833333, 0, 0, 0),
+"times": PackedFloat32Array(0, 1.3)
+}
+tracks/3/type = "bezier"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("FG sprites:scale:y")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"handle_modes": PackedInt32Array(0, 0),
+"points": PackedFloat32Array(1, -0.25, 0, 0.25, 0, 1.2, -0.21833333, 0, 0, 0),
+"times": PackedFloat32Array(0, 1.3)
+}
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("BG sprites/sprite-6b:visible")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0, 1.7),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [false, true]
 }
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_bnu8o"]
@@ -74,23 +144,37 @@ libraries = {
 &"": SubResource("AnimationLibrary_bnu8o")
 }
 
-[node name="Control" type="Control" parent="."]
+[node name="BG sprites" type="Control" parent="."]
 layout_mode = 3
 anchors_preset = 8
 anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-offset_left = -20.0
-offset_top = -20.0
-offset_right = 20.0
-offset_bottom = 20.0
 grow_horizontal = 2
 grow_vertical = 2
 mouse_filter = 2
 
-[node name="Sprite2D" type="Sprite2D" parent="Control"]
-texture = ExtResource("2_orayh")
+[node name="sprite-6a" type="Sprite2D" parent="BG sprites"]
+texture = ExtResource("3_tfw8m")
+
+[node name="sprite-6b" type="Sprite2D" parent="BG sprites"]
+visible = false
+texture = ExtResource("4_tfw8m")
+
+[node name="FG sprites" type="Control" parent="."]
+layout_mode = 3
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+
+[node name="sprite-fg" type="Sprite2D" parent="FG sprites"]
+texture = ExtResource("5_nsg8r")
 
 [node name="TextureProgressBar" type="TextureProgressBar" parent="."]
 modulate = Color(1, 1, 1, 0.5882353)

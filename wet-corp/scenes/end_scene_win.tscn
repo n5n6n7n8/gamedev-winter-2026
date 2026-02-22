@@ -1,11 +1,13 @@
-[gd_scene load_steps=7 format=3 uid="uid://ci3uqd26hvklp"]
+[gd_scene load_steps=9 format=3 uid="uid://ci3uqd26hvklp"]
 
 [ext_resource type="Theme" uid="uid://b6msyaccjcuf4" path="res://assets/UI/theme.tres" id="1_pmyyf"]
-[ext_resource type="Script" uid="uid://0h7o5ftkiakn" path="res://scripts/end_scene_win.gd" id="1_qille"]
+[ext_resource type="Script" uid="uid://0h7o5ftkiakn" path="res://Scripts/end_scene_win.gd" id="1_qille"]
+[ext_resource type="Texture2D" uid="uid://ceki1cwujdnov" path="res://assets/UI/rusty wall texture.png" id="2_1i10k"]
 [ext_resource type="Texture2D" uid="uid://dj43nvnjgei4f" path="res://assets/UI/payslip.png" id="2_72nf0"]
 [ext_resource type="Texture2D" uid="uid://va4hta36uy10" path="res://assets/UI/bfisher_signature.png" id="3_qrmr5"]
 [ext_resource type="Texture2D" uid="uid://b74yiw1q8uuoh" path="res://assets/UI/gwarming_signature.png" id="4_s5n8d"]
 [ext_resource type="Texture2D" uid="uid://yax8ymhconnh" path="res://assets/UI/approved.png" id="5_24mdo"]
+[ext_resource type="PackedScene" uid="uid://duq2cd30vryrw" path="res://scenes/UI/vignette.tscn" id="8_rcm1l"]
 
 [node name="EndScene" type="Node"]
 script = ExtResource("1_qille")
@@ -17,6 +19,14 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 color = Color(0, 0, 0, 1)
+
+[node name="Rusty Wall Texture" type="TextureRect" parent="."]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("2_1i10k")
 
 [node name="VBoxContainer" type="VBoxContainer" parent="."]
 anchors_preset = 8
@@ -139,6 +149,8 @@ grow_vertical = 2
 theme_override_colors/font_color = Color(0, 0, 0, 1)
 text = "$10000"
 horizontal_alignment = 2
+
+[node name="Vignette" parent="." instance=ExtResource("8_rcm1l")]
 
 [connection signal="pressed" from="VBoxContainer/Button_play" to="." method="_on_button_play_pressed"]
 [connection signal="pressed" from="VBoxContainer/Button_quit" to="." method="_on_button_quit_pressed"]

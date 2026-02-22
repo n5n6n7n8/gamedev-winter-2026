@@ -1,3 +1,71 @@
-[gd_scene format=3 uid="uid://bbmg3huypn73f"]
+[gd_scene load_steps=6 format=3 uid="uid://bbmg3huypn73f"]
+
+[ext_resource type="Texture2D" uid="uid://ceki1cwujdnov" path="res://assets/UI/rusty wall texture.png" id="1_b3b45"]
+[ext_resource type="Texture2D" uid="uid://ct8v7ls85u1ye" path="res://assets/UI/termination-notice.png" id="1_w2caf"]
+[ext_resource type="Script" uid="uid://3leqy0m4hbki" path="res://Scripts/end_scene_fail.gd" id="1_y7g5o"]
+[ext_resource type="Theme" uid="uid://b6msyaccjcuf4" path="res://assets/UI/theme.tres" id="2_sq51v"]
+[ext_resource type="PackedScene" uid="uid://duq2cd30vryrw" path="res://scenes/UI/vignette.tscn" id="4_y7g5o"]
 
 [node name="EndSceneFail" type="Node"]
+script = ExtResource("1_y7g5o")
+
+[node name="ColorRect" type="ColorRect" parent="."]
+visible = false
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0, 0, 0, 1)
+
+[node name="Rusty Wall Texture" type="TextureRect" parent="."]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("1_b3b45")
+
+[node name="TextureRect" type="TextureRect" parent="."]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -298.0
+offset_top = -474.0
+offset_right = 453.0
+offset_bottom = 474.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("1_w2caf")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="."]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -678.0
+offset_top = -61.0
+offset_right = -345.0
+offset_bottom = 61.0
+grow_horizontal = 2
+grow_vertical = 2
+theme = ExtResource("2_sq51v")
+metadata/_edit_group_ = true
+
+[node name="Button_play" type="Button" parent="VBoxContainer"]
+layout_mode = 2
+theme = ExtResource("2_sq51v")
+text = "Play Again"
+
+[node name="Button_quit" type="Button" parent="VBoxContainer"]
+layout_mode = 2
+theme = ExtResource("2_sq51v")
+text = "QUIT"
+
+[node name="Vignette" parent="." instance=ExtResource("4_y7g5o")]
+
+[connection signal="pressed" from="VBoxContainer/Button_play" to="." method="_on_button_play_pressed"]
+[connection signal="pressed" from="VBoxContainer/Button_quit" to="." method="_on_button_quit_pressed"]
