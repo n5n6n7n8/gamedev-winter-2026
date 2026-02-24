@@ -1,12 +1,13 @@
 extends Node
 
 signal cargo_health_changed
+signal gain_cash
 var max_cargo_heatlh : int = 100;
 var cargo_health : int = 100 :
 	set(value):
 		cargo_health_changed.emit()
 		cargo_health = value
-var cash : int = 0;
+var cash : int = 0 ;
 var fish_ct : Dictionary = {
 	"red_snapper" : 0,
 	"pufferfish" : 0,
@@ -34,13 +35,6 @@ var fish_dmg : Dictionary = {
 	"babyfish" : 0.5
 }
 
-# Called when the node enters the scene tree for the first time.
-func _ready() -> void:
-	pass # Replace with function body.
-
-# Called every frame. 'delta' is the elapsed time since the previous frame.
-func _process(delta: float) -> void:
-	pass
 
 func add_fish_ct(fish:String):
 	if fish_ct.find_key(fish):
@@ -48,13 +42,25 @@ func add_fish_ct(fish:String):
 	else:
 		push_error("key %s is not found in fish_ct" % fish)
 
+func add_cash(fish:String):
+	cash += fish_price[fish]
+	gain_cash.emit()
+
+
 func take_dmg(val:int) -> void:
 	self.cargo_health -= val
-	print(self.cargo_health)
+	print("Cargo health: ", self.cargo_health)
 	if cargo_health <= 0:
 		print("Game Over")
 		get_tree().change_scene_to_file("res://scenes/end_scene_fail.tscn")
 	return
+	
+func heal(val:int) -> void:
+	if(self.cargo_health + val > max_cargo_heatlh):
+		self.cargo_health = max_cargo_heatlh
+	else:
+		self.cargo_health += val
+	print("Cargo health: ", self.cargo_health)
 	
 func reset() -> void:
 	fish_ct = {

@@ -1,8 +1,8 @@
-[gd_scene load_steps=5 format=3 uid="uid://dg1fgera6hcr"]
+[gd_scene load_steps=6 format=3 uid="uid://dg1fgera6hcr"]
 
 [ext_resource type="Script" uid="uid://dqyeolh5gwhlp" path="res://Scripts/path_follow_2d.gd" id="1_dxc1l"]
 [ext_resource type="Curve" uid="uid://bnq1ujoh1a4cx" path="res://prefabs/salmonspeedcur.tres" id="2_7wrem"]
-[ext_resource type="PackedScene" uid="uid://c12d6htyqn64x" path="res://prefabs/fish.tscn" id="2_8si4h"]
+[ext_resource type="Texture2D" uid="uid://dcxmriugoxei3" path="res://assets/redsnapper.png" id="3_8si4h"]
 
 [sub_resource type="Curve2D" id="Curve2D_gubc5"]
 _data = {
@@ -10,8 +10,12 @@ _data = {
 }
 point_count = 8
 
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_7wrem"]
+radius = 27.869568
+height = 132.23413
+
 [node name="Path2D" type="Path2D"]
-position = Vector2(349.99997, -75)
+position = Vector2(300, 0)
 scale = Vector2(1.0869839, 1.3088461)
 curve = SubResource("Curve2D_gubc5")
 
@@ -22,5 +26,14 @@ script = ExtResource("1_dxc1l")
 speed = 0.3
 speed_curve = ExtResource("2_7wrem")
 
-[node name="Fish" parent="PathFollow2D" instance=ExtResource("2_8si4h")]
-scale = Vector2(1.5, 1.5)
+[node name="Sprite2D" type="Sprite2D" parent="PathFollow2D"]
+scale = Vector2(0.2, 0.2)
+texture = ExtResource("3_8si4h")
+flip_v = true
+
+[node name="Area2D" type="Area2D" parent="PathFollow2D"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="PathFollow2D/Area2D"]
+position = Vector2(15.112311, -2.8124623)
+rotation = -1.6161749
+shape = SubResource("CapsuleShape2D_7wrem")

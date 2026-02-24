@@ -2,13 +2,16 @@
 
 [ext_resource type="Script" uid="uid://dqyeolh5gwhlp" path="res://Scripts/path_follow_2d.gd" id="1_23d5e"]
 [ext_resource type="Texture2D" uid="uid://d4blwqko2ocw7" path="res://assets/pufferfish.png" id="2_23d5e"]
-[ext_resource type="Curve" uid="uid://bnq1ujoh1a4cx" path="res://prefabs/salmonspeedcur.tres" id="2_whhvx"]
 
 [sub_resource type="Curve2D" id="Curve2D_gubc5"]
 _data = {
 "points": PackedVector2Array(0, 0, 0, 0, 516.0105, 595.2307, -5.3959517, 55.95402, 5.3959517, -55.95402, 461.83862, 416.7381, 3.083401, 70.10332, -3.083401, -70.10332, 537.1284, 250.5025, 0, 47.593075, 0, -47.593075, 471.0203, 69.7117, 0, 0, 0, 0, 549.0646, -132.52884)
 }
 point_count = 5
+
+[sub_resource type="Curve" id="Curve_23d5e"]
+_data = [Vector2(0, 1), 0.0, 0.0, 0, 0, Vector2(0.53816795, 0.88081205), 0.0, 0.0, 0, 0, Vector2(1, 0.7318271), 0.0, 0.0, 0, 0]
+point_count = 3
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_whhvx"]
 radius = 65.04126
@@ -23,7 +26,7 @@ position = Vector2(516.0105, 595.2307)
 rotation = -2.0232742
 script = ExtResource("1_23d5e")
 speed = 0.3
-speed_curve = ExtResource("2_whhvx")
+speed_curve = SubResource("Curve_23d5e")
 
 [node name="Sprite2D" type="Sprite2D" parent="PathFollow2D"]
 position = Vector2(-1.090348, 0.49087113)

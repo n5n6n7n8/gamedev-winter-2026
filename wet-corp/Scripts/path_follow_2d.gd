@@ -10,4 +10,5 @@ var tspeed = speed
 func _physics_process(delta: float) -> void:
 	tspeed = speed * speed_curve.sample(progress_ratio)
 	progress_ratio += delta * tspeed
-	
+	if(progress_ratio>=0.95):
+		self.get_parent().queue_free()
