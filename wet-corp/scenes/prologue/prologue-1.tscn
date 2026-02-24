@@ -6,7 +6,7 @@
 [ext_resource type="Texture2D" uid="uid://t7rfcf6uxdmc" path="res://assets/UI/anchor_crosshair_dark.png" id="4_phnaa"]
 [ext_resource type="Texture2D" uid="uid://blqy2nhfha8vo" path="res://assets/UI/anchor_crosshair_light.png" id="5_byvry"]
 [ext_resource type="PackedScene" uid="uid://duq2cd30vryrw" path="res://scenes/UI/vignette.tscn" id="6_wv543"]
-[ext_resource type="AudioStream" uid="uid://brtorlhm63ne2" path="res://assets/Music/Intro Piano Long.mp3" id="7_54hvj"]
+[ext_resource type="AudioStream" uid="uid://c00luo34cy0ht" path="res://assets/Music/ProloguePianoLoopNEW.mp3" id="7_54hvj"]
 
 [sub_resource type="Animation" id="Animation_kfe5f"]
 resource_name = "RESET"

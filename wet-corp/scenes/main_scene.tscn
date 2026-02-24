@@ -14,7 +14,7 @@
 [ext_resource type="AudioStream" uid="uid://ck0f572g7t115" path="res://assets/SFX/FishDeathSound5.wav" id="11_to7gp"]
 [ext_resource type="AudioStream" uid="uid://biopouefnl6mc" path="res://assets/SFX/FishDeathSound6.wav" id="12_u0fll"]
 [ext_resource type="AudioStream" uid="uid://dj1xsbucwr7iu" path="res://assets/SFX/FishDeathSound7.wav" id="13_6p3nn"]
-[ext_resource type="AudioStream" uid="uid://dtkhgi0643sp8" path="res://assets/Music/Real Ship Song Loop 2.mp3" id="14_01n6w"]
+[ext_resource type="AudioStream" uid="uid://4s6op6n12rc2" path="res://assets/Music/GameplayMusic.mp3" id="14_01n6w"]
 [ext_resource type="AudioStream" uid="uid://c4e630droagdp" path="res://assets/SFX/SeaAmbience2.mp3" id="15_k6f3i"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_pw63i"]
@@ -153,7 +153,7 @@ volume_db = -2.019
 
 [node name="BattleMusic" type="AudioStreamPlayer2D" parent="."]
 stream = ExtResource("14_01n6w")
-volume_db = 5.098
+volume_db = 9.098
 autoplay = true
 bus = &"Music"
 parameters/looping = true

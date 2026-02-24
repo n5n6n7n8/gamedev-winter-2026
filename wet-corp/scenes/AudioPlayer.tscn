@@ -1,8 +1,12 @@
-[gd_scene load_steps=2 format=3 uid="uid://s1l7t6k5kf1g"]
+[gd_scene load_steps=3 format=3 uid="uid://s1l7t6k5kf1g"]
 
-[ext_resource type="Script" uid="uid://ri4lsu6eaeec" path="res://scripts/audio_player.gd" id="1_hs2ye"]
+[ext_resource type="Script" uid="uid://ri4lsu6eaeec" path="res://Scripts/audio_player.gd" id="1_hs2ye"]
+[ext_resource type="AudioStream" uid="uid://bbaeqlefi4win" path="res://assets/Music/PrologueInstLoopNEW.mp3" id="2_3qxq0"]
 
 [node name="AudioPlayer" type="Node"]
 script = ExtResource("1_hs2ye")
 
 [node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("2_3qxq0")
+volume_db = 12.787
+bus = &"Music"
