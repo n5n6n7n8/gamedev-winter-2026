@@ -3,7 +3,7 @@ extends ProgressBar
 
 
 func _ready():
-	self.max_value = GameInfo.max_cargo_heatlh
+	self.max_value = GameInfo.max_cargo_health
 	GameInfo	.cargo_health_changed.connect(_on_cargo_health_changed)
 	
 func _on_cargo_health_changed():

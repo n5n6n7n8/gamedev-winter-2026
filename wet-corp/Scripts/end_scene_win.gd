@@ -12,17 +12,32 @@ func _ready() -> void:
 	# example of how to instantiate payslip row.
 	# might have to create a "resource" / global variable to track num of fish + total earnings
 	# then use that "resource" / global to programmically add rows
-	add_earnings_row("this is a test", 100)
-	add_earnings_row("this is test 2", 100)
-	add_deductions_row("this is a deduction test", 5000)
 	
+	#loop over all fish in GameInfo and add as rows, skip if fish count is 0
+	for fish_name in GameInfo.fish_ct.keys():
+		var fish_count = GameInfo.fish_ct[fish_name]
+		var fish_price = GameInfo.fish_price[fish_name]
+		var earnings = fish_count * fish_price
+		if earnings != 0:
+			var description = fish_name.replace("_", " ") + " x" + str(fish_count)
+			add_earnings_row(description, earnings)
+	
+	#cargo dmg is worth -100 per hp lost
+	var cargo_damage = -100 * (100-GameInfo.cargo_health)
+	if cargo_damage != 0:
+		add_deductions_row("cargo damage", cargo_damage)
+		#subtract money from global cash
+		GameInfo.cash -= cargo_damage
+		
+	# total amount of money
+	$Label_gross_earnings.text = "$ " + str(GameInfo.cash)
 	start_approved_timer()
 	return
 
 
 func add_earnings_row(description:String, amount:int) -> void:
 	#do nothing if there are too many, to prevent UI from looking weird
-	if deductions_current_items > deductions_max_items:
+	if earnings_current_items >= earnings_max_items:
 		return
 	#create new instance of payslip_container and add it to vbox_earnings
 	var container_instance = payslip_row.instantiate()
@@ -34,7 +49,7 @@ func add_earnings_row(description:String, amount:int) -> void:
 	
 func add_deductions_row(description:String, amount:int):
 	#do nothing if there are too many, to prevent UI from looking weird
-	if deductions_current_items > deductions_max_items:
+	if deductions_current_items >= deductions_max_items:
 		return
 	#create new instance of container and add it to vbox_deductions
 	var container_instance = payslip_row.instantiate()
@@ -58,4 +73,5 @@ func _on_button_quit_pressed() -> void:
 
 #replay level
 func _on_button_play_pressed() -> void:
+	GameInfo.reset()
 	SceneTransition.change_scene_to_file("res://scenes/main_scene.tscn")

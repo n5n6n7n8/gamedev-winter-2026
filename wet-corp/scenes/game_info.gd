@@ -2,14 +2,14 @@ extends Node
 
 signal cargo_health_changed
 signal gain_cash
-var max_cargo_heatlh : int = 100;
+var max_cargo_health : int = 100;
 var cargo_health : int = 100 :
 	set(value):
 		cargo_health_changed.emit()
 		cargo_health = value
 var cash : int = 0 ;
 var fish_ct : Dictionary = {
-	"red_snapper" : 0,
+	"red_snapper" : 10,
 	"pufferfish" : 0,
 	"kissy_fish" : 0,
 	"armored_fish" : 0,
@@ -23,7 +23,7 @@ var fish_price : Dictionary = {
 	"kissy_fish" : 0,
 	"armored_fish" : 100_000,
 	"pregnant_fish" : 80_000,
-	"babyfish" : 5_000
+	"baby_fish" : 5_000
 }
 
 var fish_dmg : Dictionary = {
@@ -32,12 +32,12 @@ var fish_dmg : Dictionary = {
 	"kissy_fish" : 0,
 	"armored_fish" : 10,
 	"pregnant_fish" : 8,
-	"babyfish" : 0.5
+	"baby_fish" : 0.5
 }
 
 
 func add_fish_ct(fish:String):
-	if fish_ct.find_key(fish):
+	if fish_ct.has(fish):
 		fish_ct[fish] += 1;
 	else:
 		push_error("key %s is not found in fish_ct" % fish)
@@ -52,12 +52,12 @@ func take_dmg(val:int) -> void:
 	print("Cargo health: ", self.cargo_health)
 	if cargo_health <= 0:
 		print("Game Over")
-		get_tree().change_scene_to_file("res://scenes/end_scene_fail.tscn")
+		SceneTransition.change_scene_to_file("res://scenes/end_scene_fail.tscn")
 	return
 	
 func heal(val:int) -> void:
-	if(self.cargo_health + val > max_cargo_heatlh):
-		self.cargo_health = max_cargo_heatlh
+	if(self.cargo_health + val > max_cargo_health):
+		self.cargo_health = max_cargo_health
 	else:
 		self.cargo_health += val
 	print("Cargo health: ", self.cargo_health)
