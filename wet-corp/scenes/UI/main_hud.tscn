@@ -145,7 +145,6 @@ grow_horizontal = 2
 grow_vertical = 0
 rotation = -8.74186e-05
 size_flags_horizontal = 4
-theme_override_colors/default_color = Color(0.78039217, 0.7294118, 0.61960787, 1)
 theme_override_fonts/normal_font = ExtResource("9_poidj")
 theme_override_font_sizes/normal_font_size = 70
 theme_override_styles/normal = ExtResource("10_td3vt")
