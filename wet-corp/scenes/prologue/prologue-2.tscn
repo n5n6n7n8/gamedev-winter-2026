@@ -1,4 +1,4 @@
-[gd_scene load_steps=11 format=3 uid="uid://c3em5d0ldg16v"]
+[gd_scene load_steps=12 format=3 uid="uid://c3em5d0ldg16v"]
 
 [ext_resource type="Script" uid="uid://boj01lavju5ti" path="res://Scripts/prologue/prologue.gd" id="1_28igs"]
 [ext_resource type="PackedScene" uid="uid://dqqwe225kxukg" path="res://scenes/prologue/prologue-3.tscn" id="2_qm6is"]
@@ -7,6 +7,7 @@
 [ext_resource type="Texture2D" uid="uid://blqy2nhfha8vo" path="res://assets/UI/anchor_crosshair_light.png" id="5_i738g"]
 [ext_resource type="PackedScene" uid="uid://duq2cd30vryrw" path="res://scenes/UI/vignette.tscn" id="6_qm6is"]
 [ext_resource type="AudioStream" uid="uid://bgrb8gcs4aynl" path="res://assets/Music/PrologueViolinLoopNEW.mp3" id="7_k8qjg"]
+[ext_resource type="AudioStream" uid="uid://hr7tba1j8wrw" path="res://assets/Voiceovers/Prologue2_War.mp3" id="8_k0kqp"]
 
 [sub_resource type="Animation" id="Animation_kfe5f"]
 resource_name = "RESET"
@@ -113,4 +114,11 @@ texture_progress = ExtResource("5_i738g")
 
 [node name="ViolinLoop" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("7_k8qjg")
+volume_db = -4.77
 autoplay = true
+bus = &"Music"
+
+[node name="Voiceover2" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("8_k0kqp")
+autoplay = true
+bus = &"Dialogue"

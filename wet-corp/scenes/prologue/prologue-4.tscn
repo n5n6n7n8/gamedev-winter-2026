@@ -1,4 +1,4 @@
-[gd_scene load_steps=10 format=3 uid="uid://ctx5o5w1babve"]
+[gd_scene load_steps=11 format=3 uid="uid://ctx5o5w1babve"]
 
 [ext_resource type="Script" uid="uid://boj01lavju5ti" path="res://Scripts/prologue/prologue.gd" id="1_jnpym"]
 [ext_resource type="PackedScene" uid="uid://cl7m6eu76ucx6" path="res://scenes/prologue/prologue-5.tscn" id="2_nbg1m"]
@@ -6,6 +6,7 @@
 [ext_resource type="Texture2D" uid="uid://dwrs2ttu3jviw" path="res://assets/Prologue/prologue-4.png" id="3_rok0v"]
 [ext_resource type="Texture2D" uid="uid://blqy2nhfha8vo" path="res://assets/UI/anchor_crosshair_light.png" id="4_qjjj8"]
 [ext_resource type="PackedScene" uid="uid://duq2cd30vryrw" path="res://scenes/UI/vignette.tscn" id="6_rok0v"]
+[ext_resource type="AudioStream" uid="uid://c4oufh53xqx5g" path="res://assets/Voiceovers/Prologue4_Fish.mp3" id="7_xohwh"]
 
 [sub_resource type="Animation" id="Animation_kfe5f"]
 resource_name = "RESET"
@@ -152,3 +153,8 @@ texture_under = ExtResource("3_jfcrc")
 texture_progress = ExtResource("4_qjjj8")
 
 [node name="Vignette" parent="." instance=ExtResource("6_rok0v")]
+
+[node name="Voiceover4" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("7_xohwh")
+autoplay = true
+bus = &"Dialogue"

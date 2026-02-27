@@ -1,4 +1,4 @@
-[gd_scene load_steps=12 format=3 uid="uid://dnlamtcdumakd"]
+[gd_scene load_steps=13 format=3 uid="uid://dnlamtcdumakd"]
 
 [ext_resource type="Script" uid="uid://bk8fva1oi6mm0" path="res://Scripts/prologue/prologue_6.gd" id="1_i2vdg"]
 [ext_resource type="PackedScene" uid="uid://c1foamfkt20o7" path="res://scenes/main_scene.tscn" id="2_ddscc"]
@@ -8,6 +8,7 @@
 [ext_resource type="Texture2D" uid="uid://c1kxffcukfdwf" path="res://assets/Prologue/prologue-6-b.png" id="4_tfw8m"]
 [ext_resource type="Texture2D" uid="uid://8bubm8bnyux3" path="res://assets/Prologue/prologue-6-foreground.png" id="5_nsg8r"]
 [ext_resource type="PackedScene" uid="uid://duq2cd30vryrw" path="res://scenes/UI/vignette.tscn" id="6_i2vdg"]
+[ext_resource type="AudioStream" uid="uid://c3g1c6fakv5a4" path="res://assets/Voiceovers/TimingTest3.mp3" id="9_jd87q"]
 
 [sub_resource type="Animation" id="Animation_kfe5f"]
 resource_name = "RESET"
@@ -196,3 +197,8 @@ texture_under = ExtResource("3_ddscc")
 texture_progress = ExtResource("4_kcxtd")
 
 [node name="Vignette" parent="." instance=ExtResource("6_i2vdg")]
+
+[node name="Voiceover6" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("9_jd87q")
+autoplay = true
+bus = &"Dialogue"

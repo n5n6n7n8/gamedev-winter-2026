@@ -9,7 +9,6 @@ var max_health := 100
 
 #Ammo variables n stuff
 const maxBulletCount = 15
-var canShoot = true
 var bulletCount = maxBulletCount
 var ammoCount = 45
 
@@ -36,8 +35,7 @@ var currentMoney := 0
 func _process(delta):
 	position = get_global_mouse_position()
 
-	if Input.is_action_just_pressed("Shoot") && canShoot && bulletCount > 0:
-		#canShoot = false
+	if Input.is_action_just_pressed("Shoot") && bulletCount > 0:
 		bulletCount -= 1
 		HarpoonFire.play()
 		if has_overlapping_areas():
@@ -60,17 +58,8 @@ func _input(e:InputEvent) -> void:
 	if e is InputEventKey and e.pressed:
 		if (e.keycode == KEY_R) && bulletCount == 0:
 			bulletCount += 15
-			print(bulletCount)
+			print("Reloaded!")
 
-func _reload(): 
-	var reloadCount = maxBulletCount - bulletCount
-	
-	if ammoCount >= reloadCount:
-		bulletCount += reloadCount
-		ammoCount -= reloadCount
-	else:
-		bulletCount += ammoCount
-		ammoCount = 0
 
 func _add_fish_to_gameinfo(s:String) -> void:
 	GameInfo.add_fish_ct(s)
