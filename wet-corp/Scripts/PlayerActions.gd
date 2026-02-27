@@ -6,6 +6,7 @@ signal health_changed  # signal for HealthBar
 # Health variables
 var health := 100
 var max_health := 100
+var test = 0
 
 #Ammo variables n stuff
 const maxBulletCount = 15
@@ -28,7 +29,6 @@ func take_damage(amount):
 
 	if health <= 0:
 		print("GAME OVER")
-		#game_over()
 
  #Called when player dies (there's already a game over function in game_info)
 #func game_over():
