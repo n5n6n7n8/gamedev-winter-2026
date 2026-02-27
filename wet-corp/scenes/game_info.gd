@@ -54,6 +54,10 @@ func take_dmg(val:int) -> void:
 		print("Game Over")
 		SceneTransition.change_scene_to_file("res://scenes/end_scene_fail.tscn")
 	return
+
+func take_dmg_by_fish(name: String) -> void:
+	take_dmg(fish_dmg[name])
+	return
 	
 func heal(val:int) -> void:
 	if(self.cargo_health + val > max_cargo_health):
