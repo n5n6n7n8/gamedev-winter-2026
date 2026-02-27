@@ -73,5 +73,4 @@ func _on_button_quit_pressed() -> void:
 
 #replay level
 func _on_button_play_pressed() -> void:
-	GameInfo.reset()
-	SceneTransition.change_scene_to_file("res://scenes/main_scene.tscn")
+	GameInfo.start_game()

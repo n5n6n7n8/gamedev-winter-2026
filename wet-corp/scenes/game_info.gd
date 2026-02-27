@@ -8,8 +8,9 @@ var cargo_health : int = 100 :
 		cargo_health_changed.emit()
 		cargo_health = value
 var cash : int = 0 ;
+@onready var timer = $"Game Timer"
 var fish_ct : Dictionary = {
-	"red_snapper" : 10,
+	"red_snapper" : 0,
 	"pufferfish" : 0,
 	"kissy_fish" : 0,
 	"armored_fish" : 0,
@@ -34,6 +35,10 @@ var fish_dmg : Dictionary = {
 	"pregnant_fish" : 8,
 	"baby_fish" : 0.5
 }
+
+func _ready() -> void:
+	self.timer.timeout.connect(end_game_win)
+	pass
 
 
 func add_fish_ct(fish:String):
@@ -64,11 +69,25 @@ func heal(val:int) -> void:
 	
 func reset() -> void:
 	fish_ct = {
-		"red_snapper" : 0,
-		"pufferfish" : 0,
-		"kiss_fish" : 0,
-		"armored_fish" : 0,
-		};
+	"red_snapper" : 0,
+	"pufferfish" : 0,
+	"kissy_fish" : 0,
+	"armored_fish" : 0,
+	"pregnant_fish" : 0,
+	"baby_fish" : 0
+	}
 	cash = 0;
 	cargo_health = 100;
 	return
+
+func end_game_win() -> void:
+	SceneTransition.change_scene_to_file("res://scenes/end_scene_win.tscn")
+	
+func end_game_lose() -> void:
+	SceneTransition.change_scene_to_file("res://scenes/end_scene_fail.tscn")
+	
+func start_game() -> void:
+	self.reset()
+	SceneTransition.change_scene_to_file("res://scenes/main_scene.tscn")
+	self.timer.start()
+	
