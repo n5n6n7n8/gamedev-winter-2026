@@ -5,8 +5,9 @@ signal gain_cash
 var max_cargo_health : int = 100;
 var cargo_health : int = 100 :
 	set(value):
-		cargo_health_changed.emit()
 		cargo_health = value
+		cargo_health_changed.emit()
+
 var cash : int = 0 ;
 var fish_ct : Dictionary = {
 	"red_snapper" : 10,
