@@ -5,8 +5,9 @@ signal gain_cash
 var max_cargo_health : int = 100;
 var cargo_health : int = 100 :
 	set(value):
-		cargo_health_changed.emit()
 		cargo_health = value
+		cargo_health_changed.emit()
+
 var cash : int = 0 ;
 @onready var timer = $"Game Timer"
 var fish_ct : Dictionary = {
@@ -58,6 +59,10 @@ func take_dmg(val:int) -> void:
 	if cargo_health <= 0:
 		print("Game Over")
 		SceneTransition.change_scene_to_file("res://scenes/end_scene_fail.tscn")
+	return
+
+func take_dmg_by_fish(name: String) -> void:
+	take_dmg(fish_dmg[name])
 	return
 	
 func heal(val:int) -> void:
