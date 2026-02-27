@@ -1,6 +1,6 @@
 extends Control
 
-@onready var ship_sprites = [$"Ship-1", $"Ship-2", $"Ship-3", $"Ship-4", $"Ship-5",$"Ship-6"]
+@onready var ship_sprites = [$"Ship-1",$"Ship-1_2", $"Ship-2", $"Ship-3", $"Ship-4", $"Ship-5"]
 var elapsed = 0;
 var y_scale = 15;
 var loop_speed = 0.75;
@@ -22,6 +22,6 @@ func update_visible_ship():
 		child.visible = false
 	
 	#get sprite index based on cargo health
-	var current_ship_sprite = 5 - ((5 * (GameInfo.cargo_health)) / 100)
+	var current_ship_sprite = (ship_sprites.size()-1) - (((ship_sprites.size()-1) * (GameInfo.cargo_health)) / 100)
 	ship_sprites[current_ship_sprite].visible = true
 	print("change ship sprite to:", current_ship_sprite)
