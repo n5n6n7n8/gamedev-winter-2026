@@ -8,15 +8,16 @@ var rng = RandomNumberGenerator.new()
 
 
 enum FishT {
-	SALMON,
+	RED,
 	ARMOR,
 	KISS,
 	PREGNANT,
 	PUFFER
 }
 #wave 1: 15 ammo for 12 fish
-var typeArr = [FishT.SALMON, FishT.SALMON, FishT.SALMON, FishT.PUFFER, FishT.SALMON, FishT.ARMOR, FishT.KISS, FishT.SALMON, FishT.SALMON, FishT.PUFFER, FishT.PUFFER, FishT.SALMON]
-var timeArr = [1.0, 1.0, 1.0, 0.1, 1.5, 2.0, 1.0, 0.2, 1.0, 0.4, 1.0, 1.0]
+var typeArr = [FishT.RED, FishT.RED, FishT.RED, FishT.RED, FishT.PUFFER, FishT.RED, FishT.RED, FishT.RED, FishT.RED, FishT.ARMOR, FishT.PUFFER, FishT.PUFFER, FishT.ARMOR, FishT.ARMOR, FishT.RED, FishT.KISS]
+#first line: wave 1, second line: wave 2, etc
+var timeArr = [2.0, 5.0, 0.5, 5.0, 0.1, 4.0, 0.5, 0.1, 4.0, 5.0, 4.0, 4.0, 1.0, 8.0,       2.0]
 var index = 0
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
@@ -25,10 +26,10 @@ func _ready() -> void:
 
 
 func _on_timer_timeout() -> void:
-	if(index == 12):
+	if(index == 16):
 		return
 	match typeArr[index]:
-		FishT.SALMON:
+		FishT.RED:
 			var fishIns = regfish.instantiate()
 			#var toScale = rng.randf_range(1.3, 1.6)
 			#fishIns.get_node("PathFollow2D/Fish").scale = Vector2(toScale,toScale)

@@ -5,9 +5,15 @@ extends PathFollow2D
 var tspeed = speed
 var fish_name = "none"
 
+#ONLY USE ON ARMOR FISH
+var fish_health = 0
 # Called when the node enters the scene tree for the first time.
 
+func _ready():
+	if(fish_name == "armor_fish"):
+		fish_health = 3
 
+	
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _physics_process(delta: float) -> void:
 	tspeed = speed * speed_curve.sample(progress_ratio)
