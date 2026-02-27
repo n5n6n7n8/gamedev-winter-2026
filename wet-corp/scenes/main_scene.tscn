@@ -1,4 +1,4 @@
-[gd_scene load_steps=38 format=3 uid="uid://c1foamfkt20o7"]
+[gd_scene load_steps=37 format=3 uid="uid://c1foamfkt20o7"]
 
 [ext_resource type="Script" uid="uid://bg5b8fnoe13h3" path="res://Scripts/PlayerActions.gd" id="1_pu3yx"]
 [ext_resource type="Texture2D" uid="uid://8d2tn4jarxf6" path="res://assets/image.jpg" id="1_rt2n2"]
@@ -17,12 +17,11 @@
 [ext_resource type="AudioStream" uid="uid://4s6op6n12rc2" path="res://assets/Music/GameplayMusic.mp3" id="14_01n6w"]
 [ext_resource type="AudioStream" uid="uid://c4e630droagdp" path="res://assets/SFX/SeaAmbience2.mp3" id="15_k6f3i"]
 [ext_resource type="Script" uid="uid://3gbo5gjycfg4" path="res://Scripts/ship_anchor.gd" id="17_58gk3"]
-[ext_resource type="Texture2D" uid="uid://c21npsei56sj8" path="res://assets/Ship/ship_1.png" id="17_adb74"]
-[ext_resource type="Texture2D" uid="uid://bna4x1d2tys3y" path="res://assets/Ship/ship_2.png" id="18_58gk3"]
-[ext_resource type="Texture2D" uid="uid://n3mftegcp4vd" path="res://assets/Ship/ship_3.png" id="19_to7gp"]
-[ext_resource type="Texture2D" uid="uid://tsj4n420cj8y" path="res://assets/Ship/ship_4.png" id="20_u0fll"]
-[ext_resource type="Texture2D" uid="uid://crxn7thj1eua8" path="res://assets/Ship/ship_5.png" id="21_6p3nn"]
-[ext_resource type="Texture2D" uid="uid://dgoray47fw7q4" path="res://assets/Ship/ship_6.png" id="22_k67gn"]
+[ext_resource type="Texture2D" uid="uid://efs3wb00q65j" path="res://assets/Ship/Stage_1.png" id="18_adb74"]
+[ext_resource type="Texture2D" uid="uid://7kta2btsfdos" path="res://assets/Ship/Stage_2.png" id="19_58gk3"]
+[ext_resource type="Texture2D" uid="uid://dpt3rmj1u24ng" path="res://assets/Ship/Stage_3.png" id="20_to7gp"]
+[ext_resource type="Texture2D" uid="uid://byou7otq7d4kw" path="res://assets/Ship/Stage_4.png" id="21_u0fll"]
+[ext_resource type="Texture2D" uid="uid://q7bmotqsuspm" path="res://assets/Ship/Stage_5.png" id="22_6p3nn"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_pw63i"]
 size = Vector2(93, 92.5)
@@ -193,27 +192,26 @@ script = ExtResource("17_58gk3")
 metadata/_edit_group_ = true
 
 [node name="Ship-1" type="Sprite2D" parent="Ship MainAnchor/Ship OffsetAnchor"]
-texture = ExtResource("17_adb74")
+texture = ExtResource("18_adb74")
+
+[node name="Ship-1_2" type="Sprite2D" parent="Ship MainAnchor/Ship OffsetAnchor"]
+texture = ExtResource("18_adb74")
 
 [node name="Ship-2" type="Sprite2D" parent="Ship MainAnchor/Ship OffsetAnchor"]
 visible = false
-texture = ExtResource("18_58gk3")
+texture = ExtResource("19_58gk3")
 
 [node name="Ship-3" type="Sprite2D" parent="Ship MainAnchor/Ship OffsetAnchor"]
 visible = false
-texture = ExtResource("19_to7gp")
+texture = ExtResource("20_to7gp")
 
 [node name="Ship-4" type="Sprite2D" parent="Ship MainAnchor/Ship OffsetAnchor"]
 visible = false
-texture = ExtResource("20_u0fll")
+texture = ExtResource("21_u0fll")
 
 [node name="Ship-5" type="Sprite2D" parent="Ship MainAnchor/Ship OffsetAnchor"]
 visible = false
-texture = ExtResource("21_6p3nn")
-
-[node name="Ship-6" type="Sprite2D" parent="Ship MainAnchor/Ship OffsetAnchor"]
-visible = false
-texture = ExtResource("22_k67gn")
+texture = ExtResource("22_6p3nn")
 
 [node name="RainParticles2D" type="GPUParticles2D" parent="."]
 material = SubResource("CanvasItemMaterial_si52b")
