@@ -6,7 +6,6 @@ signal health_changed  # signal for HealthBar
 # Health variables
 var health := 100
 var max_health := 100
-var test = 0
 
 #Ammo variables n stuff
 const maxBulletCount = 15
