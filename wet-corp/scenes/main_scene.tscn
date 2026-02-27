@@ -1,4 +1,4 @@
-[gd_scene load_steps=41 format=3 uid="uid://c1foamfkt20o7"]
+[gd_scene load_steps=38 format=3 uid="uid://c1foamfkt20o7"]
 
 [ext_resource type="Script" uid="uid://bg5b8fnoe13h3" path="res://Scripts/PlayerActions.gd" id="1_pu3yx"]
 [ext_resource type="Texture2D" uid="uid://8d2tn4jarxf6" path="res://assets/image.jpg" id="1_rt2n2"]
@@ -64,15 +64,6 @@ Vector2i(0, 0): {
 "to_time": 1
 }
 }
-
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_01n6w"]
-size = Vector2(59.85, 169.79999)
-
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_6u1mn"]
-size = Vector2(81.97499, 16.574986)
-
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_bcnxi"]
-size = Vector2(131.19998, 20.699997)
 
 [sub_resource type="CanvasItemMaterial" id="CanvasItemMaterial_si52b"]
 blend_mode = 1
@@ -178,27 +169,6 @@ bus = &"Ambience"
 
 [node name="MainHud" parent="UI" instance=ExtResource("5_gubc5")]
 z_index = 5
-
-[node name="temp" type="Area2D" parent="."]
-visible = false
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="temp"]
-visible = false
-position = Vector2(-362.25, 673)
-scale = Vector2(10, 10)
-shape = SubResource("RectangleShape2D_01n6w")
-
-[node name="CollisionShape2D2" type="CollisionShape2D" parent="temp"]
-visible = false
-position = Vector2(204, 1421.0001)
-scale = Vector2(10, 10)
-shape = SubResource("RectangleShape2D_6u1mn")
-
-[node name="CollisionShape2D3" type="CollisionShape2D" parent="temp"]
-visible = false
-position = Vector2(571, -201.00002)
-scale = Vector2(10, 10)
-shape = SubResource("RectangleShape2D_bcnxi")
 
 [node name="Ship MainAnchor" type="Control" parent="."]
 layout_mode = 3

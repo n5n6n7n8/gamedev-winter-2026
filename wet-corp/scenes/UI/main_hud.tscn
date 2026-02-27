@@ -1,4 +1,4 @@
-[gd_scene load_steps=16 format=3 uid="uid://bx4h7m7lqk8vw"]
+[gd_scene load_steps=17 format=3 uid="uid://bx4h7m7lqk8vw"]
 
 [ext_resource type="Theme" uid="uid://b6msyaccjcuf4" path="res://assets/UI/theme.tres" id="1_5s7n2"]
 [ext_resource type="Texture2D" uid="uid://b372ntj4adc1y" path="res://assets/harpoon.png" id="1_gsrlj"]
@@ -12,6 +12,7 @@
 [ext_resource type="Script" uid="uid://c6odjh4icc8ir" path="res://Scripts/healthbar.gd" id="9_td3vt"]
 [ext_resource type="Script" uid="uid://c8kvd427tcvm6" path="res://Scripts/label_cash.gd" id="10_q08uq"]
 [ext_resource type="StyleBox" uid="uid://dqjn6on0n6gt0" path="res://assets/UI/stylebox_empty.tres" id="10_td3vt"]
+[ext_resource type="Script" uid="uid://c4ntt7jnx8v43" path="res://Scripts/label_ammo.gd" id="11_2ldtr"]
 [ext_resource type="StyleBox" uid="uid://c3j5ty81qpwwp" path="res://assets/UI/stylebox_line.tres" id="11_q08uq"]
 [ext_resource type="Script" uid="uid://f4s04sou2y0f" path="res://Scripts/tuturial_label.gd" id="12_2ldtr"]
 [ext_resource type="PackedScene" uid="uid://duq2cd30vryrw" path="res://scenes/UI/vignette.tscn" id="13_poidj"]
@@ -134,6 +135,7 @@ offset_right = 1842.0
 offset_bottom = 1030.292
 theme = ExtResource("1_5s7n2")
 text = "AMMO: 0/0"
+script = ExtResource("11_2ldtr")
 
 [node name="TuturialLabel" type="RichTextLabel" parent="CanvasLayer"]
 anchors_preset = 12

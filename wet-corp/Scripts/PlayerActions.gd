@@ -17,18 +17,22 @@ var ammoCount = 45
 @onready var FishDeath = $FishDeath
 var currentMoney := 0
 
-## Take damage function
-#func take_damage(amount):
-	#health -= amount
-	#health = clamp(health, 0, max_health)
-	#health_changed.emit()  # notify HealthBar
-#
-	#if health <= 0:
+@onready var ammotext = $"../UI/MainHud/CanvasLayer/LABEL_ammo"
+func _ready() -> void:
+	_set_ammo_text()
+# Take damage function
+func take_damage(amount):
+	health -= amount
+	health = clamp(health, 0, max_health)
+	health_changed.emit()  # notify HealthBar
+
+	if health <= 0:
+		print("GAME OVER")
 		#game_over()
 
-# Called when player dies
+ #Called when player dies (there's already a game over function in game_info)
 #func game_over():
-	#print("GAME OVER")
+	#
 	#get_tree().reload_current_scene()
 
 # Example shooting/movement logic
@@ -37,6 +41,7 @@ func _process(delta):
 
 	if Input.is_action_just_pressed("Shoot") && bulletCount > 0:
 		bulletCount -= 1
+		_set_ammo_text()
 		HarpoonFire.play()
 		if has_overlapping_areas():
 			FishDeath.play()
@@ -58,8 +63,15 @@ func _input(e:InputEvent) -> void:
 	if e is InputEventKey and e.pressed:
 		if (e.keycode == KEY_R) && bulletCount == 0:
 			bulletCount += 15
+			_set_ammo_text()
 			print("Reloaded!")
 
+ #Optional testing: press space to take damage
+	if e.is_action_pressed("ui_accept"):  # usually Space
+		take_damage(10)
+
+func _set_ammo_text() -> void:
+	ammotext.text = "Ammo: " + str(bulletCount) + " / " + str(maxBulletCount)
 
 func _add_fish_to_gameinfo(s:String) -> void:
 	GameInfo.add_fish_ct(s)
@@ -67,8 +79,3 @@ func _add_fish_to_gameinfo(s:String) -> void:
 	print("added ", s, " to fish collection")
 
 	
-
-# Optional testing: press space to take damage
-#func _input(event):
-	#if event.is_action_pressed("ui_accept"):  # usually Space
-		#take_damage(10)
