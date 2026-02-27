@@ -65,6 +65,11 @@ func _input(e:InputEvent) -> void:
 			bulletCount += 15
 			_set_ammo_text()
 			print("Reloaded!")
+	if Input.is_action_just_pressed("ui_accept"): # spacebar
+		trigger_explosion(global_position)
+	if e is InputEventKey:
+			trigger_explosion(get_global_mouse_position()) # spawns at mouse cursor
+			
 
  #Optional testing: press space to take damage
 	if e.is_action_pressed("ui_accept"):  # usually Space
@@ -77,5 +82,11 @@ func _add_fish_to_gameinfo(s:String) -> void:
 	GameInfo.add_fish_ct(s)
 	GameInfo.add_cash(s)
 	print("added ", s, " to fish collection")
+@onready var explosion: CPUParticles2D = $"../Explosion"
+func trigger_explosion(pos: Vector2):
+	explosion.global_position = pos
+	explosion.restart()
 
-	
+func _on_body_entered(body):
+		get_parent().trigger_explosion(global_position)
+		queue_free()
