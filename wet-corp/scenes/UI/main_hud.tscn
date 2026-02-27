@@ -1,4 +1,4 @@
-[gd_scene load_steps=17 format=3 uid="uid://bx4h7m7lqk8vw"]
+[gd_scene load_steps=18 format=3 uid="uid://bx4h7m7lqk8vw"]
 
 [ext_resource type="Theme" uid="uid://b6msyaccjcuf4" path="res://assets/UI/theme.tres" id="1_5s7n2"]
 [ext_resource type="Texture2D" uid="uid://b372ntj4adc1y" path="res://assets/harpoon.png" id="1_gsrlj"]
@@ -8,6 +8,7 @@
 [ext_resource type="Texture2D" uid="uid://dtld6fpy6fq7q" path="res://assets/UI/lantern/lantern light.png" id="4_x208v"]
 [ext_resource type="Texture2D" uid="uid://bnidey6eog8jv" path="res://assets/UI/lantern/lantern.png" id="5_h6kif"]
 [ext_resource type="Texture2D" uid="uid://bld7gn3u62kc1" path="res://assets/UI/lantern/lantern_hand.png" id="6_atmpj"]
+[ext_resource type="Script" uid="uid://dpwqwj0nv4p88" path="res://Scripts/progress_bar_lantern.gd" id="7_gwlba"]
 [ext_resource type="FontFile" uid="uid://qffrycpg4tvn" path="res://assets/UI/GermaniaOne-Regular.ttf" id="9_poidj"]
 [ext_resource type="Script" uid="uid://c6odjh4icc8ir" path="res://Scripts/healthbar.gd" id="9_td3vt"]
 [ext_resource type="Script" uid="uid://c8kvd427tcvm6" path="res://Scripts/label_cash.gd" id="10_q08uq"]
@@ -78,6 +79,7 @@ value = 100.0
 fill_mode = 3
 texture_under = ExtResource("3_pmty0")
 texture_progress = ExtResource("4_x208v")
+script = ExtResource("7_gwlba")
 
 [node name="Lantern" type="Sprite2D" parent="Foreground_ctrl/Ctrl_lantern/Lantern"]
 position = Vector2(147, 470)
