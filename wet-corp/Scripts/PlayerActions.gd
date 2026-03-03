@@ -20,6 +20,7 @@ var currentMoney := 0
 @onready var ammotext = $"../UI/MainHud/CanvasLayer/LABEL_ammo"
 func _ready() -> void:
 	_set_ammo_text()
+	
 # Take damage function
 func take_damage(amount):
 	health -= amount

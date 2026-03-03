@@ -70,11 +70,11 @@ position = Vector2(80, -960)
 scale = Vector2(1.5, 1.5)
 
 [node name="ProgressBar_Lantern" type="TextureProgressBar" parent="Foreground_ctrl/Ctrl_lantern/Lantern"]
-offset_left = 92.0
+offset_left = 94.666664
 offset_top = 450.0
-offset_right = 297.0
+offset_right = 299.66666
 offset_bottom = 744.0
-scale = Vector2(0.55, 0.55)
+scale = Vector2(0.50991803, 0.50991803)
 value = 100.0
 fill_mode = 3
 texture_under = ExtResource("3_pmty0")
