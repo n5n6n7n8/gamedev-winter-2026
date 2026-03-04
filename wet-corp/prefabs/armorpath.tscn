@@ -23,7 +23,7 @@ curve = SubResource("Curve2D_gubc5")
 position = Vector2(1190, 682)
 rotation = -2.4016852
 script = ExtResource("1_biteo")
-speed = 0.2
+speed = 0.15
 speed_curve = ExtResource("2_2trpw")
 
 [node name="Sprite2D" type="Sprite2D" parent="PathFollow2D"]

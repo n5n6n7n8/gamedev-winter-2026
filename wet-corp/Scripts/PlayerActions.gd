@@ -48,6 +48,7 @@ func _input(e:InputEvent) -> void:
 			trigger_explosion(get_global_mouse_position())
 			FishDeath.play()
 			for f in get_overlapping_areas():
+				var fi = f.get_parent()
 				var fish = f.get_parent().get_parent()
 				if fish.is_in_group("red_snapper"):
 					_add_fish_to_gameinfo("red_snapper")
@@ -59,7 +60,13 @@ func _input(e:InputEvent) -> void:
 					_add_fish_to_gameinfo("kissy_fish")
 				else:
 					print("error finding fish!!!")
-				fish.queue_free()
+					return
+				fi.take_damage()
+				if(fi.kissy):
+					#on kissy fish shot
+					GameInfo.heal(15)
+				if(fi.should_die()):
+					fish.queue_free()
 	elif e.is_action_pressed("Reload") && bulletCount <= 0:
 		bulletCount += 15
 		_set_ammo_text()

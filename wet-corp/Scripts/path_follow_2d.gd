@@ -11,11 +11,15 @@ var fish_health = 0
 var kissy = false
 
 func update_after_instantiation():
-	if(fish_name == "armor_fish"):
+	if(fish_name == "armored_fish"):
 		fish_health = 3
 	if(fish_name == "kissy_fish"):
 		kissy = true
-
+func take_damage():
+	fish_health -= 1
+func should_die() -> bool:
+	print("fish health is ", fish_health)
+	return fish_health <= 0
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _physics_process(delta: float) -> void:
 	tspeed = speed * speed_curve.sample(progress_ratio)
