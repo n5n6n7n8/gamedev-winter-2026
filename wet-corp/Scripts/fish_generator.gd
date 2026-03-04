@@ -14,10 +14,16 @@ enum FishT {
 	PREGNANT,
 	PUFFER
 }
-#wave 1: 15 ammo for 12 fish
-var typeArr = [FishT.RED, FishT.RED, FishT.RED, FishT.RED, FishT.PUFFER, FishT.RED, FishT.RED, FishT.RED, FishT.RED, FishT.ARMOR, FishT.PUFFER, FishT.PUFFER, FishT.ARMOR, FishT.ARMOR, FishT.RED, FishT.KISS]
+#wave 1: 18 ammo for 14 fish
+#wave 2: 20 ammo for 15 fish
+#wave 3: 20 ammo for 18 fish
+var typeArr = [FishT.RED, FishT.RED, FishT.RED, FishT.RED, FishT.PUFFER, FishT.RED, FishT.RED, FishT.RED, FishT.RED, FishT.ARMOR, FishT.PUFFER, FishT.PUFFER, FishT.ARMOR, FishT.ARMOR, FishT.RED]
+var typeArr2 = [FishT.RED, FishT.RED, FishT.RED, FishT.RED, FishT.PUFFER, FishT.RED, FishT.RED, FishT.RED, FishT.RED, FishT.ARMOR, FishT.PUFFER, FishT.PUFFER, FishT.ARMOR, FishT.ARMOR, FishT.RED, FishT.PUFFER]
+var typeArr3 = [FishT.RED, FishT.RED, FishT.RED, FishT.RED, FishT.PUFFER, FishT.RED, FishT.RED, FishT.RED, FishT.RED, FishT.ARMOR, FishT.PUFFER, FishT.PUFFER, FishT.ARMOR, FishT.ARMOR, FishT.RED, FishT.PUFFER, FishT.RED, FishT.ARMOR, FishT.ARMOR]
 #first line: wave 1, second line: wave 2, etc
-var timeArr = [2.0, 5.0, 0.5, 5.0, 0.1, 4.0, 0.5, 0.1, 4.0, 5.0, 4.0, 4.0, 1.0, 8.0,       2.0]
+var timeArr = [2.0, 5.0, 0.5, 5.0, 0.1, 4.0, 0.5, 0.1, 4.0, 5.0, 4.0, 4.0, 1.0, 8.0]
+var timeArr2 = [2.0, 5.0, 0.5, 5.0, 0.1, 4.0, 0.5, 0.1, 4.0, 5.0, 4.0, 4.0, 1.0, 8.0, 2.0]
+var timeArr3 = [2.0, 5.0, 0.5, 5.0, 0.1, 4.0, 0.5, 0.1, 4.0, 5.0, 4.0, 4.0, 1.0, 8.0, 2.0, 1.0, 1.0, 0.3]
 var index = 0
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
@@ -26,7 +32,7 @@ func _ready() -> void:
 
 
 func _on_timer_timeout() -> void:
-	if(index == 12):
+	if(index == 15):
 		return
 	match typeArr[index]:
 		FishT.RED:
