@@ -1,4 +1,4 @@
-[gd_scene load_steps=43 format=3 uid="uid://c1foamfkt20o7"]
+[gd_scene load_steps=44 format=3 uid="uid://c1foamfkt20o7"]
 
 [ext_resource type="Script" uid="uid://bg5b8fnoe13h3" path="res://Scripts/PlayerActions.gd" id="1_pu3yx"]
 [ext_resource type="Texture2D" uid="uid://dgpb3wyp7nqfu" path="res://assets/UI/MainBG/lighthouse.png" id="1_to7gp"]
@@ -6,6 +6,7 @@
 [ext_resource type="Script" uid="uid://bxa1qvj2rsdcj" path="res://Scripts/mainscenebackground.gd" id="2_6p3nn"]
 [ext_resource type="Script" uid="uid://mrfdnvo6mgd0" path="res://Scripts/fish_generator.gd" id="2_c16ls"]
 [ext_resource type="Texture2D" uid="uid://blqy2nhfha8vo" path="res://assets/UI/anchor_crosshair_light.png" id="2_pw63i"]
+[ext_resource type="VideoStream" uid="uid://cpkedrfejmv3c" path="res://assets/UI/MainBG/fog1.ogv" id="4_k67gn"]
 [ext_resource type="PackedScene" uid="uid://bx4h7m7lqk8vw" path="res://scenes/UI/main_hud.tscn" id="5_gubc5"]
 [ext_resource type="AudioStream" uid="uid://blh611v4kf851" path="res://assets/SFX/ShotEdit1.wav" id="5_k6f3i"]
 [ext_resource type="AudioStream" uid="uid://byrtv4kyci8p6" path="res://assets/SFX/ShotEdit2.wav" id="6_xdqt8"]
@@ -129,7 +130,7 @@ editor_description = "1920x1080"
 
 [node name="Background" type="Node2D" parent="."]
 
-[node name="VideoStreamPlayer" type="VideoStreamPlayer" parent="Background"]
+[node name="SkyVid" type="VideoStreamPlayer" parent="Background"]
 offset_right = 40.0
 offset_bottom = 40.0
 scale = Vector2(3, 3)
@@ -142,6 +143,18 @@ script = ExtResource("2_6p3nn")
 position = Vector2(981.0002, 526.25006)
 scale = Vector2(0.91296303, 0.91327167)
 texture = ExtResource("1_to7gp")
+
+[node name="VideoStreamPlayer" type="VideoStreamPlayer" parent="Background"]
+modulate = Color(18.892157, 18.892157, 18.892157, 0.11372549)
+offset_left = -71.99999
+offset_top = -2.9999695
+offset_right = 568.0
+offset_bottom = 477.00003
+scale = Vector2(3.5, 3.5)
+stream = ExtResource("4_k67gn")
+speed_scale = 0.579
+autoplay = true
+loop = true
 
 [node name="FishGenerator" type="Node2D" parent="."]
 position = Vector2(5, -5)
