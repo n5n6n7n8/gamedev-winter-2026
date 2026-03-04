@@ -1,0 +1,19 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+uid="uid://c5cawt4g1ka60"
+path="res://.godot/imported/Win Stinger.mp3-c4abdb90677ce58489d059149596e95a.mp3str"
+
+[deps]
+
+source_file="res://assets/Music/Win Stinger.mp3"
+dest_files=["res://.godot/imported/Win Stinger.mp3-c4abdb90677ce58489d059149596e95a.mp3str"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

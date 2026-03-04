@@ -61,7 +61,7 @@ func add_deductions_row(description:String, amount:int):
 	
 # make "approved" show up after 3 seconds
 func start_approved_timer() -> void:
-	await get_tree().create_timer(5.0).timeout
+	await get_tree().create_timer(2.0).timeout
 	var tween = get_tree().create_tween()
 	tween.tween_property($TextureRect_approved, "modulate:a", 1.0, 1.5 ) \
 			.set_trans(Tween.TRANS_EXPO)

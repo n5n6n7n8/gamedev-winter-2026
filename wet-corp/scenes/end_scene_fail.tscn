@@ -71,6 +71,7 @@ text = "QUIT"
 [node name="ambience" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("6_sbj1v")
 autoplay = true
+bus = &"Music"
 
 [connection signal="pressed" from="VBoxContainer/Button_play" to="." method="_on_button_play_pressed"]
 [connection signal="pressed" from="VBoxContainer/Button_quit" to="." method="_on_button_quit_pressed"]
