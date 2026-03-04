@@ -32,7 +32,7 @@ func _ready() -> void:
 
 
 func _on_timer_timeout() -> void:
-	if(index == 15):
+	if(index == 13):
 		return
 	match typeArr[index]:
 		FishT.RED:
@@ -41,19 +41,29 @@ func _on_timer_timeout() -> void:
 			#fishIns.get_node("PathFollow2D/Fish").scale = Vector2(toScale,toScale)
 			#fishIns.get_node("PathFollow2D").speed = toScale - 1.0
 			fishIns.add_to_group("red_snapper")
+			fishIns.get_node("PathFollow2D").fish_name = "red_snapper"
+			fishIns.get_node("PathFollow2D").update_after_instantiation()
 			add_child(fishIns)
 			
 		FishT.PUFFER:
 			var pIns = pfish.instantiate()
 			pIns.add_to_group("pufferfish")
+			
+			pIns.get_node("PathFollow2D").fish_name = "pufferfish"
+			pIns.get_node("PathFollow2D").update_after_instantiation()
 			add_child(pIns)
 		FishT.ARMOR:
 			var aIns = afish.instantiate()
 			aIns.add_to_group("armored_fish")
+			aIns.get_node("PathFollow2D").fish_name = "armored_fish"
+			aIns.get_node("PathFollow2D").update_after_instantiation()
 			add_child(aIns)
 		FishT.KISS:
 			var kIns = kfish.instantiate()
 			kIns.add_to_group("kissy_fish")
+			
+			kIns.get_node("PathFollow2D").fish_name = "kissy_fish"
+			kIns.get_node("PathFollow2D").update_after_instantiation()
 			add_child(kIns)
 		_:
 			print("Fish_generator.gd: ENUM DID NOT MATCH")

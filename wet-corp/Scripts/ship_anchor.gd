@@ -22,6 +22,6 @@ func update_visible_ship():
 		child.visible = false
 	
 	#get sprite index based on cargo health
-	var current_ship_sprite = (ship_sprites.size()-1) - (((ship_sprites.size()-1) * (GameInfo.cargo_health)) / 100)
+	var current_ship_sprite = (ship_sprites.size()-1) - (((ship_sprites.size()-1) * (GameInfo.cargo_health)) / 100.0)
 	ship_sprites[current_ship_sprite].visible = true
 	print("change ship sprite to:", current_ship_sprite)

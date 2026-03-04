@@ -36,14 +36,16 @@ func take_damage(amount):
 	#get_tree().reload_current_scene()
 
 # Example shooting/movement logic
-func _process(delta):
+func _process(_delta):
 	position = get_global_mouse_position()
 
-	if Input.is_action_just_pressed("Shoot") && bulletCount > 0:
+func _input(e:InputEvent) -> void:
+	if e.is_action_pressed("Shoot"):
 		bulletCount -= 1
 		_set_ammo_text()
 		HarpoonFire.play()
 		if has_overlapping_areas():
+			trigger_explosion(get_global_mouse_position())
 			FishDeath.play()
 			for f in get_overlapping_areas():
 				var fish = f.get_parent().get_parent()
@@ -59,21 +61,19 @@ func _process(delta):
 					print("error finding fish!!!")
 				fish.queue_free()
 
-func _input(e:InputEvent) -> void:
-	if e is InputEventKey and e.pressed:
-		if (e.keycode == KEY_R) && bulletCount == 0:
+		if e.is_action_pressed("Reload") && bulletCount == 0:
 			bulletCount += 15
 			_set_ammo_text()
 			print("Reloaded!")
-	if Input.is_action_just_pressed("ui_accept"): # spacebar
-		trigger_explosion(global_position)
-	if e is InputEventKey:
-			trigger_explosion(get_global_mouse_position()) # spawns at mouse cursor
+	#if Input.is_action_just_pressed("Shoot"): # spacebar
+		#trigger_explosion(global_position)
+	#if e is InputEventKey:
+			#trigger_explosion(get_global_mouse_position()) # spawns at mouse cursor
 			
 
  #Optional testing: press space to take damage
-	if e.is_action_pressed("ui_accept"):  # usually Space
-		take_damage(10)
+	#if e.is_action_pressed("ui_accept"):  # usually Space
+		#take_damage(10)
 
 func _set_ammo_text() -> void:
 	ammotext.text = "Ammo: " + str(bulletCount) + " / " + str(maxBulletCount)
@@ -87,6 +87,6 @@ func trigger_explosion(pos: Vector2):
 	explosion.global_position = pos
 	explosion.restart()
 
-func _on_body_entered(body):
-		get_parent().trigger_explosion(global_position)
-		queue_free()
+#func _on_body_entered(body):
+		#get_parent().trigger_explosion(global_position)
+		#queue_free()

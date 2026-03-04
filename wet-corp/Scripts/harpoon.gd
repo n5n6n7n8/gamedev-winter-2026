@@ -8,7 +8,7 @@ func _ready() -> void:
 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
-func _process(delta: float) -> void:
+func _process(_delta: float) -> void:
 	#get mouse pos
 	var mouse_pos = get_global_mouse_position()
 	self.position = mouse_pos * move_scale
