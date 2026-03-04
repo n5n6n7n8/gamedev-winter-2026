@@ -3,7 +3,7 @@
 [ext_resource type="Script" uid="uid://bg5b8fnoe13h3" path="res://Scripts/PlayerActions.gd" id="1_pu3yx"]
 [ext_resource type="Texture2D" uid="uid://dgpb3wyp7nqfu" path="res://assets/UI/MainBG/lighthouse.png" id="1_to7gp"]
 [ext_resource type="VideoStream" uid="uid://d07abo77mthjo" path="res://assets/UI/MainBG/Dream_7.ogv" id="1_u0fll"]
-[ext_resource type="Script" uid="uid://bxa1qvj2rsdcj" path="res://Scripts/mainscenebackground.gd" id="2_6p3nn"]
+[ext_resource type="Script" path="res://Scripts/mainscenebackground.gd" id="2_6p3nn"]
 [ext_resource type="Script" uid="uid://mrfdnvo6mgd0" path="res://Scripts/fish_generator.gd" id="2_c16ls"]
 [ext_resource type="Texture2D" uid="uid://blqy2nhfha8vo" path="res://assets/UI/anchor_crosshair_light.png" id="2_pw63i"]
 [ext_resource type="VideoStream" uid="uid://cpkedrfejmv3c" path="res://assets/UI/MainBG/fog1.ogv" id="4_k67gn"]
@@ -146,6 +146,7 @@ texture = ExtResource("1_to7gp")
 
 [node name="VideoStreamPlayer" type="VideoStreamPlayer" parent="Background"]
 modulate = Color(18.892157, 18.892157, 18.892157, 0.11372549)
+z_index = 4
 offset_left = -71.99999
 offset_top = -2.9999695
 offset_right = 568.0
