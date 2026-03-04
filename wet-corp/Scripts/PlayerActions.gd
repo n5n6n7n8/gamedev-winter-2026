@@ -80,7 +80,7 @@ func _set_ammo_text() -> void:
 func _add_fish_to_gameinfo(s:String) -> void:
 	GameInfo.add_fish_ct(s)
 	GameInfo.add_cash(s)
-	print("added ", s, " to fish collection")
+	#print("added ", s, " to fish collection")
 @onready var explosion: CPUParticles2D = $"../Explosion"
 func trigger_explosion(pos: Vector2):
 	explosion.global_position = pos

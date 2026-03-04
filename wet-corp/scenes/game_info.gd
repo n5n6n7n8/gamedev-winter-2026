@@ -19,12 +19,12 @@ var fish_ct : Dictionary = {
 }
 
 var fish_price : Dictionary = {
-	"red_snapper" : 10_000,
-	"pufferfish" : 50_000,
+	"red_snapper" : 25,
+	"pufferfish" : 35,
 	"kissy_fish" : 0,
-	"armored_fish" : 100_000,
-	"pregnant_fish" : 80_000,
-	"baby_fish" : 5_000
+	"armored_fish" : 50,
+	"pregnant_fish" : 75,
+	"baby_fish" : 10
 }
 
 var fish_dmg : Dictionary = {

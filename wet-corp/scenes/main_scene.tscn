@@ -1,7 +1,9 @@
-[gd_scene load_steps=41 format=3 uid="uid://c1foamfkt20o7"]
+[gd_scene load_steps=43 format=3 uid="uid://c1foamfkt20o7"]
 
 [ext_resource type="Script" uid="uid://bg5b8fnoe13h3" path="res://Scripts/PlayerActions.gd" id="1_pu3yx"]
-[ext_resource type="Texture2D" uid="uid://8d2tn4jarxf6" path="res://assets/image.jpg" id="1_rt2n2"]
+[ext_resource type="Texture2D" uid="uid://dgpb3wyp7nqfu" path="res://assets/UI/MainBG/lighthouse.png" id="1_to7gp"]
+[ext_resource type="VideoStream" uid="uid://d07abo77mthjo" path="res://assets/UI/MainBG/Dream_7.ogv" id="1_u0fll"]
+[ext_resource type="Script" uid="uid://bxa1qvj2rsdcj" path="res://Scripts/mainscenebackground.gd" id="2_6p3nn"]
 [ext_resource type="Script" uid="uid://mrfdnvo6mgd0" path="res://Scripts/fish_generator.gd" id="2_c16ls"]
 [ext_resource type="Texture2D" uid="uid://blqy2nhfha8vo" path="res://assets/UI/anchor_crosshair_light.png" id="2_pw63i"]
 [ext_resource type="PackedScene" uid="uid://bx4h7m7lqk8vw" path="res://scenes/UI/main_hud.tscn" id="5_gubc5"]
@@ -125,14 +127,26 @@ colors = PackedColorArray(0.5882353, 0, 0, 1, 1, 1, 1, 0)
 [node name="MainScene" type="Node"]
 editor_description = "1920x1080"
 
-[node name="Sprite2D" type="Sprite2D" parent="."]
-position = Vector2(979.17773, 614.5)
-scale = Vector2(0.9103497, 0.8388889)
-texture = ExtResource("1_rt2n2")
+[node name="Background" type="Node2D" parent="."]
+
+[node name="VideoStreamPlayer" type="VideoStreamPlayer" parent="Background"]
+offset_right = 40.0
+offset_bottom = 40.0
+scale = Vector2(3, 3)
+stream = ExtResource("1_u0fll")
+speed_scale = 0.04
+loop = true
+script = ExtResource("2_6p3nn")
+
+[node name="Sprite2D" type="Sprite2D" parent="Background"]
+position = Vector2(981.0002, 526.25006)
+scale = Vector2(0.91296303, 0.91327167)
+texture = ExtResource("1_to7gp")
 
 [node name="FishGenerator" type="Node2D" parent="."]
 position = Vector2(5, -5)
 script = ExtResource("2_c16ls")
+timeSpeedup = 0.2
 
 [node name="Timer" type="Timer" parent="FishGenerator"]
 process_callback = 0

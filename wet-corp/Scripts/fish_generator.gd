@@ -5,7 +5,7 @@ var rng = RandomNumberGenerator.new()
 @onready var afish = preload("res://prefabs/armorpath.tscn")
 @onready var pfish = preload("res://prefabs/pufffishpath.tscn")
 @onready var kfish = preload("res://prefabs/kisspath.tscn")
-
+@export var timeSpeedup = 1.0
 
 enum FishT {
 	RED,
@@ -18,12 +18,12 @@ enum FishT {
 #wave 2: 20 ammo for 15 fish
 #wave 3: 20 ammo for 18 fish
 var typeArr = [FishT.RED, FishT.RED, FishT.RED, FishT.RED, FishT.PUFFER, FishT.RED, FishT.RED, FishT.RED, FishT.RED, FishT.ARMOR, FishT.PUFFER, FishT.PUFFER, FishT.ARMOR, FishT.ARMOR, FishT.RED]
-var typeArr2 = [FishT.RED, FishT.RED, FishT.RED, FishT.RED, FishT.PUFFER, FishT.RED, FishT.RED, FishT.RED, FishT.RED, FishT.ARMOR, FishT.PUFFER, FishT.PUFFER, FishT.ARMOR, FishT.ARMOR, FishT.RED, FishT.PUFFER]
+var typeArr2 = [FishT.KISS, FishT.RED, FishT.RED, FishT.RED, FishT.PUFFER, FishT.RED, FishT.RED, FishT.RED, FishT.RED, FishT.ARMOR, FishT.PUFFER, FishT.PUFFER, FishT.ARMOR, FishT.ARMOR, FishT.RED, FishT.PUFFER]
 var typeArr3 = [FishT.RED, FishT.RED, FishT.RED, FishT.RED, FishT.PUFFER, FishT.RED, FishT.RED, FishT.RED, FishT.RED, FishT.ARMOR, FishT.PUFFER, FishT.PUFFER, FishT.ARMOR, FishT.ARMOR, FishT.RED, FishT.PUFFER, FishT.RED, FishT.ARMOR, FishT.ARMOR]
 #first line: wave 1, second line: wave 2, etc
-var timeArr = [2.0, 5.0, 0.5, 5.0, 0.1, 4.0, 0.5, 0.1, 4.0, 5.0, 4.0, 4.0, 1.0, 8.0]
-var timeArr2 = [2.0, 5.0, 0.5, 5.0, 0.1, 4.0, 0.5, 0.1, 4.0, 5.0, 4.0, 4.0, 1.0, 8.0, 2.0]
-var timeArr3 = [2.0, 5.0, 0.5, 5.0, 0.1, 4.0, 0.5, 0.1, 4.0, 5.0, 4.0, 4.0, 1.0, 8.0, 2.0, 1.0, 1.0, 0.3]
+var timeArr = [2.0, 5.0, 0.5, 5.0, 0.1, 4.0, 0.5, 0.1, 4.0, 5.0, 4.0, 4.0, 1.0, 2.0, 8.0]
+var timeArr2 = [2.0, 5.0, 0.5, 5.0, 0.1, 4.0, 0.5, 0.1, 4.0, 5.0, 4.0, 4.0, 1.0, 2.0, 8.0, 2.0]
+var timeArr3 = [2.0, 5.0, 0.5, 5.0, 0.1, 4.0, 0.5, 0.1, 4.0, 5.0, 4.0, 4.0, 1.0, 2.0, 8.0, 2.0, 1.0, 1.0, 0.3]
 var index = 0
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
@@ -32,9 +32,25 @@ func _ready() -> void:
 
 
 func _on_timer_timeout() -> void:
-	if(index == 13):
+	var typeToUse
+	var timeToUse
+	if(index == 47):
+		print("done!!")
+		$Timer.stop()
 		return
-	match typeArr[index]:
+	elif(index >= 29):
+		typeToUse = typeArr3[index-29]
+		timeToUse = timeArr3[index-29]
+		print("wave 3")
+	elif(index >= 14):
+		typeToUse = typeArr2[index-14]
+		timeToUse = timeArr2[index-14]
+		print("wave 2")
+	else:
+		typeToUse = typeArr[index]
+		timeToUse = timeArr[index]
+		print("wave 1")
+	match typeToUse:
 		FishT.RED:
 			var fishIns = regfish.instantiate()
 			#var toScale = rng.randf_range(1.3, 1.6)
@@ -68,5 +84,5 @@ func _on_timer_timeout() -> void:
 		_:
 			print("Fish_generator.gd: ENUM DID NOT MATCH")
 			
-	$Timer.wait_time = timeArr[index]
+	$Timer.wait_time = timeToUse * timeSpeedup
 	index += 1

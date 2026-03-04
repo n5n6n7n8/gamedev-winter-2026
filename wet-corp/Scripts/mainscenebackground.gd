@@ -1,0 +1,7 @@
+extends VideoStreamPlayer
+
+
+# Called when the node enters the scene tree for the first time.
+func _ready() -> void:
+	play()
+	set_stream_position(1) 
