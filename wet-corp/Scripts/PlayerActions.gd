@@ -50,21 +50,19 @@ func _input(e:InputEvent) -> void:
 			for f in get_overlapping_areas():
 				var fi = f.get_parent()
 				var fish = f.get_parent().get_parent()
-				if fish.is_in_group("red_snapper"):
+				if fish.is_in_group("red_snapper"): # on red snapper shot
 					_add_fish_to_gameinfo("red_snapper")
-				elif fish.is_in_group("armored_fish"):
+				elif fish.is_in_group("armored_fish"):  # on armored shot
 					_add_fish_to_gameinfo("armored_fish")
-				elif fish.is_in_group("pufferfish"):
+				elif fish.is_in_group("pufferfish"):  # on puffer shot
 					_add_fish_to_gameinfo("pufferfish")
-				elif fish.is_in_group("kissy_fish"):
+				elif fish.is_in_group("kissy_fish"):  # on kissy shot
+					GameInfo.heal(15)
 					_add_fish_to_gameinfo("kissy_fish")
 				else:
 					print("error finding fish!!!")
 					return
 				fi.take_damage()
-				if(fi.kissy):
-					#on kissy fish shot
-					GameInfo.heal(15)
 				if(fi.should_die()):
 					fish.queue_free()
 	elif e.is_action_pressed("Reload") && bulletCount <= 0:
