@@ -55,10 +55,21 @@ tracks/3/keys = {
 "points": PackedFloat32Array(0, -0.25, 0, 0.25, 0),
 "times": PackedFloat32Array(0)
 }
+tracks/4/type = "bezier"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("ColorRect:color:a")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"handle_modes": PackedInt32Array(0),
+"points": PackedFloat32Array(1, -0.25, 0, 0.25, 0),
+"times": PackedFloat32Array(0)
+}
 
 [sub_resource type="Animation" id="Animation_cd71f"]
 resource_name = "animation"
-length = 8.0
+length = 30.0
 tracks/0/type = "bezier"
 tracks/0/imported = false
 tracks/0/enabled = true
@@ -68,7 +79,7 @@ tracks/0/loop_wrap = true
 tracks/0/keys = {
 "handle_modes": PackedInt32Array(0, 0),
 "points": PackedFloat32Array(1, -0.24999273, -0.0005368262, 2.5333333, 0.0054399967, 0.75, -1.6916666, -0.0054403543, 0, 0),
-"times": PackedFloat32Array(0, 8)
+"times": PackedFloat32Array(0, 30)
 }
 tracks/1/type = "bezier"
 tracks/1/imported = false
@@ -79,7 +90,7 @@ tracks/1/loop_wrap = true
 tracks/1/keys = {
 "handle_modes": PackedInt32Array(0, 0),
 "points": PackedFloat32Array(1, -0.24999273, -0.0005368262, 2.5333333, 0.0054399967, 0.75, -1.6916666, -0.0054403543, 0, 0),
-"times": PackedFloat32Array(0, 7.9999995)
+"times": PackedFloat32Array(0, 30)
 }
 tracks/2/type = "bezier"
 tracks/2/imported = false
@@ -90,7 +101,7 @@ tracks/2/loop_wrap = true
 tracks/2/keys = {
 "handle_modes": PackedInt32Array(2, 0),
 "points": PackedFloat32Array(270, 0, 0, 1.3333334, -45, 0, -0.25, 0, 0.25, 0),
-"times": PackedFloat32Array(0, 8)
+"times": PackedFloat32Array(0, 30)
 }
 tracks/3/type = "bezier"
 tracks/3/imported = false
@@ -101,7 +112,18 @@ tracks/3/loop_wrap = true
 tracks/3/keys = {
 "handle_modes": PackedInt32Array(2, 0),
 "points": PackedFloat32Array(126, 0, 0, 1.3333334, -21, 0, -0.25, 0, 0.25, 0),
-"times": PackedFloat32Array(0, 8)
+"times": PackedFloat32Array(0, 30)
+}
+tracks/4/type = "bezier"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("ColorRect:color:a")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"handle_modes": PackedInt32Array(0, 2, 0, 0),
+"points": PackedFloat32Array(1, -0.25, 0, 0.25, 0, 0, -1.3333334, 0.16666667, 0, 0, 0, -1.3333334, 0.16666667, 0, 0, 1, -0.25, 0, 0.25, 0),
+"times": PackedFloat32Array(0, 8, 27.533335, 30)
 }
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_bnu8o"]
@@ -156,7 +178,15 @@ texture_progress = ExtResource("5_8g5ub")
 
 [node name="Vignette" parent="." instance=ExtResource("6_k7s0o")]
 
-[node name="Voiceover3" type="AudioStreamPlayer" parent="."]
+[node name="Voiceover" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("8_tkdq7")
 autoplay = true
 bus = &"Dialogue"
+
+[node name="ColorRect" type="ColorRect" parent="."]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0, 0, 0, 1)

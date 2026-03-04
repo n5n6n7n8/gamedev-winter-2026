@@ -68,10 +68,21 @@ tracks/4/keys = {
 "update": 1,
 "values": [false]
 }
+tracks/5/type = "bezier"
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/path = NodePath("ColorRect:color:a")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/keys = {
+"handle_modes": PackedInt32Array(0),
+"points": PackedFloat32Array(1, -0.25, 0, 0.25, 0),
+"times": PackedFloat32Array(0)
+}
 
 [sub_resource type="Animation" id="Animation_cd71f"]
 resource_name = "animation"
-length = 5.0
+length = 12.0
 tracks/0/type = "bezier"
 tracks/0/imported = false
 tracks/0/enabled = true
@@ -81,7 +92,7 @@ tracks/0/loop_wrap = true
 tracks/0/keys = {
 "handle_modes": PackedInt32Array(0, 0),
 "points": PackedFloat32Array(1, -0.25, 0, 0.25, 0, 1.1, -0.8333334, 0, 0, 0),
-"times": PackedFloat32Array(0, 1.3)
+"times": PackedFloat32Array(0, 4.5)
 }
 tracks/1/type = "bezier"
 tracks/1/imported = false
@@ -92,7 +103,7 @@ tracks/1/loop_wrap = true
 tracks/1/keys = {
 "handle_modes": PackedInt32Array(0, 0),
 "points": PackedFloat32Array(1, -0.25, 0, 0.25, 0, 1.1, -0.8333334, 0, 0, 0),
-"times": PackedFloat32Array(0, 1.3)
+"times": PackedFloat32Array(0, 4.5)
 }
 tracks/2/type = "bezier"
 tracks/2/imported = false
@@ -103,7 +114,7 @@ tracks/2/loop_wrap = true
 tracks/2/keys = {
 "handle_modes": PackedInt32Array(0, 0),
 "points": PackedFloat32Array(1, -0.25, 0, 0.25, 0, 1.2, -0.21833333, 0, 0, 0),
-"times": PackedFloat32Array(0, 1.3)
+"times": PackedFloat32Array(0, 3.8)
 }
 tracks/3/type = "bezier"
 tracks/3/imported = false
@@ -114,7 +125,7 @@ tracks/3/loop_wrap = true
 tracks/3/keys = {
 "handle_modes": PackedInt32Array(0, 0),
 "points": PackedFloat32Array(1, -0.25, 0, 0.25, 0, 1.2, -0.21833333, 0, 0, 0),
-"times": PackedFloat32Array(0, 1.3)
+"times": PackedFloat32Array(0, 3.8)
 }
 tracks/4/type = "value"
 tracks/4/imported = false
@@ -127,6 +138,17 @@ tracks/4/keys = {
 "transitions": PackedFloat32Array(1, 1),
 "update": 1,
 "values": [false, true]
+}
+tracks/5/type = "bezier"
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/path = NodePath("ColorRect:color:a")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/keys = {
+"handle_modes": PackedInt32Array(0, 2, 2, 2),
+"points": PackedFloat32Array(1, -0.25, 0, 0.25, 0, 0, -0.34368676, 0, 1.6563133, 0, 0, -1.3220222, -0.1330286, 0.33429116, 0.03363808, 1, -2, 0, 0, 0),
+"times": PackedFloat32Array(0, 2.0621204, 9.994253, 12)
 }
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_bnu8o"]
@@ -198,7 +220,15 @@ texture_progress = ExtResource("4_kcxtd")
 
 [node name="Vignette" parent="." instance=ExtResource("6_i2vdg")]
 
-[node name="Voiceover6" type="AudioStreamPlayer" parent="."]
+[node name="Voiceover" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("9_jd87q")
 autoplay = true
 bus = &"Dialogue"
+
+[node name="ColorRect" type="ColorRect" parent="."]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0, 0, 0, 1)

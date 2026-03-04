@@ -7,5 +7,3 @@ script = ExtResource("1_wmavl")
 
 [node name="Game Timer" type="Timer" parent="."]
 wait_time = 135.0
-one_shot = true
-autostart = true

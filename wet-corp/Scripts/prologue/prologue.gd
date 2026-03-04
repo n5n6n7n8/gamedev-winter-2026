@@ -14,6 +14,9 @@ func _ready() -> void:
 	var tween = get_tree().create_tween()
 	tween.tween_property($TextureProgressBar, "value", 100, skip_timer_length)
 	
+	# change scene when audio ends
+	$Voiceover.finished.connect(change_scene)
+	
 	#play animation
 	$AnimationPlayer.play("animation")
 	await $AnimationPlayer.animation_finished
