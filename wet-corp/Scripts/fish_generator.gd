@@ -5,6 +5,7 @@ var rng = RandomNumberGenerator.new()
 @onready var afish = preload("res://prefabs/armorpath.tscn")
 @onready var pfish = preload("res://prefabs/pufffishpath.tscn")
 @onready var kfish = preload("res://prefabs/kisspath.tscn")
+@onready var flashText = $"../UI/MainHud/CanvasLayer/TuturialLabel"
 @export var timeSpeedup = 1.0
 
 enum FishT {
@@ -21,9 +22,9 @@ var typeArr = [FishT.RED, FishT.RED, FishT.RED, FishT.RED, FishT.PUFFER, FishT.R
 var typeArr2 = [FishT.KISS, FishT.RED, FishT.RED, FishT.RED, FishT.PUFFER, FishT.RED, FishT.RED, FishT.RED, FishT.RED, FishT.ARMOR, FishT.PUFFER, FishT.PUFFER, FishT.ARMOR, FishT.ARMOR, FishT.RED, FishT.PUFFER]
 var typeArr3 = [FishT.RED, FishT.RED, FishT.RED, FishT.RED, FishT.PUFFER, FishT.RED, FishT.RED, FishT.RED, FishT.RED, FishT.ARMOR, FishT.PUFFER, FishT.PUFFER, FishT.ARMOR, FishT.ARMOR, FishT.RED, FishT.PUFFER, FishT.RED, FishT.ARMOR, FishT.ARMOR]
 #first line: wave 1, second line: wave 2, etc
-var timeArr = [2.0, 5.0, 0.5, 5.0, 0.1, 4.0, 0.5, 0.1, 4.0, 5.0, 4.0, 4.0, 1.0, 2.0, 8.0]
-var timeArr2 = [2.0, 5.0, 0.5, 5.0, 0.1, 4.0, 0.5, 0.1, 4.0, 5.0, 4.0, 4.0, 1.0, 2.0, 8.0, 2.0]
-var timeArr3 = [2.0, 5.0, 0.5, 5.0, 0.1, 4.0, 0.5, 0.1, 4.0, 5.0, 4.0, 4.0, 1.0, 2.0, 8.0, 2.0, 1.0, 1.0, 0.3]
+var timeArr = [3.0, 5.0, 0.5, 5.0, 0.1, 4.0, 0.5, 0.1, 4.0, 5.0, 4.0, 4.0, 1.0, 2.0, 8.0]
+var timeArr2 = [2.0, 5.0, 2.5, 5.0, 5.1, 4.0, 0.5, 0.1, 4.0, 5.0, 4.0, 4.0, 1.0, 2.0, 8.0, 2.0]
+var timeArr3 = [2.0, 5.0, 5.5, 5.0, 1.1, 4.0, 0.5, 1.1, 4.0, 5.0, 4.0, 4.0, 1.0, 2.0, 8.0, 2.0, 1.0, 1.0, 0.3]
 var index = 0
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
@@ -50,8 +51,14 @@ func _on_timer_timeout() -> void:
 		typeToUse = typeArr[index]
 		timeToUse = timeArr[index]
 		print("wave 1")
+	if(index==2):
+		flashText.show_text("Wave 1")
+	if(index==14):
+		flashText.show_text("Wave 2")
+	if(index==29):
+		flashText.show_text("Wave 3")
 	match typeToUse:
-		FishT.RED:
+		FishT.RED:  #ON RED SNAPPER SPAWN
 			var fishIns = regfish.instantiate()
 			#var toScale = rng.randf_range(1.3, 1.6)
 			#fishIns.get_node("PathFollow2D/Fish").scale = Vector2(toScale,toScale)
@@ -61,20 +68,19 @@ func _on_timer_timeout() -> void:
 			fishIns.get_node("PathFollow2D").update_after_instantiation()
 			add_child(fishIns)
 			
-		FishT.PUFFER:
+		FishT.PUFFER:#ON PUFFER SPAWN
 			var pIns = pfish.instantiate()
 			pIns.add_to_group("pufferfish")
-			
 			pIns.get_node("PathFollow2D").fish_name = "pufferfish"
 			pIns.get_node("PathFollow2D").update_after_instantiation()
 			add_child(pIns)
-		FishT.ARMOR:
+		FishT.ARMOR:#ON ARMOR SPAWN
 			var aIns = afish.instantiate()
 			aIns.add_to_group("armored_fish")
 			aIns.get_node("PathFollow2D").fish_name = "armored_fish"
 			aIns.get_node("PathFollow2D").update_after_instantiation()
 			add_child(aIns)
-		FishT.KISS:
+		FishT.KISS: #ON KISSY SPAWN
 			var kIns = kfish.instantiate()
 			kIns.add_to_group("kissy_fish")
 			

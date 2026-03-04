@@ -20,10 +20,10 @@ func take_damage():
 func should_die() -> bool:
 	print("fish health is ", fish_health)
 	return fish_health <= 0
-# Called every frame. 'delta' is the elapsed time since the previous frame.
+
 func _physics_process(delta: float) -> void:
 	tspeed = speed * speed_curve.sample(progress_ratio)
 	progress_ratio += delta * tspeed
-	if(progress_ratio>=0.95):
+	if(progress_ratio>=0.95): #when the fish hits the boat
 		self.get_parent().queue_free()
 		GameInfo.take_dmg_by_fish(fish_name)
