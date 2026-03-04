@@ -8,7 +8,7 @@ var health := 100
 var max_health := 100
 
 #Ammo variables n stuff
-const maxBulletCount = 15
+const maxBulletCount = 20
 var bulletCount = maxBulletCount
 var ammoCount = 45
 
@@ -40,7 +40,7 @@ func _process(_delta):
 	position = get_global_mouse_position()
 
 func _input(e:InputEvent) -> void:
-	if e.is_action_pressed("Shoot"):
+	if e.is_action_pressed("Shoot") && bulletCount > 0:
 		bulletCount -= 1
 		_set_ammo_text()
 		HarpoonFire.play()
@@ -60,11 +60,10 @@ func _input(e:InputEvent) -> void:
 				else:
 					print("error finding fish!!!")
 				fish.queue_free()
-
-		if e.is_action_pressed("Reload") && bulletCount == 0:
-			bulletCount += 15
-			_set_ammo_text()
-			print("Reloaded!")
+	elif e.is_action_pressed("Reload") && bulletCount <= 0:
+		bulletCount += 15
+		_set_ammo_text()
+		print("Reloaded!")
 	#if Input.is_action_just_pressed("Shoot"): # spacebar
 		#trigger_explosion(global_position)
 	#if e is InputEventKey:

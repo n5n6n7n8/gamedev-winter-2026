@@ -26,8 +26,8 @@ func _ready() -> void:
 	var cargo_damage = -100 * (100-GameInfo.cargo_health)
 	if cargo_damage != 0:
 		add_deductions_row("cargo damage", cargo_damage)
-		#subtract money from global cash
-		GameInfo.cash -= cargo_damage
+		#subtract money from global cash (i made it += because cargo_damage is already a negative number)
+		GameInfo.cash += cargo_damage
 		
 	# total amount of money
 	$Label_gross_earnings.text = "$ " + str(GameInfo.cash)
