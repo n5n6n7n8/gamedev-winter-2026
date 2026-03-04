@@ -8,7 +8,7 @@ var cargo_health : int = 100 :
 		cargo_health = value
 		cargo_health_changed.emit()
 var cash : int = 0 ;
-@onready var timer = $"Game Timer"
+@onready var timer: Timer = $"Game Timer"
 var fish_ct : Dictionary = {
 	"red_snapper" : 0,
 	"pufferfish" : 0,
@@ -88,6 +88,8 @@ func end_game_win() -> void:
 	SceneTransition.change_scene_to_file("res://scenes/end_scene_win.tscn")
 	
 func end_game_lose() -> void:
+	#stop timer
+	self.timer.stop()
 	SceneTransition.change_scene_to_file("res://scenes/end_scene_fail.tscn")
 	
 func start_game() -> void:
