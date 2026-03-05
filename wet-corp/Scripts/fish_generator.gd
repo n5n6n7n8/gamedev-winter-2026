@@ -7,6 +7,7 @@ var rng = RandomNumberGenerator.new()
 @onready var kfish = preload("res://prefabs/kisspath.tscn")
 @onready var flashText = $"../UI/MainHud/CanvasLayer/TuturialLabel"
 @export var timeSpeedup = 1.0
+@onready var PufferSpawn = $PufferSpawn
 
 enum FishT {
 	RED,
@@ -74,6 +75,7 @@ func _on_timer_timeout() -> void:
 			pIns.get_node("PathFollow2D").fish_name = "pufferfish"
 			pIns.get_node("PathFollow2D").update_after_instantiation()
 			add_child(pIns)
+			PufferSpawn.play()
 		FishT.ARMOR:#ON ARMOR SPAWN
 			var aIns = afish.instantiate()
 			aIns.add_to_group("armored_fish")

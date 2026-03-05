@@ -1,8 +1,10 @@
-[gd_scene load_steps=6 format=3 uid="uid://b2dn7ignnskmf"]
+[gd_scene load_steps=9 format=3 uid="uid://b2dn7ignnskmf"]
 
 [ext_resource type="Script" uid="uid://dqyeolh5gwhlp" path="res://Scripts/path_follow_2d.gd" id="1_biteo"]
 [ext_resource type="Curve" uid="uid://bnq1ujoh1a4cx" path="res://prefabs/salmonspeedcur.tres" id="2_2trpw"]
 [ext_resource type="Texture2D" uid="uid://c6thda3ubrine" path="res://assets/armored.png" id="2_biteo"]
+[ext_resource type="AudioStream" uid="uid://dr1ri0ngaucdo" path="res://assets/SFX/ArmorFishHit1.mp3" id="4_hddl4"]
+[ext_resource type="AudioStream" uid="uid://bpp1p0f1ai7rr" path="res://assets/SFX/ArmorFishHit2.mp3" id="5_5kn8m"]
 
 [sub_resource type="Curve2D" id="Curve2D_gubc5"]
 _data = {
@@ -13,6 +15,12 @@ point_count = 9
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_biteo"]
 radius = 21.660522
 height = 91.331055
+
+[sub_resource type="AudioStreamRandomizer" id="AudioStreamRandomizer_xuh2e"]
+random_pitch = 1.14
+streams_count = 2
+stream_0/stream = ExtResource("4_hddl4")
+stream_1/stream = ExtResource("5_5kn8m")
 
 [node name="Path2D" type="Path2D"]
 position = Vector2(106, 174)
@@ -40,3 +48,8 @@ position = Vector2(-11.46738, -3.6620371)
 rotation = 1.6572084
 scale = Vector2(1.2024397, 1.3165222)
 shape = SubResource("CapsuleShape2D_biteo")
+
+[node name="ArmorHit" type="AudioStreamPlayer" parent="PathFollow2D"]
+stream = SubResource("AudioStreamRandomizer_xuh2e")
+volume_db = -10.495
+pitch_scale = 0.96

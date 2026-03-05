@@ -15,12 +15,16 @@ var ammoCount = 45
 # Optional gameplay variables
 @onready var HarpoonFire = $HarpoonFire
 @onready var FishDeath = $FishDeath
+@onready var ArmorDeath = $ArmorDeath
+@onready var KissyDeath = $KissyDeath
+@onready var PufferDeath = $PufferDeath
+@onready var ReloadSound = $ReloadSound
 var currentMoney := 0
 
 @onready var ammotext = $"../UI/MainHud/CanvasLayer/LABEL_ammo"
 func _ready() -> void:
 	_set_ammo_text()
-	
+
 # Take damage function
 func take_damage(amount):
 	health -= amount
@@ -46,7 +50,7 @@ func _input(e:InputEvent) -> void:
 		HarpoonFire.play()
 		if has_overlapping_areas():
 			trigger_explosion(get_global_mouse_position())
-			FishDeath.play()
+			
 			for f in get_overlapping_areas():
 				var fi = f.get_parent()
 				var fish = f.get_parent().get_parent()
@@ -56,21 +60,27 @@ func _input(e:InputEvent) -> void:
 					
 					if fish.is_in_group("red_snapper"): # on red snapper shot
 						_add_fish_to_gameinfo("red_snapper")
+						FishDeath.play()
 					elif fish.is_in_group("armored_fish"):  # on armored shot
 						_add_fish_to_gameinfo("armored_fish")
+						ArmorDeath.play()
 					elif fish.is_in_group("pufferfish"):  # on puffer shot
 						_add_fish_to_gameinfo("pufferfish")
+						get_node("../FishGenerator/PufferSpawn").stop()
+						PufferDeath.play()
 					elif fish.is_in_group("kissy_fish"):  # on kissy shot
 						GameInfo.heal(15)
 						_add_fish_to_gameinfo("kissy_fish")
+						KissyDeath.play()
 					else:
 						print("error finding fish!!!")
 						return
 					fish.queue_free()
 	elif e.is_action_pressed("Reload") && bulletCount <= 0:
-		bulletCount += 15
+		bulletCount += 20
 		_set_ammo_text()
 		print("Reloaded!")
+		ReloadSound.play()
 	#if Input.is_action_just_pressed("Shoot"): # spacebar
 		#trigger_explosion(global_position)
 	#if e is InputEventKey:

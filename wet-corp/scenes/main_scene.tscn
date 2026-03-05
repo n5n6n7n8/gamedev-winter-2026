@@ -1,9 +1,9 @@
-[gd_scene load_steps=44 format=3 uid="uid://c1foamfkt20o7"]
+[gd_scene load_steps=55 format=3 uid="uid://c1foamfkt20o7"]
 
 [ext_resource type="Script" uid="uid://bg5b8fnoe13h3" path="res://Scripts/PlayerActions.gd" id="1_pu3yx"]
 [ext_resource type="Texture2D" uid="uid://dgpb3wyp7nqfu" path="res://assets/UI/MainBG/lighthouse.png" id="1_to7gp"]
 [ext_resource type="VideoStream" uid="uid://d07abo77mthjo" path="res://assets/UI/MainBG/Dream_7.ogv" id="1_u0fll"]
-[ext_resource type="Script" path="res://Scripts/mainscenebackground.gd" id="2_6p3nn"]
+[ext_resource type="Script" uid="uid://bxa1qvj2rsdcj" path="res://Scripts/mainscenebackground.gd" id="2_6p3nn"]
 [ext_resource type="Script" uid="uid://mrfdnvo6mgd0" path="res://Scripts/fish_generator.gd" id="2_c16ls"]
 [ext_resource type="Texture2D" uid="uid://blqy2nhfha8vo" path="res://assets/UI/anchor_crosshair_light.png" id="2_pw63i"]
 [ext_resource type="VideoStream" uid="uid://cpkedrfejmv3c" path="res://assets/UI/MainBG/fog1.ogv" id="4_k67gn"]
@@ -20,13 +20,22 @@
 [ext_resource type="AudioStream" uid="uid://4s6op6n12rc2" path="res://assets/Music/GameplayMusic.mp3" id="14_01n6w"]
 [ext_resource type="AudioStream" uid="uid://c4e630droagdp" path="res://assets/SFX/SeaAmbience2.mp3" id="15_k6f3i"]
 [ext_resource type="Script" uid="uid://dq8sx6vcclj5l" path="res://Scripts/battle_music.gd" id="15_to7gp"]
+[ext_resource type="AudioStream" uid="uid://dr1ri0ngaucdo" path="res://assets/SFX/ArmorFishHit1.mp3" id="17_4bgka"]
 [ext_resource type="Script" uid="uid://3gbo5gjycfg4" path="res://Scripts/ship_anchor.gd" id="17_58gk3"]
+[ext_resource type="AudioStream" uid="uid://bpp1p0f1ai7rr" path="res://assets/SFX/ArmorFishHit2.mp3" id="18_02d50"]
 [ext_resource type="Texture2D" uid="uid://efs3wb00q65j" path="res://assets/Ship/Stage_1.png" id="18_adb74"]
 [ext_resource type="Texture2D" uid="uid://7kta2btsfdos" path="res://assets/Ship/Stage_2.png" id="19_58gk3"]
+[ext_resource type="AudioStream" uid="uid://drv00g0xi3nah" path="res://assets/SFX/GUNSHOTRELOAD.mp3" id="20_pgk25"]
 [ext_resource type="Texture2D" uid="uid://dpt3rmj1u24ng" path="res://assets/Ship/Stage_3.png" id="20_to7gp"]
+[ext_resource type="AudioStream" uid="uid://8cxtwgaw8rrw" path="res://assets/SFX/Kiss1.mp3" id="21_iav3h"]
 [ext_resource type="Texture2D" uid="uid://byou7otq7d4kw" path="res://assets/Ship/Stage_4.png" id="21_u0fll"]
 [ext_resource type="Texture2D" uid="uid://q7bmotqsuspm" path="res://assets/Ship/Stage_5.png" id="22_6p3nn"]
+[ext_resource type="AudioStream" uid="uid://b4dxbx426yi1u" path="res://assets/SFX/Kiss2.mp3" id="22_womr8"]
+[ext_resource type="AudioStream" uid="uid://4u1bykbqwaq3" path="res://assets/SFX/Kiss3.mp3" id="23_onjth"]
 [ext_resource type="Script" uid="uid://b5lw22ih11mar" path="res://scenes/cpu_particles_2d.gd" id="24_to7gp"]
+[ext_resource type="AudioStream" uid="uid://b043icpeomvei" path="res://assets/SFX/Kiss4.mp3" id="24_xa0eo"]
+[ext_resource type="AudioStream" uid="uid://dinfx85sp522f" path="res://assets/SFX/PufferDeath.mp3" id="25_womr8"]
+[ext_resource type="AudioStream" uid="uid://dlolt8vpuqhf2" path="res://assets/SFX/PufferRising.mp3" id="30_02d50"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_pw63i"]
 size = Vector2(93, 92.5)
@@ -48,6 +57,18 @@ stream_3/stream = ExtResource("10_58gk3")
 stream_4/stream = ExtResource("11_to7gp")
 stream_5/stream = ExtResource("12_u0fll")
 stream_6/stream = ExtResource("13_6p3nn")
+
+[sub_resource type="AudioStreamRandomizer" id="AudioStreamRandomizer_pgk25"]
+streams_count = 2
+stream_0/stream = ExtResource("17_4bgka")
+stream_1/stream = ExtResource("18_02d50")
+
+[sub_resource type="AudioStreamRandomizer" id="AudioStreamRandomizer_3mjum"]
+streams_count = 4
+stream_0/stream = ExtResource("21_iav3h")
+stream_1/stream = ExtResource("22_womr8")
+stream_2/stream = ExtResource("23_onjth")
+stream_3/stream = ExtResource("24_xa0eo")
 
 [sub_resource type="AudioStreamInteractive" id="AudioStreamInteractive_bcnxi"]
 clip_count = 1
@@ -162,6 +183,10 @@ position = Vector2(5, -5)
 script = ExtResource("2_c16ls")
 timeSpeedup = 0.9
 
+[node name="PufferSpawn" type="AudioStreamPlayer" parent="FishGenerator"]
+stream = ExtResource("30_02d50")
+volume_db = -10.496
+
 [node name="Timer" type="Timer" parent="FishGenerator"]
 process_callback = 0
 
@@ -190,9 +215,29 @@ area_mask = 0
 stream = SubResource("AudioStreamRandomizer_adb74")
 volume_db = -2.019
 
+[node name="ArmorDeath" type="AudioStreamPlayer2D" parent="Crosshair"]
+stream = SubResource("AudioStreamRandomizer_adb74")
+volume_db = -2.019
+pitch_scale = 0.7
+
+[node name="ArmorHit" type="AudioStreamPlayer" parent="Crosshair"]
+stream = SubResource("AudioStreamRandomizer_pgk25")
+volume_db = -10.496
+
+[node name="ReloadSound" type="AudioStreamPlayer" parent="Crosshair"]
+stream = ExtResource("20_pgk25")
+volume_db = -18.129
+
+[node name="KissyDeath" type="AudioStreamPlayer" parent="Crosshair"]
+stream = SubResource("AudioStreamRandomizer_3mjum")
+
+[node name="PufferDeath" type="AudioStreamPlayer" parent="Crosshair"]
+stream = ExtResource("25_womr8")
+volume_db = 0.954
+
 [node name="BattleMusic" type="AudioStreamPlayer2D" parent="."]
 stream = ExtResource("14_01n6w")
-volume_db = 9.098
+volume_db = 10.052
 autoplay = true
 bus = &"Music"
 parameters/looping = true
