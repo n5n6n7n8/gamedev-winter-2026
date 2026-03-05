@@ -2,7 +2,7 @@ extends PathFollow2D
 
 @export var speed : float = 0.1
 @export var speed_curve : Curve
-@onready var ArmorHit = $ArmorHit
+@onready var ArmorHit
 var tspeed = speed
 var fish_name = "none"
 # Called when the node enters the scene tree for the first time.
@@ -14,11 +14,15 @@ var kissy = false
 func update_after_instantiation():
 	if(fish_name == "armored_fish"):
 		fish_health = 3
+		ArmorHit = $"ArmorHit"
 	if(fish_name == "kissy_fish"):
 		kissy = true
+
 func take_damage():
 	fish_health -= 1
-	#ArmorHit.play()
+	if(fish_name == "armored_fish"):
+		ArmorHit.play()
+
 func should_die() -> bool:
 	print("fish health is ", fish_health)
 	return fish_health <= 0
