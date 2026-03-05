@@ -79,6 +79,7 @@ func _input(e:InputEvent) -> void:
 						return
 					fish.queue_free()
 		else: #If the harpoon doesn't shoot anything, minus 5 dollars for equipment misuse
+			GameInfo.bullets_used += 1
 			GameInfo.add_cash("loss")
 	elif e.is_action_pressed("Reload"):
 		bulletCount = 20

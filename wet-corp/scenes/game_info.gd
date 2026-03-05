@@ -8,6 +8,7 @@ var cargo_health : int = 100 :
 		cargo_health = value
 		cargo_health_changed.emit()
 var cash : int = 25 ;
+var bullets_used : int = 0;
 @onready var timer: Timer = $"Game Timer"
 var fish_ct : Dictionary = {
 	"red_snapper" : 0,
