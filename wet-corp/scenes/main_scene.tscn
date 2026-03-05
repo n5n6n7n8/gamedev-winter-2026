@@ -1,9 +1,9 @@
-[gd_scene load_steps=55 format=3 uid="uid://c1foamfkt20o7"]
+[gd_scene load_steps=58 format=3 uid="uid://c1foamfkt20o7"]
 
 [ext_resource type="Script" uid="uid://bg5b8fnoe13h3" path="res://Scripts/PlayerActions.gd" id="1_pu3yx"]
 [ext_resource type="Texture2D" uid="uid://dgpb3wyp7nqfu" path="res://assets/UI/MainBG/lighthouse.png" id="1_to7gp"]
 [ext_resource type="VideoStream" uid="uid://d07abo77mthjo" path="res://assets/UI/MainBG/Dream_7.ogv" id="1_u0fll"]
-[ext_resource type="Script" uid="uid://bxa1qvj2rsdcj" path="res://Scripts/mainscenebackground.gd" id="2_6p3nn"]
+[ext_resource type="Script" path="res://Scripts/mainscenebackground.gd" id="2_6p3nn"]
 [ext_resource type="Script" uid="uid://mrfdnvo6mgd0" path="res://Scripts/fish_generator.gd" id="2_c16ls"]
 [ext_resource type="Texture2D" uid="uid://blqy2nhfha8vo" path="res://assets/UI/anchor_crosshair_light.png" id="2_pw63i"]
 [ext_resource type="VideoStream" uid="uid://cpkedrfejmv3c" path="res://assets/UI/MainBG/fog1.ogv" id="4_k67gn"]
@@ -36,6 +36,8 @@
 [ext_resource type="AudioStream" uid="uid://b043icpeomvei" path="res://assets/SFX/Kiss4.mp3" id="24_xa0eo"]
 [ext_resource type="AudioStream" uid="uid://dinfx85sp522f" path="res://assets/SFX/PufferDeath.mp3" id="25_womr8"]
 [ext_resource type="AudioStream" uid="uid://dlolt8vpuqhf2" path="res://assets/SFX/PufferRising.mp3" id="30_02d50"]
+[ext_resource type="PackedScene" uid="uid://duq2cd30vryrw" path="res://scenes/UI/vignette.tscn" id="30_onjth"]
+[ext_resource type="Shader" uid="uid://ctul8urfljytx" path="res://assets/UI/vignette_shader.gdshader" id="31_xa0eo"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_pw63i"]
 size = Vector2(93, 92.5)
@@ -89,6 +91,12 @@ Vector2i(0, 0): {
 "to_time": 1
 }
 }
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_3mjum"]
+shader = ExtResource("31_xa0eo")
+shader_parameter/alpha = 0.4
+shader_parameter/inner_radius = 0.0
+shader_parameter/outer_radius = 1.0
 
 [sub_resource type="CanvasItemMaterial" id="CanvasItemMaterial_si52b"]
 blend_mode = 1
@@ -253,6 +261,14 @@ bus = &"Ambience"
 
 [node name="MainHud" parent="UI" instance=ExtResource("5_gubc5")]
 z_index = 5
+
+[node name="Vignette" parent="UI" instance=ExtResource("30_onjth")]
+z_index = 10
+material = SubResource("ShaderMaterial_3mjum")
+offset_left = -165.33325
+offset_top = -93.0
+offset_right = 165.33325
+offset_bottom = 93.0
 
 [node name="Ship MainAnchor" type="Control" parent="."]
 layout_mode = 3
