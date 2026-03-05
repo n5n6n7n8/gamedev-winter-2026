@@ -11,7 +11,7 @@ extends RichTextLabel
 #func _process -> void:
 	#if(fading):
 		#
-var fade_duration = 3.0
+var fade_duration = 2.0
 
 func _ready():
 	modulate.a = 1

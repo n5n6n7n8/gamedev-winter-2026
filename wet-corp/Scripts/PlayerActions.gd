@@ -10,7 +10,6 @@ var max_health := 100
 #Ammo variables n stuff
 const maxBulletCount = 20
 var bulletCount = maxBulletCount
-var ammoCount = 45
 
 # Optional gameplay variables
 @onready var HarpoonFire = $HarpoonFire
@@ -22,6 +21,7 @@ var ammoCount = 45
 var currentMoney := 0
 
 @onready var ammotext = $"../UI/MainHud/CanvasLayer/LABEL_ammo"
+@onready var ammoWarning = $"../UI/MainHud/CanvasLayer/AmmoLabel"
 func _ready() -> void:
 	_set_ammo_text()
 
@@ -46,6 +46,8 @@ func _process(_delta):
 func _input(e:InputEvent) -> void:
 	if e.is_action_pressed("Shoot") && bulletCount > 0:
 		bulletCount -= 1
+		if(bulletCount == 0):
+			ammoWarning.show_text("Press R to Reload")
 		_set_ammo_text()
 		HarpoonFire.play()
 		if has_overlapping_areas():
@@ -76,8 +78,10 @@ func _input(e:InputEvent) -> void:
 						print("error finding fish!!!")
 						return
 					fish.queue_free()
-	elif e.is_action_pressed("Reload") && bulletCount <= 0:
-		bulletCount += 20
+		else: #If the harpoon doesn't shoot anything, minus 5 dollars for equipment misuse
+			GameInfo.add_cash("loss")
+	elif e.is_action_pressed("Reload"):
+		bulletCount = 20
 		_set_ammo_text()
 		print("Reloaded!")
 		ReloadSound.play()

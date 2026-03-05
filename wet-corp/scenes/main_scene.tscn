@@ -230,7 +230,6 @@ loop = true
 [node name="FishGenerator" type="Node2D" parent="."]
 position = Vector2(5, -5)
 script = ExtResource("2_c16ls")
-timeSpeedup = 0.5
 
 [node name="PufferSpawn" type="AudioStreamPlayer" parent="FishGenerator"]
 stream = ExtResource("6_0wyf6")

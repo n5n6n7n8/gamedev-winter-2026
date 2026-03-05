@@ -23,17 +23,17 @@ var fish_price : Dictionary = {
 	"pufferfish" : 35,
 	"kissy_fish" : 0,
 	"armored_fish" : 50,
-	"pregnant_fish" : 75,
+	"pregnant_fish" : 100,
 	"baby_fish" : 10
 }
 
 var fish_dmg : Dictionary = {
-	"red_snapper" : 1,
-	"pufferfish" : 5,
-	"kissy_fish" : 0,
-	"armored_fish" : 10,
-	"pregnant_fish" : 8,
-	"baby_fish" : 0.5
+	"red_snapper" : 10,
+	"pufferfish" : 15,
+	"kissy_fish" : 1,
+	"armored_fish" : 25,
+	"pregnant_fish" : 40,
+	"baby_fish" : 5
 }
 
 func _ready() -> void:
@@ -48,7 +48,10 @@ func add_fish_ct(fish:String):
 		push_error("key %s is not found in fish_ct" % fish)
 
 func add_cash(fish:String):
-	cash += fish_price[fish]
+	if(fish == "loss"):
+		cash -= 5
+	else: 
+		cash += fish_price[fish]
 	gain_cash.emit()
 
 

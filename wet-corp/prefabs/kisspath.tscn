@@ -20,6 +20,7 @@ curve = SubResource("Curve2D_gubc5")
 [node name="PathFollow2D" type="PathFollow2D" parent="."]
 position = Vector2(1198.2095, -9.192752)
 rotation = 2.5387313
+scale = Vector2(1.3, 1.3)
 script = ExtResource("1_oqwkj")
 speed = 0.3
 speed_curve = ExtResource("2_s6mp6")
