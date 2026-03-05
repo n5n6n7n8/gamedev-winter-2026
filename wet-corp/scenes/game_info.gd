@@ -85,15 +85,20 @@ func reset() -> void:
 	return
 
 func end_game_win() -> void:
+	print("timer stopped")
+	timer.stop()
 	SceneTransition.change_scene_to_file("res://scenes/end_scene_win.tscn")
 	
 func end_game_lose() -> void:
-	#stop timer
-	self.timer.stop()
+	print("timer stopped")
+	timer.stop()
 	SceneTransition.change_scene_to_file("res://scenes/end_scene_fail.tscn")
 	
 func start_game() -> void:
 	self.reset()
 	SceneTransition.change_scene_to_file("res://scenes/main_scene.tscn")
+	print("timer started")
 	self.timer.start()
+	
+
 	
