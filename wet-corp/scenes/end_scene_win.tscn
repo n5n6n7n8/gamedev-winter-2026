@@ -19,10 +19,11 @@ clip_0/auto_advance = 1
 clip_0/next_clip = 1
 clip_1/name = &"Ambient Violin Loop 2"
 clip_1/stream = ExtResource("10_j8p7b")
-clip_1/auto_advance = 0
+clip_1/auto_advance = 1
+clip_1/next_clip = 1
 _transitions = {
 Vector2i(-1, -1): {
-"fade_beats": 1.0,
+"fade_beats": 0.5,
 "fade_mode": 3,
 "from_time": 3,
 "to_time": 1
@@ -178,6 +179,7 @@ horizontal_alignment = 2
 stream = SubResource("AudioStreamInteractive_1i10k")
 volume_db = -4.014
 autoplay = true
+bus = &"Music"
 
 [connection signal="pressed" from="VBoxContainer/Button_play" to="." method="_on_button_play_pressed"]
 [connection signal="pressed" from="VBoxContainer/Button_quit" to="." method="_on_button_quit_pressed"]

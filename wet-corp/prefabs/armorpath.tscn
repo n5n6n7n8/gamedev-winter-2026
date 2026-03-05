@@ -51,5 +51,6 @@ shape = SubResource("CapsuleShape2D_biteo")
 
 [node name="ArmorHit" type="AudioStreamPlayer" parent="PathFollow2D"]
 stream = SubResource("AudioStreamRandomizer_xuh2e")
-volume_db = -10.495
+volume_db = -16.219
 pitch_scale = 0.96
+bus = &"SFX"

@@ -194,6 +194,7 @@ timeSpeedup = 0.5
 [node name="PufferSpawn" type="AudioStreamPlayer" parent="FishGenerator"]
 stream = ExtResource("30_02d50")
 volume_db = -10.496
+bus = &"SFX"
 
 [node name="Timer" type="Timer" parent="FishGenerator"]
 process_callback = 0
@@ -216,32 +217,41 @@ position = Vector2(-580, -320)
 stream = SubResource("AudioStreamRandomizer_18nlu")
 volume_db = -3.029
 pitch_scale = 0.73
+attenuation = 1e-05
 bus = &"SFX"
 area_mask = 0
 
 [node name="FishDeath" type="AudioStreamPlayer2D" parent="Crosshair"]
 stream = SubResource("AudioStreamRandomizer_adb74")
 volume_db = -2.019
+bus = &"SFX"
 
 [node name="ArmorDeath" type="AudioStreamPlayer2D" parent="Crosshair"]
 stream = SubResource("AudioStreamRandomizer_adb74")
 volume_db = -2.019
 pitch_scale = 0.7
+bus = &"SFX"
 
 [node name="ArmorHit" type="AudioStreamPlayer" parent="Crosshair"]
 stream = SubResource("AudioStreamRandomizer_pgk25")
 volume_db = -10.496
+bus = &"SFX"
 
 [node name="ReloadSound" type="AudioStreamPlayer" parent="Crosshair"]
 stream = ExtResource("20_pgk25")
 volume_db = -18.129
+mix_target = 2
+bus = &"SFX"
 
 [node name="KissyDeath" type="AudioStreamPlayer" parent="Crosshair"]
 stream = SubResource("AudioStreamRandomizer_3mjum")
+volume_db = -3.07
+bus = &"SFX"
 
 [node name="PufferDeath" type="AudioStreamPlayer" parent="Crosshair"]
 stream = ExtResource("25_womr8")
 volume_db = 0.954
+bus = &"SFX"
 
 [node name="BattleMusic" type="AudioStreamPlayer2D" parent="."]
 stream = ExtResource("14_01n6w")

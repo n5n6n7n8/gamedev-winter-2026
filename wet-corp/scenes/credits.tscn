@@ -74,5 +74,6 @@ texture = ExtResource("4_2fbfq")
 [node name="CreditsMusic" type="AudioStreamPlayer" parent="."]
 stream = SubResource("AudioStreamInteractive_ooihk")
 autoplay = true
+bus = &"SFX"
 
 [connection signal="pressed" from="Control/Back_button" to="Control/Back_button" method="_on_pressed"]
