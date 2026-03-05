@@ -1,4 +1,4 @@
-[gd_scene load_steps=58 format=3 uid="uid://c1foamfkt20o7"]
+[gd_scene load_steps=65 format=3 uid="uid://c1foamfkt20o7"]
 
 [ext_resource type="Script" uid="uid://bg5b8fnoe13h3" path="res://Scripts/PlayerActions.gd" id="1_pu3yx"]
 [ext_resource type="Texture2D" uid="uid://dgpb3wyp7nqfu" path="res://assets/UI/MainBG/lighthouse.png" id="1_to7gp"]
@@ -9,6 +9,7 @@
 [ext_resource type="VideoStream" uid="uid://cpkedrfejmv3c" path="res://assets/UI/MainBG/fog1.ogv" id="4_k67gn"]
 [ext_resource type="PackedScene" uid="uid://bx4h7m7lqk8vw" path="res://scenes/UI/main_hud.tscn" id="5_gubc5"]
 [ext_resource type="AudioStream" uid="uid://blh611v4kf851" path="res://assets/SFX/ShotEdit1.wav" id="5_k6f3i"]
+[ext_resource type="AudioStream" uid="uid://bax1ga81he5l4" path="res://assets/SFX/PufferSpawn.mp3" id="6_0wyf6"]
 [ext_resource type="AudioStream" uid="uid://byrtv4kyci8p6" path="res://assets/SFX/ShotEdit2.wav" id="6_xdqt8"]
 [ext_resource type="AudioStream" uid="uid://dlxwim78sofrq" path="res://assets/SFX/FishDeathSound1.wav" id="7_k6f3i"]
 [ext_resource type="AudioStream" uid="uid://jk4q7kx5arn6" path="res://assets/SFX/FishDeathSound2.wav" id="8_xdqt8"]
@@ -34,10 +35,13 @@
 [ext_resource type="AudioStream" uid="uid://4u1bykbqwaq3" path="res://assets/SFX/Kiss3.mp3" id="23_onjth"]
 [ext_resource type="Script" uid="uid://b5lw22ih11mar" path="res://scenes/cpu_particles_2d.gd" id="24_to7gp"]
 [ext_resource type="AudioStream" uid="uid://b043icpeomvei" path="res://assets/SFX/Kiss4.mp3" id="24_xa0eo"]
-[ext_resource type="AudioStream" uid="uid://dinfx85sp522f" path="res://assets/SFX/PufferDeath.mp3" id="25_womr8"]
-[ext_resource type="AudioStream" uid="uid://dlolt8vpuqhf2" path="res://assets/SFX/PufferRising.mp3" id="30_02d50"]
+[ext_resource type="AudioStream" uid="uid://hdrlwj664m20" path="res://assets/SFX/PufferDeath1.mp3" id="25_p27gv"]
+[ext_resource type="AudioStream" uid="uid://bbrf68u4ur8cs" path="res://assets/SFX/PufferDeath2.mp3" id="26_cn4eu"]
+[ext_resource type="AudioStream" uid="uid://b0ql3vtjnwtps" path="res://assets/SFX/PufferDeath3.mp3" id="27_0wyf6"]
 [ext_resource type="PackedScene" uid="uid://duq2cd30vryrw" path="res://scenes/UI/vignette.tscn" id="30_onjth"]
 [ext_resource type="Shader" uid="uid://ctul8urfljytx" path="res://assets/UI/vignette_shader.gdshader" id="31_xa0eo"]
+[ext_resource type="AudioStream" uid="uid://c3ocs8d45v61s" path="res://assets/SFX/WaveAmbience.mp3" id="41_0wyf6"]
+[ext_resource type="AudioStream" uid="uid://bvciqykt4pln5" path="res://assets/SFX/RainAmbience.mp3" id="42_xp01v"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_pw63i"]
 size = Vector2(93, 92.5)
@@ -71,6 +75,12 @@ stream_0/stream = ExtResource("21_iav3h")
 stream_1/stream = ExtResource("22_womr8")
 stream_2/stream = ExtResource("23_onjth")
 stream_3/stream = ExtResource("24_xa0eo")
+
+[sub_resource type="AudioStreamRandomizer" id="AudioStreamRandomizer_xp01v"]
+streams_count = 3
+stream_0/stream = ExtResource("25_p27gv")
+stream_1/stream = ExtResource("26_cn4eu")
+stream_2/stream = ExtResource("27_0wyf6")
 
 [sub_resource type="AudioStreamInteractive" id="AudioStreamInteractive_bcnxi"]
 clip_count = 1
@@ -154,6 +164,37 @@ point_count = 2
 offsets = PackedFloat32Array(0.31506848, 1)
 colors = PackedColorArray(0.5882353, 0, 0, 1, 1, 1, 1, 0)
 
+[sub_resource type="AudioStreamInteractive" id="AudioStreamInteractive_xp01v"]
+clip_count = 1
+clip_0/name = &"Wave Ambience"
+clip_0/stream = ExtResource("41_0wyf6")
+clip_0/auto_advance = 0
+_transitions = {
+Vector2i(-1, -1): {
+"fade_beats": 0.5,
+"fade_mode": 3,
+"from_time": 3,
+"hold_previous": true,
+"to_time": 1
+}
+}
+
+[sub_resource type="AudioStreamInteractive" id="AudioStreamInteractive_0wyf6"]
+clip_count = 1
+clip_0/name = &"Wave Ambience"
+clip_0/stream = ExtResource("42_xp01v")
+clip_0/auto_advance = 1
+clip_0/next_clip = 0
+_transitions = {
+Vector2i(-1, -1): {
+"fade_beats": 0.5,
+"fade_mode": 3,
+"from_time": 3,
+"hold_previous": true,
+"to_time": 1
+}
+}
+
 [node name="MainScene" type="Node"]
 editor_description = "1920x1080"
 
@@ -192,8 +233,8 @@ script = ExtResource("2_c16ls")
 timeSpeedup = 0.5
 
 [node name="PufferSpawn" type="AudioStreamPlayer" parent="FishGenerator"]
-stream = ExtResource("30_02d50")
-volume_db = -10.496
+stream = ExtResource("6_0wyf6")
+volume_db = -8.193
 bus = &"SFX"
 
 [node name="Timer" type="Timer" parent="FishGenerator"]
@@ -215,7 +256,7 @@ shape = SubResource("RectangleShape2D_pw63i")
 [node name="HarpoonFire" type="AudioStreamPlayer2D" parent="Crosshair"]
 position = Vector2(-580, -320)
 stream = SubResource("AudioStreamRandomizer_18nlu")
-volume_db = -3.029
+volume_db = -1.878
 pitch_scale = 0.73
 attenuation = 1e-05
 bus = &"SFX"
@@ -223,18 +264,18 @@ area_mask = 0
 
 [node name="FishDeath" type="AudioStreamPlayer2D" parent="Crosshair"]
 stream = SubResource("AudioStreamRandomizer_adb74")
-volume_db = -2.019
+volume_db = 0.284
 bus = &"SFX"
 
 [node name="ArmorDeath" type="AudioStreamPlayer2D" parent="Crosshair"]
 stream = SubResource("AudioStreamRandomizer_adb74")
-volume_db = -2.019
+volume_db = 0.283
 pitch_scale = 0.7
 bus = &"SFX"
 
 [node name="ArmorHit" type="AudioStreamPlayer" parent="Crosshair"]
 stream = SubResource("AudioStreamRandomizer_pgk25")
-volume_db = -10.496
+volume_db = -9.728
 bus = &"SFX"
 
 [node name="ReloadSound" type="AudioStreamPlayer" parent="Crosshair"]
@@ -245,12 +286,12 @@ bus = &"SFX"
 
 [node name="KissyDeath" type="AudioStreamPlayer" parent="Crosshair"]
 stream = SubResource("AudioStreamRandomizer_3mjum")
-volume_db = -3.07
+volume_db = -1.919
 bus = &"SFX"
 
 [node name="PufferDeath" type="AudioStreamPlayer" parent="Crosshair"]
-stream = ExtResource("25_womr8")
-volume_db = 0.954
+stream = SubResource("AudioStreamRandomizer_xp01v")
+volume_db = -1.348
 bus = &"SFX"
 
 [node name="BattleMusic" type="AudioStreamPlayer2D" parent="."]
@@ -264,7 +305,6 @@ script = ExtResource("15_to7gp")
 [node name="SeaAmbienceGame" type="AudioStreamPlayer2D" parent="."]
 stream = SubResource("AudioStreamInteractive_bcnxi")
 volume_db = -9.087
-autoplay = true
 bus = &"Ambience"
 
 [node name="UI" type="Node" parent="."]
@@ -347,5 +387,15 @@ scale_amount_max = 40.0
 scale_amount_curve = SubResource("Curve_u0fll")
 color_ramp = SubResource("Gradient_6p3nn")
 script = ExtResource("24_to7gp")
+
+[node name="WaveAmbience" type="AudioStreamPlayer" parent="."]
+stream = SubResource("AudioStreamInteractive_xp01v")
+volume_db = -17.653
+autoplay = true
+
+[node name="RainAmbience" type="AudioStreamPlayer" parent="."]
+stream = SubResource("AudioStreamInteractive_0wyf6")
+volume_db = -5.373
+autoplay = true
 
 [connection signal="timeout" from="FishGenerator/Timer" to="FishGenerator" method="_on_timer_timeout"]
