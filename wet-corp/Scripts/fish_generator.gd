@@ -69,7 +69,7 @@ func _on_timer_timeout() -> void:
 			#var toScale = rng.randf_range(1.3, 1.6)
 			#fishIns.get_node("PathFollow2D/Fish").scale = Vector2(toScale,toScale)
 			if(index>=39):
-				fishIns.get_node("PathFollow2D").speed = 0.8
+				fishIns.get_node("PathFollow2D").speed = 0.7
 			fishIns.add_to_group("red_snapper")
 			fishIns.get_node("PathFollow2D").fish_name = "red_snapper"
 			fishIns.get_node("PathFollow2D").update_after_instantiation()

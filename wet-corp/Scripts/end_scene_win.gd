@@ -22,8 +22,8 @@ func _ready() -> void:
 			var description = fish_name.replace("_", " ") + " x" + str(fish_count)
 			add_earnings_row(description, earnings)
 	
-	#cargo dmg is worth -100 per hp lost
-	var cargo_damage = -100 * (100-GameInfo.cargo_health)
+	#cargo dmg is worth -10 per hp lost
+	var cargo_damage = -10 * (100-GameInfo.cargo_health)
 	if cargo_damage != 0:
 		add_deductions_row("cargo damage", cargo_damage)
 		#subtract money from global cash (i made it += because cargo_damage is already a negative number)

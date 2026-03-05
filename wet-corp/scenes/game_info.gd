@@ -7,7 +7,7 @@ var cargo_health : int = 100 :
 	set(value):
 		cargo_health = value
 		cargo_health_changed.emit()
-var cash : int = 0 ;
+var cash : int = 25 ;
 @onready var timer: Timer = $"Game Timer"
 var fish_ct : Dictionary = {
 	"red_snapper" : 0,
@@ -19,12 +19,12 @@ var fish_ct : Dictionary = {
 }
 
 var fish_price : Dictionary = {
-	"red_snapper" : 25,
-	"pufferfish" : 35,
+	"red_snapper" : 45,
+	"pufferfish" : 75,
 	"kissy_fish" : 0,
-	"armored_fish" : 50,
-	"pregnant_fish" : 100,
-	"baby_fish" : 10
+	"armored_fish" : 100,
+	"pregnant_fish" : 1_000,
+	"baby_fish" : 15
 }
 
 var fish_dmg : Dictionary = {

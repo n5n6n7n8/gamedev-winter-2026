@@ -2,6 +2,7 @@ extends Label
 
 func _ready():
 	GameInfo	.gain_cash.connect(on_gain_cash)
+	on_gain_cash()
 # Called when the node enters the scene tree for the first time.
 func on_gain_cash():
 	var result = ""
