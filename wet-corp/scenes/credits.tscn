@@ -1,10 +1,32 @@
-[gd_scene load_steps=6 format=3 uid="uid://ca1cr6ftiudqe"]
+[gd_scene load_steps=9 format=3 uid="uid://ca1cr6ftiudqe"]
 
 [ext_resource type="Texture2D" uid="uid://ceki1cwujdnov" path="res://assets/UI/rusty wall texture.png" id="1_0bpdh"]
 [ext_resource type="PackedScene" uid="uid://duq2cd30vryrw" path="res://scenes/UI/vignette.tscn" id="2_2ckv8"]
 [ext_resource type="Theme" uid="uid://b6msyaccjcuf4" path="res://assets/UI/theme.tres" id="3_0ctdu"]
 [ext_resource type="Texture2D" uid="uid://bj2ujm4d3dg41" path="res://assets/UI/credits.png" id="4_2fbfq"]
 [ext_resource type="Script" uid="uid://b6pn0iwdq2gdv" path="res://Scripts/back_button.gd" id="4_8gwij"]
+[ext_resource type="AudioStream" uid="uid://dgjmxsirg880c" path="res://assets/Music/CreditsMusicLoopy.mp3" id="6_kyhnv"]
+[ext_resource type="AudioStream" uid="uid://bl88bmp6srcth" path="res://assets/Music/CreditsMusicLoopPerfect.mp3" id="6_mah5v"]
+
+[sub_resource type="AudioStreamInteractive" id="AudioStreamInteractive_ooihk"]
+clip_count = 2
+clip_0/name = &"Credits Music Loopy"
+clip_0/stream = ExtResource("6_kyhnv")
+clip_0/auto_advance = 1
+clip_0/next_clip = 1
+clip_1/name = &"Credits Music Loop Perfect"
+clip_1/stream = ExtResource("6_mah5v")
+clip_1/auto_advance = 1
+clip_1/next_clip = 1
+_transitions = {
+Vector2i(-1, -1): {
+"fade_beats": 0.1,
+"fade_mode": 2,
+"from_time": 3,
+"hold_previous": true,
+"to_time": 1
+}
+}
 
 [node name="Credits" type="Node"]
 
@@ -48,5 +70,9 @@ offset_bottom = 20.0
 grow_horizontal = 2
 grow_vertical = 2
 texture = ExtResource("4_2fbfq")
+
+[node name="CreditsMusic" type="AudioStreamPlayer" parent="."]
+stream = SubResource("AudioStreamInteractive_ooihk")
+autoplay = true
 
 [connection signal="pressed" from="Control/Back_button" to="Control/Back_button" method="_on_pressed"]
