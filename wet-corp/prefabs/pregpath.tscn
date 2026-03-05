@@ -6,9 +6,9 @@
 
 [sub_resource type="Curve2D" id="Curve2D_gubc5"]
 _data = {
-"points": PackedVector2Array(0, 0, 0, 0, 1198.2095, -9.192752, 329.71793, 13.901138, -329.71793, -13.901138, 544.47375, 199.94235, 0, 0, 0, 0, -87.22598, -17.619442)
+"points": PackedVector2Array(0, 0, 0, 0, 1407.2223, -17.153442, 0, 0, 0, 0, 204.44446, 22.716736)
 }
-point_count = 3
+point_count = 2
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_s6mp6"]
 height = 37.661743
@@ -19,10 +19,11 @@ scale = Vector2(1.8, 2.157)
 curve = SubResource("Curve2D_gubc5")
 
 [node name="PathFollow2D" type="PathFollow2D" parent="."]
-position = Vector2(1198.2095, -9.192752)
-rotation = 2.5387313
+position = Vector2(1407.2223, -17.153442)
+rotation = 3.1084564
+scale = Vector2(3.5, 3.5)
 script = ExtResource("1_6do4t")
-speed = 0.3
+speed = 0.2
 speed_curve = ExtResource("2_doamw")
 
 [node name="Sprite2D" type="Sprite2D" parent="PathFollow2D"]

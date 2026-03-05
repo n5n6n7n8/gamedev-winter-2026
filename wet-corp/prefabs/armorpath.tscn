@@ -8,9 +8,9 @@
 
 [sub_resource type="Curve2D" id="Curve2D_gubc5"]
 _data = {
-"points": PackedVector2Array(0, 0, 0, 0, 1058, 555.06116, 50.278854, 41.22827, -50.278854, -41.22827, 912.6592, 337.83365, 58.343895, 18.037561, -58.343895, -18.037561, 718.9257, 222.92424, 94.57924, -15.633324, -94.57924, 15.633324, 459.0841, 221.39212, 98.14827, -34.244423, -98.14827, 34.244423, 300.241, 259.69525, 41.936077, -46.899967, -41.936077, 46.899967, 118.443695, 428.9951, 0, 0, 0, 0, -33, 663)
+"points": PackedVector2Array(0, 0, 0, 0, 1058, 555.06116, 35.400387, 37.34936, -35.400387, -37.34936, 925.33325, 375.97327, 106.69891, 38.98368, -106.69891, -38.98368, 718.9257, 222.92424, 122.476364, -14.857542, -122.476364, 14.857542, 358.66666, 230.81198, 98.14827, -34.244423, -98.14827, 34.244423, 105.33332, 301.446)
 }
-point_count = 7
+point_count = 5
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_biteo"]
 radius = 21.660522
@@ -29,9 +29,9 @@ curve = SubResource("Curve2D_gubc5")
 
 [node name="PathFollow2D" type="PathFollow2D" parent="."]
 position = Vector2(1058, 555.06116)
-rotation = -2.0660279
+rotation = -2.1722262
 script = ExtResource("1_biteo")
-speed = 0.2
+speed = 0.25
 speed_curve = ExtResource("2_2trpw")
 
 [node name="Sprite2D" type="Sprite2D" parent="PathFollow2D"]

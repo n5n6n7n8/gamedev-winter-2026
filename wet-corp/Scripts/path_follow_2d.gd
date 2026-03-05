@@ -15,6 +15,8 @@ func update_after_instantiation():
 	if(fish_name == "armored_fish"):
 		fish_health = 3
 		ArmorHit = $"ArmorHit"
+	if(fish_name == "pregnant_fish"):
+		fish_health = 7
 	if(fish_name == "kissy_fish"):
 		kissy = true
 

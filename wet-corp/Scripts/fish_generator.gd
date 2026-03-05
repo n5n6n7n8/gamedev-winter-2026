@@ -5,6 +5,7 @@ var rng = RandomNumberGenerator.new()
 @onready var afish = preload("res://prefabs/armorpath.tscn")
 @onready var pfish = preload("res://prefabs/pufffishpath.tscn")
 @onready var kfish = preload("res://prefabs/kisspath.tscn")
+@onready var prfish = preload("res://prefabs/pregpath.tscn")
 @onready var flashText = $"../UI/MainHud/CanvasLayer/TuturialLabel"
 @export var timeSpeedup = 1.0
 @onready var PufferSpawn = $PufferSpawn
@@ -21,7 +22,7 @@ enum FishT {
 #wave 3: 20 ammo for 18 fish
 var typeArr = [FishT.RED, FishT.RED, FishT.RED, FishT.RED, FishT.RED, FishT.PUFFER, FishT.RED, FishT.RED, FishT.RED, FishT.ARMOR, FishT.RED, FishT.PUFFER, FishT.RED, FishT.ARMOR, FishT.PUFFER, FishT.RED, FishT.RED]
 var typeArr2 = [FishT.KISS, FishT.RED, FishT.PUFFER, FishT.RED, FishT.RED, FishT.ARMOR, FishT.PUFFER, FishT.PUFFER, FishT.RED, FishT.ARMOR, FishT.PUFFER, FishT.RED, FishT.RED, FishT.PUFFER, FishT.KISS, FishT.PUFFER, FishT.ARMOR, FishT.RED, FishT.PUFFER, FishT.RED, FishT.RED, FishT.RED]
-var typeArr3 = [FishT.RED, FishT.RED, FishT.RED, FishT.RED, FishT.RED, FishT.PUFFER, FishT.RED, FishT.PUFFER, FishT.PUFFER, FishT.ARMOR, FishT.RED, FishT.RED, FishT.ARMOR, FishT.RED, FishT.PUFFER, FishT.RED, FishT.RED, FishT.RED, FishT.RED]
+var typeArr3 = [FishT.PREGNANT, FishT.RED, FishT.RED, FishT.RED, FishT.RED, FishT.PUFFER, FishT.RED, FishT.PUFFER, FishT.PUFFER, FishT.ARMOR, FishT.RED, FishT.RED, FishT.ARMOR, FishT.RED, FishT.PUFFER, FishT.RED, FishT.RED, FishT.RED, FishT.RED]
 #first line: 16
 # --------RED--RED -RED -RED  RED -PUF -RED - RED -RED ARM -RED - PUF -RED -ARM- PUF- RED
 var timeArr = [4.0, 4.0, 0.4, 5.0, 4.0, 0.9, 1.0, 5.0, 4.0, 1.0, 1.0, 5.0, 0.5, 3.0, 6.0, 1.0, 1.0]
@@ -29,8 +30,8 @@ var timeArr = [4.0, 4.0, 0.4, 5.0, 4.0, 0.9, 1.0, 5.0, 4.0, 1.0, 1.0, 5.0, 0.5, 
 #  -------------KIS -RED -PUF -RED -RED -ARM -PUF -PUF -RED -ARM -PUF -RED -RED -PUF -KIS -PUF -ARM -RED -PUF -RED -RED -RED
 var timeArr2 = [2.0, 1.0, 0.5, 1.0, 1.3, 1.5, 0.5, 0.1, 1.0, 3.0, 2.0, 1.0, 5.0, 1.0, 0.3, 0.6, 2.0, 1.0, 0.5, 2.0, 2.0, 8.0]
 #third line:  19 (57)
-#-=-------------RED -RED -RED -RED -RED -PUF -RED -PUF -PUF -ARM -RED -RED -ARM -RED -PUF -ARM -RED -RED -RED
-var timeArr3 = [2.0, 3.0, 3.5, 3.0, 0.7, 1.0, 0.5, 2.1, 4.0, 2.0, 1.0, 3.0, 4.0, 1.0, 1.0, 4.0, 2.0, 2.0, 1.3]
+#-=-------------PRE -RED -RED -RED -RED -PUF -RED -PUF -PUF -ARM -RED -RED -ARM -RED -PUF -ARM -RED -RED -RED
+var timeArr3 = [7.0, 3.0, 3.5, 2.0, 0.7, 1.0, 0.5, 2.1, 2.0, 2.0, 1.0, 4.0, 3.0, 1.0, 1.0, 4.0, 2.0, 2.0, 1.3]
 var index = 0
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
@@ -61,7 +62,7 @@ func _on_timer_timeout() -> void:
 		flashText.show_text("Wave 1")
 	if(index==16):
 		flashText.show_text("Wave 2")
-	if(index==39):
+	if(index==38):
 		flashText.show_text("Wave 3")
 	match typeToUse:
 		FishT.RED:  #ON RED SNAPPER SPAWN
@@ -100,6 +101,12 @@ func _on_timer_timeout() -> void:
 			kIns.get_node("PathFollow2D").fish_name = "kissy_fish"
 			kIns.get_node("PathFollow2D").update_after_instantiation()
 			add_child(kIns)
+		FishT.PREGNANT:
+			var prIns = prfish.instantiate()
+			prIns.add_to_group("pregnant_fish")
+			prIns.get_node("PathFollow2D").fish_name = "pregnant_fish"
+			prIns.get_node("PathFollow2D").update_after_instantiation()
+			add_child(prIns)
 		_:
 			print("Fish_generator.gd: ENUM DID NOT MATCH")
 			

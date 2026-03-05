@@ -74,6 +74,8 @@ func _input(e:InputEvent) -> void:
 						GameInfo.heal(15)
 						_add_fish_to_gameinfo("kissy_fish")
 						KissyDeath.play()
+					elif fish.is_in_group("pregnant_fish"):  # on kissy shot
+						_add_fish_to_gameinfo("pregnant_fish")
 					else:
 						print("error finding fish!!!")
 						return

@@ -5,13 +5,13 @@
 
 [sub_resource type="Curve2D" id="Curve2D_gubc5"]
 _data = {
-"points": PackedVector2Array(0, 0, 0, 0, 516.0105, 595.2307, -5.3959517, 55.95402, 5.3959517, -55.95402, 461.83862, 416.7381, 3.083401, 70.10332, -3.083401, -70.10332, 537.1284, 250.5025, 0, 47.593075, 0, -47.593075, 471.0203, 69.7117, 0, 0, 0, 0, 549.0646, -132.52884)
+"points": PackedVector2Array(0, 0, 0, 0, 516.0105, 595.2307, -5.3959517, 55.95402, 5.3959517, -55.95402, 479.41168, 413.0648, 3.083401, 70.10332, -3.083401, -70.10332, 510.5882, 245.57953, 0, 47.593075, 0, -47.593075, 471.0203, 69.7117, 0, 0, 0, 0, 549.0646, -132.52884)
 }
 point_count = 5
 
 [sub_resource type="Curve" id="Curve_23d5e"]
-_data = [Vector2(0, 1), 0.0, 0.0, 0, 0, Vector2(0.53816795, 0.88081205), 0.0, 0.0, 0, 0, Vector2(1, 0.7318271), 0.0, 0.0, 0, 0]
-point_count = 3
+_data = [Vector2(0, 0.99148655), 0.0, 0.0, 0, 0, Vector2(0.26335877, 0.82547474), 0.0, 0.0, 0, 0, Vector2(0.5496183, 0.9233792), 0.0, 0.0, 0, 0, Vector2(0.8167939, 0.8084479), 0.0, 0.0, 0, 0, Vector2(1, 0.9957433), 0.0, 0.0, 0, 0]
+point_count = 5
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_whhvx"]
 radius = 65.04126
@@ -23,7 +23,7 @@ curve = SubResource("Curve2D_gubc5")
 
 [node name="PathFollow2D" type="PathFollow2D" parent="."]
 position = Vector2(516.0105, 595.2307)
-rotation = -2.0232742
+rotation = -1.8920059
 script = ExtResource("1_23d5e")
 speed = 0.3
 speed_curve = SubResource("Curve_23d5e")
