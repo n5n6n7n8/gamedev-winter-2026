@@ -44,8 +44,8 @@
 [ext_resource type="AudioStream" uid="uid://c3ocs8d45v61s" path="res://assets/SFX/WaveAmbience.mp3" id="41_0wyf6"]
 [ext_resource type="AudioStream" uid="uid://bvciqykt4pln5" path="res://assets/SFX/RainAmbience.mp3" id="42_xp01v"]
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_pw63i"]
-size = Vector2(93, 92.5)
+[sub_resource type="CircleShape2D" id="CircleShape2D_xp01v"]
+radius = 52.67
 
 [sub_resource type="AudioStreamRandomizer" id="AudioStreamRandomizer_18nlu"]
 random_pitch = 1.16
@@ -251,7 +251,7 @@ scale = Vector2(0.3, 0.3)
 texture = ExtResource("2_pw63i")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Crosshair"]
-shape = SubResource("RectangleShape2D_pw63i")
+shape = SubResource("CircleShape2D_xp01v")
 
 [node name="HarpoonFire" type="AudioStreamPlayer2D" parent="Crosshair"]
 position = Vector2(-580, -320)

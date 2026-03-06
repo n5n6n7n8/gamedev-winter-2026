@@ -10,6 +10,9 @@ var fish_name = "none"
 #only use on armor fish
 var fish_health = 0
 var kissy = false
+var puff = false
+var up = false
+var toScale = Vector2(0.002,0.002)
 
 func update_after_instantiation():
 	if(fish_name == "armored_fish"):
@@ -19,6 +22,8 @@ func update_after_instantiation():
 		fish_health = 7
 	if(fish_name == "kissy_fish"):
 		kissy = true
+	if(fish_name == "pufferfish"):
+		puff = true
 
 func take_damage():
 	fish_health -= 1
@@ -32,6 +37,10 @@ func should_die() -> bool:
 func _physics_process(delta: float) -> void:
 	tspeed = speed * speed_curve.sample(progress_ratio)
 	progress_ratio += delta * tspeed
+	if(puff):
+		scale += toScale
+		if(scale.length()<0.9):
+			up = false
 	if(progress_ratio>=0.95): #when the fish hits the boat
 		self.get_parent().queue_free()
 		GameInfo.take_dmg_by_fish(fish_name)
