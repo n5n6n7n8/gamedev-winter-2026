@@ -8,7 +8,7 @@
 
 [sub_resource type="Curve2D" id="Curve2D_gubc5"]
 _data = {
-"points": PackedVector2Array(0, 0, 0, 0, 1058, 555.06116, 35.400387, 37.34936, -35.400387, -37.34936, 925.33325, 375.97327, 106.69891, 38.98368, -106.69891, -38.98368, 718.9257, 222.92424, 122.476364, -14.857542, -122.476364, 14.857542, 358.66666, 230.81198, 98.14827, -34.244423, -98.14827, 34.244423, 105.33332, 301.446)
+"points": PackedVector2Array(0, 0, 0, 0, 1142.6666, 595.10565, 35.400387, 37.34936, -35.400387, -37.34936, 925.33325, 375.97327, 106.69891, 38.98368, -106.69891, -38.98368, 718.9257, 222.92424, 122.476364, -14.857542, -122.476364, 14.857542, 358.66666, 230.81198, 98.14827, -34.244423, -98.14827, 34.244423, 105.33332, 301.446)
 }
 point_count = 5
 
@@ -23,13 +23,13 @@ stream_0/stream = ExtResource("4_hddl4")
 stream_1/stream = ExtResource("5_5kn8m")
 
 [node name="Path2D2" type="Path2D"]
-position = Vector2(106, 174)
+position = Vector2(150, 200)
 scale = Vector2(1.5, 1.798)
 curve = SubResource("Curve2D_gubc5")
 
 [node name="PathFollow2D" type="PathFollow2D" parent="."]
-position = Vector2(1058, 555.06116)
-rotation = -2.1722262
+position = Vector2(1142.6666, 595.10565)
+rotation = -2.3566067
 script = ExtResource("1_biteo")
 speed = 0.25
 speed_curve = ExtResource("2_2trpw")

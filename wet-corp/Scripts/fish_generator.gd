@@ -22,7 +22,7 @@ enum FishT {
 #wave 3: 20 ammo for 18 fish
 var typeArr = [FishT.RED, FishT.RED, FishT.RED, FishT.RED, FishT.RED, FishT.PUFFER, FishT.RED, FishT.RED, FishT.RED, FishT.ARMOR, FishT.RED, FishT.PUFFER, FishT.RED, FishT.ARMOR, FishT.PUFFER, FishT.RED, FishT.RED]
 var typeArr2 = [FishT.KISS, FishT.RED, FishT.PUFFER, FishT.RED, FishT.RED, FishT.ARMOR, FishT.PUFFER, FishT.PUFFER, FishT.RED, FishT.ARMOR, FishT.PUFFER, FishT.RED, FishT.RED, FishT.PUFFER, FishT.KISS, FishT.PUFFER, FishT.ARMOR, FishT.RED, FishT.PUFFER, FishT.RED, FishT.RED, FishT.RED]
-var typeArr3 = [FishT.PREGNANT, FishT.RED, FishT.RED, FishT.RED, FishT.RED, FishT.PUFFER, FishT.RED, FishT.PUFFER, FishT.PUFFER, FishT.ARMOR, FishT.RED, FishT.RED, FishT.ARMOR, FishT.RED, FishT.PUFFER, FishT.RED, FishT.RED, FishT.RED, FishT.RED]
+var typeArr3 = [FishT.PREGNANT, FishT.RED, FishT.RED, FishT.RED, FishT.RED, FishT.RED, FishT.PUFFER, FishT.RED, FishT.PUFFER, FishT.PUFFER, FishT.ARMOR, FishT.RED, FishT.RED, FishT.ARMOR, FishT.PUFFER, FishT.RED, FishT.PUFFER, FishT.RED, FishT.RED, FishT.RED, FishT.RED]
 #first line: 16
 # --------RED--RED -RED -RED  RED -PUF -RED - RED -RED ARM -RED - PUF -RED -ARM- PUF- RED
 var timeArr = [4.0, 4.0, 0.4, 5.0, 4.0, 0.9, 1.0, 5.0, 4.0, 1.0, 1.0, 5.0, 0.5, 3.0, 6.0, 1.0, 1.0]
@@ -30,8 +30,8 @@ var timeArr = [4.0, 4.0, 0.4, 5.0, 4.0, 0.9, 1.0, 5.0, 4.0, 1.0, 1.0, 5.0, 0.5, 
 #  -------------KIS -RED -PUF -RED -RED -ARM -PUF -PUF -RED -ARM -PUF -RED -RED -PUF -KIS -PUF -ARM -RED -PUF -RED -RED -RED
 var timeArr2 = [2.0, 1.0, 0.5, 1.0, 1.3, 1.5, 0.5, 0.1, 1.0, 3.0, 2.0, 1.0, 5.0, 1.0, 0.3, 0.6, 2.0, 1.0, 0.5, 2.0, 2.0, 8.0]
 #third line:  19 (57)
-#-=-------------PRE -RED -RED -RED -RED -PUF -RED -PUF -PUF -ARM -RED -RED -ARM -RED -PUF -ARM -RED -RED -RED
-var timeArr3 = [7.0, 3.0, 3.5, 2.0, 0.7, 1.0, 0.5, 2.1, 2.0, 2.0, 1.0, 4.0, 3.0, 1.0, 1.0, 4.0, 2.0, 2.0, 1.3]
+#-=-------------PRE -RED -RED -RED -RED -PUF -RED -PUF -PUF -ARM -RED -RED -ARM -PUF -RED -PUF -ARM -RED -RED -RED
+var timeArr3 = [7.0, 3.0, 1.5, 2.0, 2.0, 0.7, 1.0, 0.5, 2.1, 2.0, 2.0, 1.0, 2.0, 2.0, 3.0, 1.0, 1.0, 4.0, 2.0, 2.0, 1.3]
 var index = 0
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
@@ -42,7 +42,7 @@ func _ready() -> void:
 func _on_timer_timeout() -> void:
 	var typeToUse
 	var timeToUse
-	if(index == 57):
+	if(index == 59):
 		print("done!!")
 		$Timer.stop()
 		return
@@ -70,10 +70,11 @@ func _on_timer_timeout() -> void:
 			#var toScale = rng.randf_range(1.3, 1.6)
 			#fishIns.get_node("PathFollow2D/Fish").scale = Vector2(toScale,toScale)
 			if(index>=39):
-				fishIns.get_node("PathFollow2D").speed = 0.7
+				fishIns.get_node("PathFollow2D").speed = 0.75
 			fishIns.add_to_group("red_snapper")
 			fishIns.get_node("PathFollow2D").fish_name = "red_snapper"
 			fishIns.get_node("PathFollow2D").update_after_instantiation()
+			fishIns.position += Vector2(randi_range(-150, 150), randi_range(-100, 200))
 			add_child(fishIns)
 			
 		FishT.PUFFER:#ON PUFFER SPAWN
@@ -83,15 +84,17 @@ func _on_timer_timeout() -> void:
 			pIns.add_to_group("pufferfish")
 			pIns.get_node("PathFollow2D").fish_name = "pufferfish"
 			pIns.get_node("PathFollow2D").update_after_instantiation()
+			pIns.position += Vector2(randi_range(-250, 250), randi_range(-20, 20))
 			add_child(pIns)
 			PufferSpawn.play()
 		FishT.ARMOR:#ON ARMOR SPAWN
 			var aIns = afish.instantiate()
 			if(index>=39):
-				aIns.get_node("PathFollow2D").speed = 0.5
+				aIns.get_node("PathFollow2D").speed = 0.6
 			aIns.add_to_group("armored_fish")
 			aIns.get_node("PathFollow2D").fish_name = "armored_fish"
 			aIns.get_node("PathFollow2D").update_after_instantiation()
+			aIns.position += Vector2(randi_range(-155, 155), randi_range(-100, 100))
 			add_child(aIns)
 		FishT.KISS: #ON KISSY SPAWN
 			var kIns = kfish.instantiate()
