@@ -18,6 +18,7 @@ var bulletCount = maxBulletCount
 @onready var KissyDeath = $KissyDeath
 @onready var PufferDeath = $PufferDeath
 @onready var ReloadSound = $ReloadSound
+@onready var PregDeath = $PregDeath
 var currentMoney := 0
 
 @onready var ammotext = $"../UI/MainHud/CanvasLayer/LABEL_ammo"
@@ -76,6 +77,10 @@ func _input(e:InputEvent) -> void:
 						KissyDeath.play()
 					elif fish.is_in_group("pregnant_fish"):  # on kissy shot
 						_add_fish_to_gameinfo("pregnant_fish")
+						PregDeath.play()
+					elif fish.is_in_group("baby_fish"):
+						_add_fish_to_gameinfo("baby_fish")
+						
 					else:
 						print("error finding fish!!!")
 						return

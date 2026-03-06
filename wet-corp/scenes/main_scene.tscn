@@ -1,4 +1,4 @@
-[gd_scene load_steps=65 format=3 uid="uid://c1foamfkt20o7"]
+[gd_scene load_steps=66 format=3 uid="uid://c1foamfkt20o7"]
 
 [ext_resource type="Script" uid="uid://bg5b8fnoe13h3" path="res://Scripts/PlayerActions.gd" id="1_pu3yx"]
 [ext_resource type="Texture2D" uid="uid://dgpb3wyp7nqfu" path="res://assets/UI/MainBG/lighthouse.png" id="1_to7gp"]
@@ -38,6 +38,7 @@
 [ext_resource type="AudioStream" uid="uid://hdrlwj664m20" path="res://assets/SFX/PufferDeath1.mp3" id="25_p27gv"]
 [ext_resource type="AudioStream" uid="uid://bbrf68u4ur8cs" path="res://assets/SFX/PufferDeath2.mp3" id="26_cn4eu"]
 [ext_resource type="AudioStream" uid="uid://b0ql3vtjnwtps" path="res://assets/SFX/PufferDeath3.mp3" id="27_0wyf6"]
+[ext_resource type="AudioStream" uid="uid://dtgerkoqt3o8f" path="res://assets/SFX/FishDeathPreg.wav" id="28_xp01v"]
 [ext_resource type="PackedScene" uid="uid://duq2cd30vryrw" path="res://scenes/UI/vignette.tscn" id="30_onjth"]
 [ext_resource type="Shader" uid="uid://ctul8urfljytx" path="res://assets/UI/vignette_shader.gdshader" id="31_xa0eo"]
 [ext_resource type="AudioStream" uid="uid://c3ocs8d45v61s" path="res://assets/SFX/WaveAmbience.mp3" id="41_0wyf6"]
@@ -292,6 +293,11 @@ bus = &"SFX"
 stream = SubResource("AudioStreamRandomizer_xp01v")
 volume_db = -1.348
 bus = &"SFX"
+
+[node name="PregDeath" type="AudioStreamPlayer2D" parent="Crosshair"]
+stream = ExtResource("28_xp01v")
+volume_db = 4.106
+pitch_scale = 0.92
 
 [node name="BattleMusic" type="AudioStreamPlayer2D" parent="."]
 stream = ExtResource("14_01n6w")

@@ -1,0 +1,43 @@
+[gd_scene load_steps=6 format=3 uid="uid://d3628qu7tf0rx"]
+
+[ext_resource type="Script" uid="uid://dqyeolh5gwhlp" path="res://Scripts/path_follow_2d.gd" id="1_08xuo"]
+[ext_resource type="Texture2D" uid="uid://0h3mncqcod8i" path="res://assets/baby.png" id="2_08xuo"]
+
+[sub_resource type="Curve2D" id="Curve2D_gubc5"]
+_data = {
+"points": PackedVector2Array(0, 0, 0, 0, 498.0003, 528.48724, -0.25008345, 14.897156, 0.25008345, -14.897156, 487.0588, 435.65814, -2.0624673, 17.111313, 2.0624673, -17.111313, 506.47055, 364.44006, -1.143527, 25.155018, 1.143527, -25.155018, 492.35294, 277.99606, 1.1435261, 18.141407, -1.1435261, -18.141407, 505.88235, 186.1493, -0.57176316, 16.231785, 0.57176316, -16.231785, 488.82352, 103.14342, 2.2094922, 12.914026, -2.2094922, -12.914026, 511.17642, 17.19057, 0, 0, 0, 0, 489.99997, -60.412567)
+}
+point_count = 8
+
+[sub_resource type="Curve" id="Curve_23d5e"]
+_data = [Vector2(0, 0.99148655), 0.0, 0.0, 0, 0, Vector2(0.26335877, 0.82547474), 0.0, 0.0, 0, 0, Vector2(0.5496183, 0.9233792), 0.0, 0.0, 0, 0, Vector2(0.8167939, 0.8084479), 0.0, 0.0, 0, 0, Vector2(1, 0.9957433), 0.0, 0.0, 0, 0]
+point_count = 5
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_whhvx"]
+radius = 31.778698
+
+[node name="Path2D" type="Path2D"]
+position = Vector2(250, 71)
+scale = Vector2(1.6967863, 2.036)
+curve = SubResource("Curve2D_gubc5")
+
+[node name="PathFollow2D" type="PathFollow2D" parent="."]
+position = Vector2(498.0003, 528.48724)
+rotation = -1.7134284
+script = ExtResource("1_08xuo")
+speed = 0.5
+speed_curve = SubResource("Curve_23d5e")
+
+[node name="Sprite2D" type="Sprite2D" parent="PathFollow2D"]
+position = Vector2(-1.090348, 0.49087113)
+rotation = -3.1398473
+scale = Vector2(0.14, 0.16)
+texture = ExtResource("2_08xuo")
+flip_v = true
+
+[node name="Area2D" type="Area2D" parent="PathFollow2D"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="PathFollow2D/Area2D"]
+position = Vector2(-0.007408142, 2.9621916)
+scale = Vector2(1.2164974, 0.79652995)
+shape = SubResource("CircleShape2D_whhvx")

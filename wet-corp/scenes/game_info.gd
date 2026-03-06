@@ -32,7 +32,7 @@ var fish_dmg : Dictionary = {
 	"red_snapper" : 10,
 	"pufferfish" : 15,
 	"kissy_fish" : 1,
-	"armored_fish" : 25,
+	"armored_fish" : 20,
 	"pregnant_fish" : 40,
 	"baby_fish" : 5
 }
