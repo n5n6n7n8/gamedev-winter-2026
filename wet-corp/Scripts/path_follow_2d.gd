@@ -42,5 +42,7 @@ func _physics_process(delta: float) -> void:
 		if(scale.length()<0.9):
 			up = false
 	if(progress_ratio>=0.95): #when the fish hits the boat
+		#if(puff):
+			#get_node("root/MainScene/FishGenerator/PufferSpawn").stop()
 		self.get_parent().queue_free()
 		GameInfo.take_dmg_by_fish(fish_name)
