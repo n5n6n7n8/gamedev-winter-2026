@@ -46,21 +46,17 @@ func _on_timer_timeout() -> void:
 	var timeToUse
 	var toScale = randf_range(-0.1,0.35)
 	if(index == 71):
-		print("done!!")
 		$Timer.stop()
 		return
 	elif(index >= 42):
 		typeToUse = typeArr3[index-42]
 		timeToUse = timeArr3[index-42]
-		print("wave 3")
 	elif(index >= 16):
 		typeToUse = typeArr2[index-16]
 		timeToUse = timeArr2[index-16]
-		print("wave 2")
 	else:
 		typeToUse = typeArr[index]
 		timeToUse = timeArr[index]
-		print("wave 1")
 	if(index==2):
 		flashText.show_text("Wave 1")
 	if(index==16):

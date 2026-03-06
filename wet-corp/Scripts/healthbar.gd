@@ -7,7 +7,6 @@ func _ready():
 	GameInfo	.cargo_health_changed.connect(_on_cargo_health_changed)
 	
 func _on_cargo_health_changed():
-	print("cargo health changed")
 	self.value = GameInfo.cargo_health
 
 #temp for debug stuff

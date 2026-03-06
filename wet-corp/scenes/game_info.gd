@@ -58,9 +58,7 @@ func add_cash(fish:String):
 
 func take_dmg(val:int) -> void:
 	self.cargo_health -= val
-	print("Cargo health: ", self.cargo_health)
 	if cargo_health <= 0:
-		print("Game Over")
 		SceneTransition.change_scene_to_file("res://scenes/end_scene_fail.tscn")
 	return
 	
@@ -89,19 +87,18 @@ func reset() -> void:
 	return
 
 func end_game_win() -> void:
-	print("timer stopped")
+
 	timer.stop()
 	SceneTransition.change_scene_to_file("res://scenes/end_scene_win.tscn")
 	
 func end_game_lose() -> void:
-	print("timer stopped")
+
 	timer.stop()
 	SceneTransition.change_scene_to_file("res://scenes/end_scene_fail.tscn")
 	
 func start_game() -> void:
 	self.reset()
 	SceneTransition.change_scene_to_file("res://scenes/main_scene.tscn")
-	print("timer started")
 	self.timer.start()
 	
 

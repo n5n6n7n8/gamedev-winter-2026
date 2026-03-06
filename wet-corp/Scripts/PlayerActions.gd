@@ -31,10 +31,6 @@ func take_damage(amount):
 	health -= amount
 	health = clamp(health, 0, max_health)
 	health_changed.emit()  # notify HealthBar
-
-	if health <= 0:
-		print("GAME OVER")
-
  #Called when player dies (there's already a game over function in game_info)
 #func game_over():
 	#
@@ -82,7 +78,6 @@ func _input(e:InputEvent) -> void:
 						_add_fish_to_gameinfo("baby_fish")
 						
 					else:
-						print("error finding fish!!!")
 						return
 					fish.queue_free()
 		else: #If the harpoon doesn't shoot anything, minus 5 dollars for equipment misuse
@@ -91,7 +86,6 @@ func _input(e:InputEvent) -> void:
 	elif e.is_action_pressed("Reload"):
 		bulletCount = 20
 		_set_ammo_text()
-		print("Reloaded!")
 		ReloadSound.play()
 	#if Input.is_action_just_pressed("Shoot"): # spacebar
 		#trigger_explosion(global_position)

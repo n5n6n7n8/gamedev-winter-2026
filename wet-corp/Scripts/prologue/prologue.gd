@@ -25,11 +25,9 @@ func _ready() -> void:
 	
 	
 func enable_skip():
-	print("skip enabled")
 	skip_enabled = true;
 
 func change_scene():
-	print("change scene")
 	SceneTransition.change_scene_to_file(next_scene.resource_path)
 
 func _input(e:InputEvent) -> void:
