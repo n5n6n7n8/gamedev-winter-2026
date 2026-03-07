@@ -87,6 +87,8 @@ func _input(e:InputEvent) -> void:
 		bulletCount = 20
 		_set_ammo_text()
 		ReloadSound.play()
+	elif e.is_action_pressed("Quit"):
+		get_tree().change_scene_to_file("res://scenes/main_menu.tscn")
 	#if Input.is_action_just_pressed("Shoot"): # spacebar
 		#trigger_explosion(global_position)
 	#if e is InputEventKey:
