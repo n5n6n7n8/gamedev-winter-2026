@@ -13,7 +13,7 @@ config_version=5
 config/name="Wet Corp"
 run/main_scene="uid://v6mj621ll4of"
 config/features=PackedStringArray("4.5", "Forward Plus")
-config/icon="res://icon.svg"
+config/icon="uid://blqy2nhfha8vo"
 
 [autoload]
 
