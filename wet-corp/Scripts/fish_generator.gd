@@ -37,7 +37,7 @@ var timeArr3 = [2.0, 0.5, 0.5, 0.5, 0.5, 0.5, 0.5, 1.2, 3.0, 1.5, 2.0, 2.0, 0.7,
 var index = 0
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
-	$Timer.wait_time = 2.0
+	$Timer.wait_time = 8.5
 	$Timer.start()
 
 

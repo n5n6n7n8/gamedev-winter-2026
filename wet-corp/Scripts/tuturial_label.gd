@@ -11,11 +11,11 @@ extends RichTextLabel
 #func _process -> void:
 	#if(fading):
 		#
-var fade_duration = 2.0
+var fade_duration = 4.0
 
 func _ready():
 	modulate.a = 1
-	await get_tree().create_timer(1).timeout
+	await get_tree().create_timer(2).timeout
 	fade_in()
 
 func show_text(textToShow:String):
