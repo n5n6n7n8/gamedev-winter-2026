@@ -1,0 +1,24 @@
+[remap]
+
+importer="wav"
+type="AudioStreamWAV"
+uid="uid://dymvjcb4qaiod"
+path="res://.godot/imported/Prologue4_Edit.wav-e216eaef7e90ef946cf1bb4f290b1d66.sample"
+
+[deps]
+
+source_file="res://assets/Voiceovers/New VO/Prologue4_Edit.wav"
+dest_files=["res://.godot/imported/Prologue4_Edit.wav-e216eaef7e90ef946cf1bb4f290b1d66.sample"]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop_mode=0
+edit/loop_begin=0
+edit/loop_end=-1
+compress/mode=2

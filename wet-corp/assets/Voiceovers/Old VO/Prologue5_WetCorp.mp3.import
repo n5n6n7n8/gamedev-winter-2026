@@ -1,0 +1,19 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+uid="uid://cbakth3wuioa5"
+path="res://.godot/imported/Prologue5_WetCorp.mp3-a7d1cf46d13deda237b732c08d1e5752.mp3str"
+
+[deps]
+
+source_file="res://assets/Voiceovers/Old VO/Prologue5_WetCorp.mp3"
+dest_files=["res://.godot/imported/Prologue5_WetCorp.mp3-a7d1cf46d13deda237b732c08d1e5752.mp3str"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

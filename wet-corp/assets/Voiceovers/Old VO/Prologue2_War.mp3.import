@@ -1,0 +1,19 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+uid="uid://qtuwq4dq58xk"
+path="res://.godot/imported/Prologue2_War.mp3-0caa388ac7e8ab5ace8d5382158a7590.mp3str"
+
+[deps]
+
+source_file="res://assets/Voiceovers/Old VO/Prologue2_War.mp3"
+dest_files=["res://.godot/imported/Prologue2_War.mp3-0caa388ac7e8ab5ace8d5382158a7590.mp3str"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

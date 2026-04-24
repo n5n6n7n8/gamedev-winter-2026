@@ -6,7 +6,7 @@
 [ext_resource type="Texture2D" uid="uid://dwrs2ttu3jviw" path="res://assets/Prologue/prologue-4.png" id="3_rok0v"]
 [ext_resource type="Texture2D" uid="uid://blqy2nhfha8vo" path="res://assets/UI/anchor_crosshair_light.png" id="4_qjjj8"]
 [ext_resource type="PackedScene" uid="uid://duq2cd30vryrw" path="res://scenes/UI/vignette.tscn" id="6_rok0v"]
-[ext_resource type="AudioStream" uid="uid://c4oufh53xqx5g" path="res://assets/Voiceovers/Prologue4_Fish.mp3" id="7_xohwh"]
+[ext_resource type="AudioStream" uid="uid://dymvjcb4qaiod" path="res://assets/Voiceovers/New VO/Prologue4_Edit.wav" id="7_xohwh"]
 
 [sub_resource type="Animation" id="Animation_kfe5f"]
 resource_name = "RESET"

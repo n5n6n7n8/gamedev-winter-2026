@@ -7,7 +7,7 @@
 [ext_resource type="Texture2D" uid="uid://blqy2nhfha8vo" path="res://assets/UI/anchor_crosshair_light.png" id="5_i738g"]
 [ext_resource type="PackedScene" uid="uid://duq2cd30vryrw" path="res://scenes/UI/vignette.tscn" id="6_qm6is"]
 [ext_resource type="AudioStream" uid="uid://bgrb8gcs4aynl" path="res://assets/Music/PrologueViolinLoopNEW.mp3" id="7_k8qjg"]
-[ext_resource type="AudioStream" uid="uid://hr7tba1j8wrw" path="res://assets/Voiceovers/Prologue2_War.mp3" id="8_k0kqp"]
+[ext_resource type="AudioStream" uid="uid://b4j4fyi1e14j3" path="res://assets/Voiceovers/New VO/Prologue2_Edit.wav" id="8_k0kqp"]
 
 [sub_resource type="Animation" id="Animation_kfe5f"]
 resource_name = "RESET"
