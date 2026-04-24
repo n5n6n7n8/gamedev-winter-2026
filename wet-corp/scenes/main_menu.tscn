@@ -3,7 +3,7 @@
 [ext_resource type="Script" uid="uid://dm2r8moyc2dtk" path="res://Scripts/main_menu.gd" id="1_ekxnf"]
 [ext_resource type="Texture2D" uid="uid://dbeeey2hp52cu" path="res://assets/Title_screen_3.png" id="1_l6cm7"]
 [ext_resource type="PackedScene" uid="uid://tm5cinokhjg2" path="res://scenes/UI/main_menu_UI.tscn" id="3_bqqt6"]
-[ext_resource type="Texture2D" uid="uid://de4pl1n23rrrt" path="res://assets/mainbgtemp.png" id="4_wu84c"]
+[ext_resource type="Texture2D" uid="uid://yxbwwssgmfe4" path="res://assets/Menu_Artwork.png" id="3_rtw2f"]
 [ext_resource type="AudioStream" uid="uid://of1215i837yx" path="res://assets/Music/On The Ship Loop2.mp3" id="5_8ln24"]
 [ext_resource type="AudioStream" uid="uid://c4e630droagdp" path="res://assets/SFX/SeaAmbience2.mp3" id="5_rtw2f"]
 
@@ -84,9 +84,9 @@ offset_right = 634.0
 offset_bottom = 536.0
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
-position = Vector2(960.99994, 539)
-scale = Vector2(1.0410811, 0.8002183)
-texture = ExtResource("4_wu84c")
+position = Vector2(956.99994, 556)
+scale = Vector2(0.89, 0.684)
+texture = ExtResource("3_rtw2f")
 
 [node name="MenuMusic" type="AudioStreamPlayer2D" parent="."]
 stream = SubResource("AudioStreamInteractive_rtw2f")

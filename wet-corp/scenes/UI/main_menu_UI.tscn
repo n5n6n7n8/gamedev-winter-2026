@@ -142,6 +142,7 @@ visibility_rect = Rect2(0, 0, 1920, 1080)
 process_material = SubResource("ParticleProcessMaterial_ivyv1")
 
 [node name="Vignette" parent="." instance=ExtResource("4_vqjqd")]
+visible = false
 layout_mode = 1
 
 [connection signal="pressed" from="VBoxContainer/BTN_start" to="." method="_on_btn_start_pressed"]
