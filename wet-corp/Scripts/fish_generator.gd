@@ -27,17 +27,17 @@ var typeArr2 = [FishT.KISS, FishT.RED, FishT.PUFFER, FishT.RED, FishT.ARMOR, Fis
 var typeArr3 = [FishT.PREGNANT, FishT.BABY, FishT.BABY, FishT.BABY, FishT.BABY, FishT.BABY, FishT.BABY, FishT.BABY, FishT.RED, FishT.RED, FishT.RED, FishT.RED, FishT.RED, FishT.PUFFER, FishT.RED, FishT.PUFFER, FishT.PUFFER, FishT.ARMOR, FishT.KISS, FishT.RED, FishT.RED, FishT.ARMOR, FishT.PUFFER, FishT.RED, FishT.PUFFER, FishT.RED, FishT.RED, FishT.RED, FishT.RED]
 #first line: 16
 # --------RED--RED -RED -RED  RED -PUF -RED - RED -RED ARM -RED - PUF -RED -ARM- PUF- RED
-var timeArr = [4.0, 3.0, 0.4, 4.0, 3.0, 0.9, 1.0, 5.0, 3.0, 1.0, 1.0, 4.0, 0.5, 3.0, 3.0, 1.0, 1.0]
+var timeArr = [4.0, 3.0, 0.4, 4.0, 5.0, 0.9, 2.0, 5.0, 3.0, 1.0, 1.0, 4.0, 0.5, 3.0, 3.0, 2.0, 1.0]
 #second line: 22 (38)
 #  -------------KIS -RED -PUF -RED -ARM -RED -ARM -PUF -PUF -RED -ARM -RED -PUF -RED -RED -RED -PUF -PUF -KIS -PUF -ARM -RED -PUF -RED -RED -RED
-var timeArr2 = [2.0, 1.0, 0.5, 1.0, 0.6, 1.3, 1.5, 0.5, 0.1, 1.0, 1.0, 0.5, 2.0, 1.0, 4.0, 0.5, 1.0, 1.0, 0.3, 0.6, 2.0, 1.0, 0.5, 2.0, 2.0, 5.0]
+var timeArr2 = [2.0, 1.0, 0.5, 1.0, 0.6, 1.3, 1.5, 0.5, 0.1, 1.0, 1.0, 0.5, 2.0, 1.0, 4.0, 0.5, 1.0, 1.0, 0.3, 0.6, 2.0, 3.0, 0.5, 5.0, 3.0, 5.0]
 #third line:  19 (57)
 #-=-------------PRE -BAB -BAB -BAB -BAB -BAB -BAB -BAB -RED -RED -RED -RED -PUF -RED -PUF -PUF -ARM  -KIS -RED -RED -ARM -PUF -RED -PUF -ARM -RED -RED -RED
 var timeArr3 = [2.0, 0.5, 0.5, 0.5, 0.5, 0.5, 0.5, 1.2, 3.0, 1.5, 2.0, 2.0, 0.7, 1.0, 0.9, 2.1, 2.0, 1.5, 2.0, 1.0, 2.2, 2.0, 3.0, 1.0, 1.3, 4.0, 2.0, 2.5, 1.3]
 var index = 0
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
-	$Timer.wait_time = 8.0
+	$Timer.wait_time = 5.0 #INITIAL TIME
 	$Timer.start()
 
 
@@ -57,7 +57,7 @@ func _on_timer_timeout() -> void:
 	else:
 		typeToUse = typeArr[index]
 		timeToUse = timeArr[index]
-	if(index==2):
+	if(index==1):
 		flashText.show_text("Wave 1")
 	if(index==16):
 		flashText.show_text("Wave 2")
